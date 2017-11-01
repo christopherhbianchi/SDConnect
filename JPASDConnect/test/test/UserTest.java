@@ -10,6 +10,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import entities.Type;
 import entities.User;
 
 public class UserTest {
@@ -37,8 +38,12 @@ public class UserTest {
 	@Test
 	public void User_retrieved_by_id() {
 		User test = em.find(User.class, 1);
-		assertEquals("jacqualine.y.mckenna@gmail.com", test.getEmail());
-		assertEquals("1", test.getType());
+		assertEquals("chrishbianchi@gmail.com", test.getEmail());
 	}
-
+	
+	@Test
+	public void user_type_by_id_test() {
+		Type test = em.find(Type.class, 1);
+		assertEquals("admin", test.getType());
+	}
 }
