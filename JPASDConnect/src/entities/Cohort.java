@@ -1,12 +1,14 @@
 package entities;
 
 import java.sql.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Cohort {
@@ -28,6 +30,10 @@ public class Cohort {
 	
 	@Column(name="mascot_img_url")
 	private String mascotImgUrl;
+	
+	//one cohort has many users
+	@OneToMany(mappedBy="user")
+	List<User> users;
 
 	public int getId() {
 		return id;
