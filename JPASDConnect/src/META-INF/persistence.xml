@@ -15,7 +15,7 @@
     <class>entities.Cohort</class>
     <class>entities.Event</class>
     <class>entities.Post</class>
-    <class>entities.Projects</class>
+    <class>entities.Project</class>
     <class>entities.Tag</class>
     <class>entities.Topic</class>
     <class>entities.CareerResources</class>

@@ -1,12 +1,14 @@
 package entities;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+@Entity
 public class Event {
 	
 	//fields
@@ -19,7 +21,7 @@ public class Event {
 	private String publicEvent;
 	@ManyToOne
 	@JoinColumn(name="projects_id")
-	private int projectsID;
+	private Project project;
 	
 	//gets and sets
 	public int getId() {
@@ -46,18 +48,18 @@ public class Event {
 	public void setPublicEvent(String publicEvent) {
 		this.publicEvent = publicEvent;
 	}
-	public int getProjectsID() {
-		return projectsID;
+	public Project getProject() {
+		return project;
 	}
-	public void setProjectsID(int projectsID) {
-		this.projectsID = projectsID;
+	public void setProject(Project project) {
+		this.project = project;
 	}
 	
 	//toString
 	@Override
 	public String toString() {
 		return "Event [id=" + id + ", description=" + description + ", date=" + date + ", publicEvent=" + publicEvent
-				+ ", projectsID=" + projectsID + "]";
+				+ ", project=" + project + "]";
 	}
 	
 	
