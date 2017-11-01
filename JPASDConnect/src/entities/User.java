@@ -1,7 +1,6 @@
 package entities;
 
 import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,6 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class User {
@@ -25,10 +27,7 @@ public class User {
 
 	@Column(name = "user_type")
 	private String type;
-	@Column(name="schedule_id")
-	private int scheduleID;
-	@Column(name="cohort_id")
-	private int cohortID;
+	
 	@ManyToMany
 	@JoinTable(name="has_form",
 	joinColumns=@JoinColumn(name="user_id"),
