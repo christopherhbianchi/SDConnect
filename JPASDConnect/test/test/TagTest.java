@@ -29,7 +29,7 @@ public class TagTest {
 
 	@Test
 	public void tag_type () {
-		Tag tag = em.find(Tag.class, 1);
+		Tag tag = em.find(Tag.class, 2);
 		assertEquals(tag.getType(), "Homehunting");
 	}
 }
