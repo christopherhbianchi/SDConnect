@@ -29,7 +29,7 @@ public class PostTest {
 	@Test
 	public void test_post_message_and_user_and_thread() {
 		Post test = em.find(Post.class, 1);
-		assertEquals(test.getMessage(), "");
+		assertEquals(test.getMessage(), "Hi Everyone. Searching for a roommate in SD 12. I'm coming from California and would like to share rent with someone.");
 		assertEquals(test.getUser().getId(), 1);
 		assertEquals(test.getTopic().getId(), 1);
 	}
