@@ -1,18 +1,16 @@
 package test;
 
-import static org.junit.Assert.assertEquals;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-
+import static org.junit.Assert.assertEquals;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import entities.Topic;
+import entities.Tag;
 
-public class TopicTest {
+public class TagTest {
 
 	private EntityManagerFactory emf = null;
 	private EntityManager em = null;
@@ -30,10 +28,8 @@ public class TopicTest {
 	}
 
 	@Test
-	public void test_topic_name_and_posts () {
-		Topic topic = em.find(Topic.class, 1);
-		assertEquals(topic.getName(), "");
-		assertEquals(topic.getPosts().size(), 3);
-	
+	public void tag_type () {
+		Tag tag = em.find(Tag.class, 1);
+		assertEquals(tag.getType(), "");
 	}
 }
