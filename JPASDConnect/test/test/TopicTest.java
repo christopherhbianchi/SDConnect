@@ -33,7 +33,7 @@ public class TopicTest {
 	public void test_topic_name_and_posts () {
 		Topic topic = em.find(Topic.class, 1);
 		assertEquals(topic.getName(), "Searching for roommate.");
-		assertEquals(topic.getPosts().size(), 2);
+		assertEquals(topic.getPosts().size(), 1);
 
 	}
 }

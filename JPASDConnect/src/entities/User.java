@@ -75,7 +75,7 @@ public class User {
 		this.password = password;
 	}
 
-	public Type getType() {
+ 	public Type getType() {
 		return type;
 	}
 
