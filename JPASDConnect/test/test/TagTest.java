@@ -30,6 +30,6 @@ public class TagTest {
 	@Test
 	public void tag_type () {
 		Tag tag = em.find(Tag.class, 1);
-		assertEquals(tag.getType(), "");
+		assertEquals(tag.getType(), "Homehunting");
 	}
 }
