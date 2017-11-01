@@ -20,6 +20,7 @@
     <class>entities.Topic</class>
     <class>entities.CareerResources</class>
     <class>entities.Form</class>
+    <class>entities.Type</class>
     
     <properties>
     	  <property name="hibernate.connection.zeroDateTimeBehavior" value="convertToNull"></property>
