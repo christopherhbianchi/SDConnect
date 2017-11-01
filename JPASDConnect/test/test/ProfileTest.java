@@ -10,10 +10,11 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import entities.User;
+import entities.Profile;
 
-public class UserTest {
+public class ProfileTest {
 	
+
 	private EntityManagerFactory emf = null;
 	private EntityManager em = null;
 
@@ -35,10 +36,11 @@ public class UserTest {
 	}
 	
 	@Test
-	public void User_retrieved_by_id() {
-		User test = em.find(User.class, 1);
-		assertEquals("jacqualine.y.mckenna@gmail.com", test.getEmail());
-		assertEquals("1", test.getType());
+	public void profile_retrieved_by_id() {
+		Profile test = em.find(Profile.class, 1);
+		assertEquals("Former Army Officer", test.getBackgroundDescription());
+		assertEquals("M", test.getShirtSize());
+		assertEquals("Semester of Java", test.getCodingExperience());
 	}
 
 }
