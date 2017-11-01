@@ -36,8 +36,8 @@ public class UserTest {
 	
 	@Test
 	public void User_retrieved_by_id() {
-		User test = em.find(User.class, 1);
-		assertEquals("jacqualine.y.mckenna@gmail.com", test.getEmail());
+		User test = em.find(User.class, 2);
+		assertEquals("jmckenna@gmail.com", test.getEmail());
 		assertEquals("1", test.getType());
 	}
 
