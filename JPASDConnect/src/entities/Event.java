@@ -21,7 +21,7 @@ public class Event {
 	private String publicEvent;
 	@ManyToOne
 	@JoinColumn(name="projects_id")
-	private Projects project;
+	private Project project;
 	
 	//gets and sets
 	public int getId() {
@@ -48,10 +48,10 @@ public class Event {
 	public void setPublicEvent(String publicEvent) {
 		this.publicEvent = publicEvent;
 	}
-	public Projects getProject() {
+	public Project getProject() {
 		return project;
 	}
-	public void setProject(Projects project) {
+	public void setProject(Project project) {
 		this.project = project;
 	}
 	

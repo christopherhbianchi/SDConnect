@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="project")
-public class Projects {
+public class Project {
 	
 	//fields
 	@Id
