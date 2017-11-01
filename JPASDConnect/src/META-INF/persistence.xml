@@ -11,7 +11,7 @@
 
     <!-- List Entities Here -->
     <class>entities.User</class>
-    <class>entities.Todo</class>
+    <class>entities.Profile</class>
     
 
     <properties>
