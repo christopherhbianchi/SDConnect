@@ -1,5 +1,6 @@
 package entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 
 @Entity
@@ -8,14 +9,22 @@ public class Profile {
 	
 	//field
 	private int id;
+	@Column(name="img_url")
 	private String img;
+	@Column(name="background_desc")
 	private String backgroundDescription;
+	@Column(name="first_name")
 	private String fname;
+	@Column(name="last_name")
 	private String lname;
+	@Column(name="prev_industry")
 	private String previousIndustry;
+	@Column(name="coding_exp")
 	private String codingExperience;
+	@Column(name="shirt_size")
 	private String shirtSize;
 	private String cohort;
+	@Column(name="user_id")
 	private int userID;
 	
 	
