@@ -1,16 +1,19 @@
 package test;
 
 import static org.junit.Assert.*;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
 import entities.Post;
 
-public class ThreadTest {
-	
+public class TopicTest {
+
 	private EntityManagerFactory emf = null;
 	private EntityManager em = null;
 
@@ -27,11 +30,10 @@ public class ThreadTest {
 	}
 
 	@Test
-	public void test_thread_had_messages() {
-		Thread thread = em.find(Thread.class, 1);
-		assertEquals(thread.getName(), "");
-
-		
+	public void test_post_message_and_user_and_thread() {
+		Post test = em.find(Post.class, 1);
+		assertEquals(test.getMessage(), "");
+		assertEquals(test.getUser().getId(), 1);
+		assertEquals(test.getThread().getId(), 1);
 	}
-
 }

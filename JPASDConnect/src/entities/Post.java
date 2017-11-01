@@ -22,8 +22,8 @@ public class Post {
 	
 	//many posts in one thread
 	@ManyToOne
-	@JoinColumn(name="thread_id")
-	private Thread thread;
+	@JoinColumn(name="topic_id")
+	private Topic topic;
 	
 	//many posts belong to one user
 	@ManyToOne
@@ -56,12 +56,12 @@ public class Post {
 		this.post_dt = post_dt;
 	}
 
-	public Thread getThread() {
-		return thread;
+	public Topic getTopic() {
+		return topic;
 	}
 
-	public void setThread(Thread thread) {
-		this.thread = thread;
+	public void setTopic(Topic topic) {
+		this.topic = topic;
 	}
 
 	public User getUser() {
@@ -89,8 +89,8 @@ public class Post {
 		builder.append(message);
 		builder.append(", post_dt=");
 		builder.append(post_dt);
-		builder.append(", thread=");
-		builder.append(thread);
+		builder.append(", topic=");
+		builder.append(topic);
 		builder.append(", link=");
 		builder.append(link);
 		builder.append("]");

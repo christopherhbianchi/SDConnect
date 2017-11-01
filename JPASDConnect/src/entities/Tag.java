@@ -18,7 +18,7 @@ public class Tag {
 	private String type;
 	
 	@ManyToMany(mappedBy = "tags")
-	private List<Thread> threads;
+	private List<Topic> topics;
 
 	public int getId() {
 		return id;
@@ -36,12 +36,12 @@ public class Tag {
 		this.type = type;
 	}
 
-	public List<Thread> getThreads() {
-		return threads;
+	public List<Topic> getTopics() {
+		return topics;
 	}
 
-	public void setThreads(List<Thread> threads) {
-		this.threads = threads;
+	public void setTopics(List<Topic> topics) {
+		this.topics = topics;
 	}
 
 	@Override
@@ -51,8 +51,6 @@ public class Tag {
 		builder.append(id);
 		builder.append(", type=");
 		builder.append(type);
-		builder.append(", threads=");
-		builder.append(threads);
 		builder.append("]");
 		return builder.toString();
 	}
