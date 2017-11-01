@@ -90,7 +90,7 @@ public class Post {
 		builder.append(", message=");
 		builder.append(message);
 		builder.append(", post_dt=");
-		builder.append(post_dt);
+		builder.append(postDate);
 		builder.append(", topic=");
 		builder.append(topic);
 		builder.append(", link=");
