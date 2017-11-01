@@ -15,7 +15,7 @@
     <class>entities.Cohort</class>
     <class>entities.Event</class>
     <class>entities.Post</class>
-    <class>entities.Projects</class>
+    <class>entities.Project</class>
     <class>entities.Tag</class>
     <class>entities.Topic</class>
     <class>entities.CareerResources</class>
@@ -24,7 +24,7 @@
     <properties>
     	  <property name="hibernate.connection.zeroDateTimeBehavior" value="convertToNull"></property>
       <property name="javax.persistence.jdbc.url"
-        value="jdbc:mysql://localhost:3306/sedditdb" />
+        value="jdbc:mysql://localhost:3306/sdconnectdb" />
       <property name="javax.persistence.jdbc.user"
         value="root"/>
       <property name="javax.persistence.jdbc.password"
