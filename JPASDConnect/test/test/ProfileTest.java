@@ -38,9 +38,9 @@ public class ProfileTest {
 	@Test
 	public void profile_retrieved_by_id() {
 		Profile test = em.find(Profile.class, 1);
-		assertEquals("Former Army Officer", test.getBackgroundDescription());
-		assertEquals("M", test.getShirtSize());
-		assertEquals("Semester of Java", test.getCodingExperience());
+		assertEquals("Software solutions architect for B2Bi commerce.", test.getBackgroundDescription());
+		assertEquals("L", test.getShirtSize());
+		assertEquals("2 years", test.getCodingExperience());
 	}
 
 }
