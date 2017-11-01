@@ -1,10 +1,22 @@
 package entities;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Projects {
 	
 	//fields
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	@Column(name="desc")
 	private String description;
+	@Column(name="estimated_hours")
 	private int estimatedHours;
 	private String name;
 	
