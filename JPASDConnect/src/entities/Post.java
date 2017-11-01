@@ -2,6 +2,7 @@ package entities;
 
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,7 +19,8 @@ public class Post {
 	
 	private String message;
 	
-	private Date post_dt;
+	@Column(name="post_ts")
+	private Date postDate;
 	
 	//many posts in one thread
 	@ManyToOne
@@ -48,12 +50,12 @@ public class Post {
 		this.message = message;
 	}
 
-	public Date getPost_dt() {
-		return post_dt;
+	public Date getPostDate() {
+		return postDate;
 	}
 
-	public void setPost_dt(Date post_dt) {
-		this.post_dt = post_dt;
+	public void setPost_dt(Date postDate) {
+		this.postDate = postDate;
 	}
 
 	public Topic getTopic() {

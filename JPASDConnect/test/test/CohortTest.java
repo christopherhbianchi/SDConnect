@@ -37,9 +37,9 @@ public class CohortTest {
 	
 	@Test
 	public void cohort_retrieved_by_id() {
-		Cohort test = em.find(Cohort.class, 12);
-		assertEquals("Lambkhins", test.getName());
-		assertEquals("12", test.getCohortNum());
+		Cohort test = em.find(Cohort.class, 1);
+		assertEquals("Lions", test.getName());
+		assertEquals(12, test.getCohortNum());
 	}
 
 }
