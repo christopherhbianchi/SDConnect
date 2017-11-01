@@ -32,7 +32,7 @@ public class Cohort {
 	private String mascotImgUrl;
 	
 	//one cohort has many users
-	@OneToMany(mappedBy="user")
+	@OneToMany(mappedBy="cohort")
 	List<User> users;
 
 	public int getId() {
