@@ -1,16 +1,24 @@
 package entities;
 
 import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 public class Event {
 	
 	//fields
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String description;
 	private String date;
 	@Column(name="public")
 	private String publicEvent;
-	@Column(name="projects_id")
+	@ManyToOne
+	@JoinColumn(name="projects_id")
 	private int projectsID;
 	
 	//gets and sets

@@ -2,12 +2,20 @@ package entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Profile {
 	
 	
 	//field
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	@Column(name="img_url")
 	private String img;
@@ -26,7 +34,9 @@ public class Profile {
 	private String cohort;
 	@Column(name="user_id")
 	private int userID;
-	
+	@OneToOne
+	@JoinColumn(name="user_id")
+	private User user;
 	
 	
 	//gets and sets
@@ -90,14 +100,20 @@ public class Profile {
 	public void setUserID(int userID) {
 		this.userID = userID;
 	}
-	
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
 	
 	//toString
 	@Override
 	public String toString() {
 		return "Profile [id=" + id + ", img=" + img + ", backgroundDescription=" + backgroundDescription + ", fname="
 				+ fname + ", lname=" + lname + ", previousIndustry=" + previousIndustry + ", codingExperience="
-				+ codingExperience + ", shirtSize=" + shirtSize + ", cohort=" + cohort + ", userID=" + userID + "]";
+				+ codingExperience + ", shirtSize=" + shirtSize + ", cohort=" + cohort + ", userID=" + userID
+				+ ", user=" + user + "]";
 	}
 	
 	
