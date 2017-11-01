@@ -36,8 +36,6 @@ public class Profile {
 
 	@Column(name = "shirt_size")
 	private String shirtSize;
-
-	private String cohort;
 	
 	@Column(name="website_url")
 	private String websiteUrl;
@@ -117,14 +115,6 @@ public class Profile {
 		this.shirtSize = shirtSize;
 	}
 
-	public String getCohort() {
-		return cohort;
-	}
-
-	public void setCohort(String cohort) {
-		this.cohort = cohort;
-	}
-
 	public User getUser() {
 		return user;
 	}
@@ -176,8 +166,6 @@ public class Profile {
 		builder.append(codingExperience);
 		builder.append(", shirtSize=");
 		builder.append(shirtSize);
-		builder.append(", cohort=");
-		builder.append(cohort);
 		builder.append("]");
 		return builder.toString();
 	}
