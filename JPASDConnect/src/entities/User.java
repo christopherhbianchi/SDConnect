@@ -13,15 +13,17 @@ import javax.persistence.ManyToMany;
 
 @Entity
 public class User {
-	
-	//field
 
+	// fields
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+
 	private String email;
+
 	private String password;
-	@Column(name="user_type")
+
+	@Column(name = "user_type")
 	private String type;
 	@Column(name="schedule_id")
 	private int scheduleID;
@@ -34,51 +36,91 @@ public class User {
 	)
 	private List<Form> form;
 
-	
-	//set and gets
+	// many users in one cohort
+	@ManyToOne
+	@JoinColumn(name = "cohort_id")
+	private Cohort cohort;
+
+	// one user to one profile
+	@OneToOne(mappedBy = "user")
+	private Profile profile;
+
+	// one user has many posts
+	@OneToMany(mappedBy = "user")
+	private List<Post> posts;
+
+	// set and gets
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 	public String getPassword() {
 		return password;
 	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
 	public String getType() {
 		return type;
 	}
+
 	public void setType(String type) {
 		this.type = type;
 	}
-	public int getScheduleID() {
-		return scheduleID;
-	}
-	public void setScheduleID(int scheduleID) {
-		this.scheduleID = scheduleID;
-	}
-	public int getCohortID() {
-		return cohortID;
-	}
-	public void setCohortID(int cohortID) {
-		this.cohortID = cohortID;
-	}
-	
 
-	//toString
+	public Cohort getCohort() {
+		return cohort;
+	}
+
+	public void setCohort(Cohort cohort) {
+		this.cohort = cohort;
+	}
+
+	public Profile getProfile() {
+		return profile;
+	}
+
+	public void setProfile(Profile profile) {
+		this.profile = profile;
+	}
+
+	public List<Post> getPosts() {
+		return posts;
+	}
+
+	public void setPosts(List<Post> posts) {
+		this.posts = posts;
+	}
+
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", email=" + email + ", password=" + password + ", type=" + type + ", schedule_ID="
-				+ scheduleID + ", cohort_ID=" + cohortID + "]";
-	
+		StringBuilder builder = new StringBuilder();
+		builder.append("User [id=");
+		builder.append(id);
+		builder.append(", email=");
+		builder.append(email);
+		builder.append(", type=");
+		builder.append(type);
+		builder.append(", cohort=");
+		builder.append(cohort);
+		builder.append(", profile=");
+		builder.append(profile);
+		builder.append("]");
+		return builder.toString();
 	}
+
 }
