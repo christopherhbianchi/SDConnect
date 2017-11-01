@@ -25,8 +25,10 @@ public class User {
 
 	private String password;
 
-	@Column(name = "user_type")
-	private String type;
+	//many users of one type
+	@ManyToOne	
+	@JoinColumn(name = "user_type_id")
+	private Type type;
 	
 	@ManyToMany
 	@JoinTable(name="has_form",
@@ -73,12 +75,20 @@ public class User {
 		this.password = password;
 	}
 
-	public String getType() {
+	public Type getType() {
 		return type;
 	}
 
-	public void setType(String type) {
+	public void setType(Type type) {
 		this.type = type;
+	}
+
+	public List<Form> getForm() {
+		return form;
+	}
+
+	public void setForm(List<Form> form) {
+		this.form = form;
 	}
 
 	public Cohort getCohort() {
