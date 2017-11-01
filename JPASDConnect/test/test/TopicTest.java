@@ -34,6 +34,6 @@ public class TopicTest {
 		Post test = em.find(Post.class, 1);
 		assertEquals(test.getMessage(), "");
 		assertEquals(test.getUser().getId(), 1);
-		assertEquals(test.getThread().getId(), 1);
+		assertEquals(test.getTopic().getId(), 1);
 	}
 }
