@@ -1,6 +1,6 @@
 package test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -10,10 +10,10 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import entities.User;
+import entities.Post;
 
-public class UserTest {
-	
+public class TopicTest {
+
 	private EntityManagerFactory emf = null;
 	private EntityManager em = null;
 
@@ -28,17 +28,12 @@ public class UserTest {
 		em.close();
 		emf.close();
 	}
-	
-	@Test
-	public void smokeTest() {
-		assertEquals("test", "test");
-	}
-	
-	@Test
-	public void User_retrieved_by_id() {
-		User test = em.find(User.class, 1);
-		assertEquals("jacqualine.y.mckenna@gmail.com", test.getEmail());
-		assertEquals("1", test.getType());
-	}
 
+	@Test
+	public void test_post_message_and_user_and_thread() {
+		Post test = em.find(Post.class, 1);
+		assertEquals(test.getMessage(), "");
+		assertEquals(test.getUser().getId(), 1);
+		assertEquals(test.getThread().getId(), 1);
+	}
 }

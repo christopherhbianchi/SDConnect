@@ -11,7 +11,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
-public class Thread {
+public class Topic {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,12 +19,12 @@ public class Thread {
 	
 	private String name;
 	
-	@OneToMany(mappedBy="thread")
+	@OneToMany(mappedBy="topic")
 	private List<Post> posts;
 	
 	@ManyToMany (cascade= {CascadeType.PERSIST, CascadeType.REMOVE})
-	@JoinTable(name="thread_has_tags",
-	  joinColumns=@JoinColumn(name="thread_id"),
+	@JoinTable(name="topic_has_tags",
+	  joinColumns=@JoinColumn(name="topic_id"),
 	  inverseJoinColumns=@JoinColumn(name="tag_id"))
 	private List<Tag> tags;
 
@@ -63,7 +63,7 @@ public class Thread {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Thread [id=");
+		builder.append("Topic [id=");
 		builder.append(id);
 		builder.append(", name=");
 		builder.append(name);
