@@ -11,10 +11,10 @@ public interface TopicDAO {
 	//read 1
 	public Topic showTopicById(int topicId); //all users can see every topic, no need for id
 	//create
-	public Topic createTopic(int userId, String topicJson);
+	public Topic createTopic(String topicJson);
 	//update
-	public Topic updateTopic(int userId, int topicId, String topicJson);
+	public Topic updateTopic(int topicId, String topicJson);
 	//delete
-	public boolean deleteTopic(int userId, int todoId);
+	public boolean deleteTopic(int topicId);
 	
 }

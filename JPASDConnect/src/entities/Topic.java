@@ -21,7 +21,6 @@ public class Topic {
 	
 	private String name;
 	
-	
 	@OneToMany(mappedBy="topic")
 	private List<Post> posts;
 	
@@ -31,6 +30,8 @@ public class Topic {
 	  inverseJoinColumns=@JoinColumn(name="tag_id"))
 	private List<Tag> tags;
 
+	
+	//GETTERS AND SETTERS 
 	public int getId() {
 		return id;
 	}
