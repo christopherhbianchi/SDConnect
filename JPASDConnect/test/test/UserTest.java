@@ -35,15 +35,11 @@ public class UserTest {
 		assertEquals("test", "test");
 	}
 	
-	@Test
-	public void User_retrieved_by_id() {
-		User test = em.find(User.class, 1);
-		assertEquals("chrishbianchi@gmail.com", test.getEmail());
-	}
-	
+
 	@Test
 	public void user_type_by_id_test() {
 		Type test = em.find(Type.class, 1);
 		assertEquals("admin", test.getType());
+
 	}
 }

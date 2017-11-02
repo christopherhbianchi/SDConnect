@@ -11,7 +11,7 @@
 
 	<mvc:interceptors>
 		<mvc:interceptor><!-- needs a second look -->
-			<mvc:mapping path="/users/*/todos/**"/>
+			<mvc:mapping path="/users/*/"/>
 			<!-- ** says to intercept ANYTHING after that slash... any AMOUNT of things -->
 			<!-- a single * would only pickup 1 additional thing. -->
 			<bean id="SDConnectInterceptor" class="security.DataSecurityInterceptor"/>
