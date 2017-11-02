@@ -37,7 +37,7 @@ public class TagController {
 		return tags;
 	}
 	
-	  @RequestMapping(path="tags/{pid}", method=RequestMethod.GET)
+	  @RequestMapping(path="tags/{tid}", method=RequestMethod.GET)
 	  public Tag show(HttpServletRequest req, HttpServletResponse res, @PathVariable("tid") int tagId) {
 		  Tag tag = tagDao.showTagById(tagId);
 		  if(tag==null) {
