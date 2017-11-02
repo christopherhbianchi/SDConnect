@@ -9,6 +9,9 @@ angular.module("appModule", ['ngRoute', 'ngCookies', 'authModule'])
 			.when('/', {
 				template:'<login></login>' //these are the snake case names of the comps
 			})
+			.when('/home', {
+				template:'<home></home>' //these are the snake case names of the comps
+			})
 			.when('/alumni', {
 				template:'<alumni></alumni>' //these are the snake case names of the comps
 			})
