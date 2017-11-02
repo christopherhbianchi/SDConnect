@@ -18,17 +18,17 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Topic {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	private String name;
-	
+
 	@JsonManagedReference(value="postsForTopic")
-	@OneToMany(mappedBy="topic", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="topic", fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	private List<Post> posts;
-	
+
 	@JsonIgnore
 	@ManyToMany (cascade= {CascadeType.PERSIST, CascadeType.REMOVE})
 	@JoinTable(name="topic_has_tags",
@@ -36,8 +36,8 @@ public class Topic {
 	  inverseJoinColumns=@JoinColumn(name="tag_id"))
 	private List<Tag> tags;
 
-	
-	//GETTERS AND SETTERS 
+
+	//GETTERS AND SETTERS
 	public int getId() {
 		return id;
 	}
@@ -80,5 +80,5 @@ public class Topic {
 		builder.append("]");
 		return builder.toString();
 	}
-	
+
 }
