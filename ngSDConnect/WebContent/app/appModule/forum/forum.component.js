@@ -8,6 +8,33 @@ angular.module("appModule")
 			vm.currentTopics = [];
 			vm.currentPosts = [];
 			
+			vm.postView = false;
+			
+			var getAllTopics = function(){
+				vm.postView = false;
+				topicService.index()
+				.then(function(resp){
+					console.log(resp.data);
+					vm.currentTopics = resp.data;
+				})
+				.catch(function(error){
+					console.log(error);
+				});
+			};
+			
+			getAllTopics();
+			
+			var getPostsPerTopic = function(tid) {
+				vm.postView = true;
+				postService.index(tid)
+				.then(function(resp){
+					console.log(resp.data);
+					vm.currentPosts = resp.data;
+				})
+				.catch(function(error){
+					console.log(error)
+				})
+			}
 			
 		},
 		
