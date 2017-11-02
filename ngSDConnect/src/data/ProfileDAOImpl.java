@@ -13,27 +13,60 @@ public class ProfileDAOImpl implements ProfileDAO {
 	@PersistenceContext
 	private EntityManager em;
 
-	@Override
-	public void preworkPercentage(User user) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
-	public void editUserProfile(User user) {
+	public Profile editUserProfile(int pid, String profileJson) {
 		// TODO Auto-generated method stub
+		ObjectMapper mapper = new ObjectMapper();
+		
+		try {
+			Profile mappedProfile = mapper.readValue(profileJson, Profile.class);
+			Profile p = em.find(Profile.class, pid);
+			
+			//*********************************************************
+			p.setImg(mappedProfile.getImg());
+			p.setBackgroundDescription(mappedProfile.getBackgroundDescription());
+			p.setFname(mappedProfile.getFname());
+			p.setLname(mappedProfile.getLname());
+			p.setPreviousIndustry(mappedProfile.getPreviousIndustry());
+			p.setCodingExperience(mappedProfile.getCodingExperience());
+			p.setShirtSize(mappedProfile.getShirtSize());
+			p.setWebsiteUrl(mappedProfile.getWebsiteUrl());
+			p.setGithubUrl(mappedProfile.getGithubUrl());
+			p.setLinkedinUrl(mappedProfile.getLinkedinUrl());
+			
+			//***********************************************************
+			
+			return p;
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return null;
 		
 	}
 
 	@Override
 	public Profile createUserProfile(int uid, String profileJson) {
 		// TODO Auto-generated method stub
-		Object mapper = new ObjectMapper();
+		ObjectMapper mapper = new ObjectMapper();
 		
 		try {
 			Profile mappedProfile = mapper.readValue(profileJson, Profile.class);
+			User u = em.find(User.class, uid);
+			mappedProfile.setUser(u);
 			
+			em.persist(mappedProfile);
+			em.flush();
+			return mappedProfile;
+			
+		} catch(Exception e) {
+			
+			e.printStackTrace();
 		}
+		
+		return null;
 		
 	}
 
