@@ -7,7 +7,7 @@ angular.module("authModule").component("login", {
 			console.log("inside login")
 		authService.login(user)
 		.then(function(response){
-			$location.path("/login");
+			$location.path("/home");
 			})
 		}
 		

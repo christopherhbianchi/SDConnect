@@ -7,7 +7,7 @@ angular.module("authModule").component("register", {
 			console.log("inside register")
 		authService.register(user)
 		.then(function(response){
-			$location.path("/");
+			$location.path("/home");
 			})
 		}
 	
