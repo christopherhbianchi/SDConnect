@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import data.PostDAO;
 import entities.Post;
+import entities.Topic;
 
 @RestController
 public class PostController {
@@ -65,6 +66,18 @@ public class PostController {
 		  }
 		  return post;
 	  }
+	  
+	  @RequestMapping(path="users/{uid}/posts/{pid}", method=RequestMethod.PUT)
+		public Post update(HttpServletResponse res, @PathVariable("pid") int postId, @PathVariable("uid") int userId, @RequestBody String postJson) {
+			Post post = postDao.updatePost(userId, postId, postJson);
+			if(post==null) {
+				res.setStatus(400);
+			}
+			else {
+				res.setStatus(200);
+			}
+			return post;
+		}
 	  
 	  @RequestMapping(path="users/{uid}/posts/{pid}", method=RequestMethod.DELETE)
 	  public Boolean destroy(HttpServletResponse res, @PathVariable("uid") int userId, @PathVariable("pid") int postId) {

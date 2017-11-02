@@ -2,31 +2,47 @@
 <html ng-app="appModule"> <!-- Adds Bootstrap and bootstraps the entire script -->
 
 <head>
+
+<!-- Angular and 3rd parties -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular-route.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular-cookies.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 
+<!-- Modules -->
 <script src="app/appModule/app.module.js"></script>
-
 <script src="app/authModule/auth.module.js"></script>
 
-<script src="app/appModule/profile.component.js"></script>
-<!-- <script src="app/appModule/incomplete.filter.js"></script>  must be after the Angular CDN
-<script src="app/appModule/todo.service.js"></script>  must be after the Angular CDN
+<!-- Services -->
 <script src="app/authModule/auth.service.js"></script>
-<script src="app/appModule/todoList.component.js"></script>  must be after the Angular CDN
-<script src="app/appModule/navigation.component.js"></script>  must be after the Angular CDN
-<script src="app/appModule/about.component.js"></script>  must be after the Angular CDN
-<script src="app/appModule/contact.component.js"></script>  must be after the Angular CDN
-<script src="app/appModule/home.component.js"></script>  must be after the Angular CDN
+<script src="app/appModule/forum/post.service.js"></script>
+<script src="app/appModule/forum/topic.service.js"></script>
+
+<!-- Filters -->
+<script src="app/appModule/keyword.filter.js"></script>
+<script src="app/appModule/nocareer.filter.js"></script>
+
+<!-- Components -->
+<script src="app/appModule/navigation/navigation.component.js"></script>
+<script src="app/appModule/forum/forum.component.js"></script>
+<script src="app/appModule/home/home.component.js"></script>
+<script src="app/appModule/project/project.component.js"></script>
 <script src="app/authModule/login.component.js"></script>
 <script src="app/authModule/register.component.js"></script>
-<script src="app/authModule/logout.component.js"></script> -->
+<script src="app/authModule/logout.component.js"></script>
+
+<!-- Bootstrap and Styling -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<link href="css/app.css" rel="stylesheet">
+
 
 
 <link rel="stylesheet" href="css/app.css" />
 <link rel="stylesheet" href="css/profile.css" />
 <title>SD Connect</title>
+
 </head>
 
 <body>
@@ -36,4 +52,3 @@
 </body>
 
 </html>
-
