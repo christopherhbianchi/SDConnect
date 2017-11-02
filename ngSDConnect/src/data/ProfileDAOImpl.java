@@ -3,11 +3,16 @@ package data;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import entities.Profile;
 import entities.User;
 
+@Transactional
+@Repository
 public class ProfileDAOImpl implements ProfileDAO {
 	
 	@PersistenceContext
