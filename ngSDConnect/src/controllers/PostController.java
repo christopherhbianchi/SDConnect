@@ -63,5 +63,17 @@ public class PostController {
 		  return post;
 	  }
 	  
+	  @RequestMapping(path="users/{uid}/posts/{pid}", method=RequestMethod.DELETE)
+	  public Boolean destroy(HttpServletResponse res, @PathVariable("uid") int userId, @PathVariable("pid") int postId) {
+		  Boolean answer = postDao.deletePost(userId, postId);
+		  if(!answer) {
+			  res.setStatus(406);
+		  }
+		  else {
+			  res.setStatus(202);
+		  }
+		  return answer;
+	  }
+	  
 	  
 }
