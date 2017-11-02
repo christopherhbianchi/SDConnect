@@ -54,7 +54,7 @@ public class Post {
 		return postDate;
 	}
 
-	public void setPost_dt(Date postDate) {
+	public void setPostDate(Date postDate) {
 		this.postDate = postDate;
 	}
 
