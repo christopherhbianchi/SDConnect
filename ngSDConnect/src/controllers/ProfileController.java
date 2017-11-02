@@ -18,8 +18,12 @@ public class ProfileController{
 	
 	@Autowired
 	private ProfileDAO profileDao;
-
-
+	
+	@RequestMapping(path="pingProfile", method=RequestMethod.GET )
+	public String ping() {
+		return "pongProfile";
+	}
+	
 	@RequestMapping(path = "users/{uid}/profiles/{pid}", method = RequestMethod.GET)
 	public Profile readUserProfile(HttpServletRequest req, HttpServletResponse res, 
 			@PathVariable int uid, 
