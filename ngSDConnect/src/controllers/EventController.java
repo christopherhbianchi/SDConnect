@@ -59,8 +59,5 @@ public class EventController {
 //  create	
 //	update
 //	destroy
-	
-	
-	
-	
+
 }

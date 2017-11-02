@@ -1,6 +1,7 @@
 package entities;
 
-import java.util.List;
+
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -31,13 +32,13 @@ public class Event {
 	private String publicEvent;
 
 	@JsonIgnore
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	@JoinColumn(name = "projects_id")
 	private Project project;
 	
 	
 	@ManyToMany (mappedBy="eventList", fetch=FetchType.EAGER, cascade=CascadeType.ALL)
-	private List<Cohort> cohortList;
+	private Set<Cohort> cohortList;
 	
 	//gets and sets
 
@@ -82,10 +83,10 @@ public class Event {
 		this.project = project;
 	}
 	
-	public List<Cohort> getCohortList() {
+	public Set<Cohort> getCohortList() {
 		return cohortList;
 	}
-	public void setCohortList(List<Cohort> cohortList) {
+	public void setCohortList(Set<Cohort> cohortList) {
 		this.cohortList = cohortList;
 	}
 	//toString

@@ -3,8 +3,10 @@ package entities;
 import java.sql.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -42,7 +44,7 @@ public class Cohort {
 	
 	//one cohort has many users
 	@JsonManagedReference(value="usersForCohort")
-	@OneToMany(mappedBy="cohort")
+	@OneToMany(mappedBy="cohort", fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	List<User> users;
 	
 	@JsonIgnore
