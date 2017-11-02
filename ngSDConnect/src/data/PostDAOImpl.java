@@ -76,9 +76,6 @@ public class PostDAOImpl implements PostDAO {
 			if(mappedPost.getPostDate() != null) {
 				managedPost.setPostDate(mappedPost.getPostDate());
 			}
-			if(mappedPost.getTopic() != null) {
-				managedPost.setTopic(mappedPost.getTopic());
-			}
 			
 		} catch (Exception e) {
 			e.printStackTrace();
