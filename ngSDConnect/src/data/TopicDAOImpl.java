@@ -71,9 +71,21 @@ public class TopicDAOImpl implements TopicDAO{
 		
 		try {
 			editedTopic = mapper.readValue(topicJson, Topic.class);
-			oldTopic.setName(editedTopic.getName());
-			oldTopic.setPosts(editedTopic.getPosts());
-			oldTopic.setTags(editedTopic.getTags());
+						
+			if (editedTopic.getName() != null) {
+				oldTopic.setName(editedTopic.getName());
+			}
+			
+//			if(editedTopic.getPosts() != null || editedTopic.getPosts().size() > 0) {
+//				System.out.println("IN SET TOPIC");
+//				
+//				oldTopic.setPosts(editedTopic.getPosts());
+//			}
+//			if (editedTopic.getTags() ! = null) {
+//			oldTopic.setTags(editedTopic.getTags());
+//			}
+			
+			return oldTopic;
 		}
 		catch(Exception e) {
 			e.printStackTrace();

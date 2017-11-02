@@ -13,7 +13,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
@@ -26,10 +26,11 @@ public class Topic {
 	private String name;
 	
 	@JsonManagedReference(value="postsForTopic")
-	@OneToMany(mappedBy="topic", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="topic", fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	private List<Post> posts;
 	
-	@JsonBackReference(value="topicsForTag")
+	@JsonIgnore
+//	@JsonBackReference(value="topicsForTag")
 	@ManyToMany (cascade= {CascadeType.PERSIST, CascadeType.REMOVE})
 	@JoinTable(name="topic_has_tags",
 	  joinColumns=@JoinColumn(name="topic_id"),
