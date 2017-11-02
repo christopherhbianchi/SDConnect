@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -49,4 +50,18 @@ public class PostController {
 		  }
 		  return post;
 	  }
+	  
+	  @RequestMapping(path="users/{uid}/posts", method=RequestMethod.POST)
+	  public Post create(HttpServletResponse res, @PathVariable("uid") int userId, @RequestBody String postJson) {
+		  Post post = postDao.createPost(userId, postJson);
+		  if(post==null) {
+			  res.setStatus(400);
+		  }
+		  else {
+			  res.setStatus(201);
+		  }
+		  return post;
+	  }
+	  
+	  
 }
