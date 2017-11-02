@@ -13,6 +13,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Cohort {
 	
@@ -38,6 +40,7 @@ public class Cohort {
 	@OneToMany(mappedBy="cohort")
 	List<User> users;
 	
+	@JsonIgnore
 	@ManyToMany
 	@JoinTable(name="cohort_has_events",
 	joinColumns=@JoinColumn(name="cohort_id"),

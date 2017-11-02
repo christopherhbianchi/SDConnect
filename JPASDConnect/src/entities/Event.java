@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Event {
 	
@@ -25,6 +27,7 @@ public class Event {
 	@ManyToOne
 	@JoinColumn(name="projects_id")
 	private Project project;
+	
 	
 	@ManyToMany (mappedBy="eventList")
 	private List<Cohort> cohortList;

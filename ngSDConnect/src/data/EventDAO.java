@@ -14,11 +14,11 @@ public interface EventDAO {
 		//read by cohort
 		public Set<Event> showEventsByCohortId(int cohortId); //need to show only events for a cohort
 		//read by single id
-		public Set<Event> showEventsById(int eventId); //need to show only events for a cohort
+		public Event showEventById(int eventId); //need to show only events for a cohort
 		//create
-		public Topic createEvent(int userId, String eventJson); //can check that user is an admin before adding event
+		public Event createEvent(int userId, String eventJson); //can check that user is an admin before adding event
 		//update
-		public Topic updateEvent(int userId, int eventId, String topicJson);
+		public Event updateEvent(int userId, int eventId, String eventJson);
 		//delete
-		public Boolean deleteEvent(int userId, int eventId);
+		public boolean deleteEvent(int userId, int eventId);
 }
