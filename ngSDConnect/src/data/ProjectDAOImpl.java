@@ -24,7 +24,7 @@ public class ProjectDAOImpl implements ProjectDAO{
 	@Override
 	public Set<Project> showAll() {
 		String query = "SELECT p FROM Project p";
-		return new HashSet<>(em.createQuery(query).getResultList());
+		return new HashSet<>(em.createQuery(query, Project.class).getResultList());
 	}
 
 	@Override
