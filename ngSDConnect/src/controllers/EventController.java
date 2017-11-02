@@ -18,6 +18,11 @@ public class EventController {
 	@Autowired 
 	private EventDAO dao;
 	
+	@RequestMapping(path="pingEvent", method=RequestMethod.GET )
+	public String ping() {
+		return "pongEvent";
+	}
+	
 	@RequestMapping(path="/events", method=RequestMethod.GET)
 	public Set<Event> index() {
 		return dao.showAll();

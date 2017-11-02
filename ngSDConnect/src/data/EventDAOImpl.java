@@ -27,13 +27,14 @@ public class EventDAOImpl implements EventDAO{
 	@Override
 	public Set<Event> showAll() {
 		String query = "SELECT e FROM Event e";
-		return new HashSet<>(em.createQuery(query).getResultList());
+		Set<Event> eventSet = new HashSet<>(em.createQuery(query, Event.class).getResultList());
+		return eventSet;
 	}
 
 	@Override
 	public Set<Event> showEventsByCohortId(int cohortId) {
 		String query = "SELECT e FROM Event e";
-		List<Event> events = em.createQuery(query).getResultList();
+		List<Event> events = em.createQuery(query, Event.class).getResultList();
 		List<Event> filteredEvents = new ArrayList<>();
 		for(Event e : events) {
 			for(Cohort c : e.getCohortList()) {
