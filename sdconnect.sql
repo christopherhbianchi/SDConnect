@@ -82,7 +82,7 @@ DROP TABLE IF EXISTS `form` ;
 CREATE TABLE IF NOT EXISTS `form` (
   `id` INT NOT NULL,
   `name` VARCHAR(45) NOT NULL,
-  `desc` VARCHAR(255) NULL,
+  `description` VARCHAR(255) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -159,7 +159,7 @@ DROP TABLE IF EXISTS `project` ;
 CREATE TABLE IF NOT EXISTS `project` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(85) NOT NULL,
-  `desc` VARCHAR(500) NULL,
+  `description` VARCHAR(500) NULL,
   `estimated_hours` INT NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
@@ -214,7 +214,7 @@ DROP TABLE IF EXISTS `event` ;
 
 CREATE TABLE IF NOT EXISTS `event` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(85) NOT NULL,
+  `name` VARCHAR(85) NOT NULL DEFAULT 'No name',
   `description` VARCHAR(500) NULL,
   `date` DATETIME NULL,
   `public` VARCHAR(45) NULL,
@@ -367,11 +367,11 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `sdconnectdb`;
-INSERT INTO `project` (`id`, `name`, `desc`, `estimated_hours`) VALUES (1, 'JSCalculator', 'Individual Project', 6);
-INSERT INTO `project` (`id`, `name`, `desc`, `estimated_hours`) VALUES (2, 'MVCCRUD Project Pt. 1', 'Individual Project', 12);
-INSERT INTO `project` (`id`, `name`, `desc`, `estimated_hours`) VALUES (3, 'Jets', 'Individual Project', 10);
-INSERT INTO `project` (`id`, `name`, `desc`, `estimated_hours`) VALUES (4, 'Angular Event Tracker', 'Individual Project', 4);
-INSERT INTO `project` (`id`, `name`, `desc`, `estimated_hours`) VALUES (5, 'US President\'s Project', 'Team Project', 8);
+INSERT INTO `project` (`id`, `name`, `description`, `estimated_hours`) VALUES (1, 'JSCalculator', 'Individual Project', 6);
+INSERT INTO `project` (`id`, `name`, `description`, `estimated_hours`) VALUES (2, 'MVCCRUD Project Pt. 1', 'Individual Project', 12);
+INSERT INTO `project` (`id`, `name`, `description`, `estimated_hours`) VALUES (3, 'Jets', 'Individual Project', 10);
+INSERT INTO `project` (`id`, `name`, `description`, `estimated_hours`) VALUES (4, 'Angular Event Tracker', 'Individual Project', 4);
+INSERT INTO `project` (`id`, `name`, `description`, `estimated_hours`) VALUES (5, 'US President\'s Project', 'Team Project', 8);
 
 COMMIT;
 
