@@ -32,6 +32,8 @@ public class Post {
 	@JoinColumn(name="user_id")
 	private User user;
 
+	
+	
 	private String link;
 
 	public int getId() {
