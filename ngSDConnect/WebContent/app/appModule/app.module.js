@@ -3,10 +3,10 @@ angular.module("appModule", ['ngRoute', "ngCookies", "authModule"]) //<!--this i
 	
 	 $routeProvider
 	    .when('/', {
-	    	  template: '<home></home>'  //registration and login
+	    	  template: '<login></login>'  //registration and login
 	    })
-	    .when('/welcome', {
-	      template : '<welcome></welcome>'
+	    .when('/home', {
+	      template : '<home></home>'
 	    })
 	    .when('/profile', {
 	    	template : '<profile></profile>'
