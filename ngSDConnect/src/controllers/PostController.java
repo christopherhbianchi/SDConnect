@@ -51,9 +51,12 @@ public class PostController {
 		  return post;
 	  }
 	  
-	  @RequestMapping(path="users/{uid}/posts", method=RequestMethod.POST)
-	  public Post create(HttpServletResponse res, @PathVariable("uid") int userId, @RequestBody String postJson) {
-		  Post post = postDao.createPost(userId, postJson);
+	  @RequestMapping(path="topics/{tid}/users/{uid}/posts", method=RequestMethod.POST)
+	  public Post create(HttpServletResponse res, 
+			  			@PathVariable("uid") int userId, 
+			  			@PathVariable("tid") int topicId,
+			  			@RequestBody String postJson) {
+		  Post post = postDao.createPost(userId, topicId, postJson);
 		  if(post==null) {
 			  res.setStatus(400);
 		  }
