@@ -13,15 +13,15 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Tag {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	private String type;
-	
+
+
 	@JsonIgnore
-	//@JsonManagedReference(value="topicsForTag")
 	@ManyToMany(mappedBy = "tags")
 	private List<Topic> topics;
 

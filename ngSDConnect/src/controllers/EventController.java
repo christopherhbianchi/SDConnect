@@ -28,7 +28,7 @@ public class EventController {
 		return dao.showAll();
 	}
 	
-	@RequestMapping(path="/events/{cohortId}", method=RequestMethod.GET)
+	@RequestMapping(path="/cohorts/{cohortId}/events", method=RequestMethod.GET)
 	public Set<Event> show(@PathVariable int cohortId) {
 		return dao.showEventsByCohortId(cohortId);
 	}

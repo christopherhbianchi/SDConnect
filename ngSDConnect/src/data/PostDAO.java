@@ -11,7 +11,7 @@ public interface PostDAO {
 		
 		public Post showPostById(int postId); 
 		
-		public Post createPost(int userId, String postJson);
+		public Post createPost(int userId, int topicId, String postJson);
 		
 		public Post updatePost(int userId, int postId, String postJson);
 		
