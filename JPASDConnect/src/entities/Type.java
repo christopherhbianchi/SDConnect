@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Table(name="user_type")
 @Entity
 public class Type {
@@ -20,6 +22,7 @@ public class Type {
 	private String type;
 	
 	//one type has many users
+	@JsonIgnore
 	@OneToMany(mappedBy="type")
 	private List<User> users;
 

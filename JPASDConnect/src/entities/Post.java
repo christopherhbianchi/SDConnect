@@ -10,6 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Post {
 	
@@ -23,17 +26,17 @@ public class Post {
 	private Date postDate;
 	
 	//many posts in one thread
+	@JsonBackReference(value="postsForTopic")
 	@ManyToOne
 	@JoinColumn(name="topic_id")
 	private Topic topic;
 	
 	//many posts belong to one user
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	private User user;
 
-	
-	
 	private String link;
 
 	public int getId() {
