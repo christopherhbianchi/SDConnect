@@ -32,7 +32,7 @@ public class ProfileController{
 		return profileDao.readUserProfile(uid, pid);
 	}
 
-	@RequestMapping(path = "user/{uid}/profile", method = RequestMethod.POST)
+	@RequestMapping(path = "users/{uid}/profiles", method = RequestMethod.POST)
 	public Profile createUserProfile(HttpServletRequest req, HttpServletResponse res, 
 			@PathVariable int uid, 
 			@RequestBody String profileJson) {
@@ -41,7 +41,7 @@ public class ProfileController{
 	} 
 
 
-	@RequestMapping(path = "user/{uid}/todo/{pid}", method = RequestMethod.PUT)
+	@RequestMapping(path = "users/{uid}/profiles/{pid}", method = RequestMethod.PUT)
 	public Profile editUserProfile(HttpServletRequest req, HttpServletResponse res,
 			@PathVariable int uid,
 			@PathVariable int pid, 
@@ -50,7 +50,7 @@ public class ProfileController{
 		return profileDao.editUserProfile(uid, pid, profileJson);
 	}
 
-	@RequestMapping(path = "user/{uid}/profile/{pid}", method = RequestMethod.DELETE)
+	@RequestMapping(path = "users/{uid}/profiles/{pid}", method = RequestMethod.DELETE)
 	public Boolean deleteUserProfile(HttpServletRequest req, HttpServletResponse res, 
 			@PathVariable int uid, 
 			@PathVariable int pid) {

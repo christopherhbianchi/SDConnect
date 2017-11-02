@@ -21,33 +21,53 @@ public class ProfileDAOImpl implements ProfileDAO {
 
 	@Override
 	public Profile editUserProfile(int uid, int pid, String profileJson) {
-		// TODO Auto-generated method stub
-		ObjectMapper mapper = new ObjectMapper();
+
+		Profile p = em.find(Profile.class, pid); //profile from db
+		//profile has a user object
+		User u = p.getUser();
+		if(u.getId() == uid) {
+			
+		//put this at the end of your entire code
 		
-		try {
-			Profile mappedProfile = mapper.readValue(profileJson, Profile.class);
-			Profile p = em.find(Profile.class, pid);
-			
-			//*********************************************************
-			p.setImg(mappedProfile.getImg());
-			p.setBackgroundDescription(mappedProfile.getBackgroundDescription());
-			p.setFname(mappedProfile.getFname());
-			p.setLname(mappedProfile.getLname());
-			p.setPreviousIndustry(mappedProfile.getPreviousIndustry());
-			p.setCodingExperience(mappedProfile.getCodingExperience());
-			p.setShirtSize(mappedProfile.getShirtSize());
-			p.setWebsiteUrl(mappedProfile.getWebsiteUrl());
-			p.setGithubUrl(mappedProfile.getGithubUrl());
-			p.setLinkedinUrl(mappedProfile.getLinkedinUrl());
-			
-			//***********************************************************
-			
-			return p;
-			
-		} catch(Exception e) {
-			e.printStackTrace();
+		
+				ObjectMapper mapper = new ObjectMapper();
+				
+				try {
+					//profile from a json string, that we use to get info from for an existing profile
+					Profile mappedProfile = mapper.readValue(profileJson, Profile.class);
+					
+					if(!mappedProfile.getBackgroundDescription().equals("")) {
+						p.setBackgroundDescription(mappedProfile.getBackgroundDescription());
+					}
+					
+					
+		//			String query = "SELECT p FROM Profile p WHERE p.id = :pid";
+		//			Profile poww = em.createQuery(query, Profile.class)
+		//							.setParameter("pid", pid)
+		//							.getResultList()
+		//							.get(0);
+		//			
+					//*********************************************************
+					p.setImg(mappedProfile.getImg());
+					p.setBackgroundDescription(mappedProfile.getBackgroundDescription());
+					p.setFname(mappedProfile.getFname());
+					p.setLname(mappedProfile.getLname());
+					p.setPreviousIndustry(mappedProfile.getPreviousIndustry());
+					p.setCodingExperience(mappedProfile.getCodingExperience());
+					p.setShirtSize(mappedProfile.getShirtSize());
+					p.setWebsiteUrl(mappedProfile.getWebsiteUrl());
+					p.setGithubUrl(mappedProfile.getGithubUrl());
+					p.setLinkedinUrl(mappedProfile.getLinkedinUrl());
+					
+					//***********************************************************
+					
+					return p;
+					
+				} catch(Exception e) {
+					e.printStackTrace();
+				}
+				
 		}
-		
 		return null;
 		
 	}
@@ -81,6 +101,11 @@ public class ProfileDAOImpl implements ProfileDAO {
 		Profile p = em.find(Profile.class, pid);
 		
 		try {
+			String query = "SELECT p FROM Profile p WHERE p.id = :pid";
+			p = em.createQuery(query, Profile.class)
+							.setParameter("pid", pid)
+							.getResultList()
+							.get(0);
 			em.remove(p);
 			return true;
 		}
