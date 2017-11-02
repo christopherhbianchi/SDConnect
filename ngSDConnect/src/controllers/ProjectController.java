@@ -36,18 +36,19 @@ public class ProjectController {
 		return dao.showProjectById(projectId);
 	}
 	
-	@RequestMapping(path="/users/{userId}/projects")
+	@RequestMapping(path="/users/{userId}/projects", method=RequestMethod.POST)
 	public Project create(@RequestBody String projectJson, @PathVariable int userId) {
 		return dao.createProject(userId, projectJson);
 	}
 	
-	
-	public Project update() {
-		
+	@RequestMapping(path="/users/{userId}/projects/{projectId}", method=RequestMethod.PUT)
+	public Project update(@PathVariable int userId, @PathVariable int projectId, @RequestBody String projectJson) {
+		return dao.updateProject(userId, projectId, projectJson);
 	}
 	
-	public boolean destroy() {
-		
+	@RequestMapping(path="/users/{userId}/projects/{projectId}", method=RequestMethod.DELETE)
+	public boolean destroy(@PathVariable int userId, @PathVariable int projectId) {
+		return dao.deleteProject(userId, projectId);
 	}
 	
 	
