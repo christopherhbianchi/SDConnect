@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import entities.Post;
+import entities.Topic;
 import entities.User;
 
 @Transactional
@@ -38,13 +39,16 @@ public class PostDAOImpl implements PostDAO {
 	}
 
 	@Override
-	public Post createPost(int userId, String postJson) {
+	public Post createPost(int userId, int topicId, String postJson) {
 		ObjectMapper mapper = new ObjectMapper();
 		User user = getUserById(userId);
+		Topic topic = getTopicById(topicId);
 		Post mappedPost = null;
 		try {
 			mappedPost = mapper.readValue(postJson, Post.class);
 			mappedPost.setUser(user);
+			mappedPost.setTopic(topic);
+			mappedPost.setPostDate(new java.sql.Date(new java.util.Date().getTime()));
 			em.persist(mappedPost);
 			em.flush();
 		}
@@ -106,6 +110,19 @@ public class PostDAOImpl implements PostDAO {
 			user = tempList.get(0);
 		}		
 		return user;		
+	}
+	
+
+	private Topic getTopicById(int topicId) {
+		Topic topic = null;
+		String queryString = "Select t from Topic t where t.id = :id";
+		List<Topic> tempList = em.createQuery(queryString, Topic.class)
+								.setParameter("id", topicId)
+								.getResultList();
+		if(tempList.size() > 0) {
+			topic = tempList.get(0);
+		}		
+		return topic;	
 	}
 
 }
