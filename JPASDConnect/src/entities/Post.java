@@ -32,6 +32,8 @@ public class Post {
 	@JoinColumn(name="user_id")
 	private User user;
 
+	
+	
 	private String link;
 
 	public int getId() {
@@ -54,7 +56,7 @@ public class Post {
 		return postDate;
 	}
 
-	public void setPost_dt(Date postDate) {
+	public void setPostDate(Date postDate) {
 		this.postDate = postDate;
 	}
 

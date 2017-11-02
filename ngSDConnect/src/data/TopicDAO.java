@@ -15,5 +15,6 @@ public interface TopicDAO {
 	//update
 	public Topic updateTopic(int userId, int topicId, String topicJson);
 	//delete
-	public Boolean deleteTopic(int userId, int todoId);
+	public boolean deleteTopic(int userId, int todoId);
+	
 }

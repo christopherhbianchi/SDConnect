@@ -21,6 +21,7 @@ public class Topic {
 	
 	private String name;
 	
+	
 	@OneToMany(mappedBy="topic")
 	private List<Post> posts;
 	
