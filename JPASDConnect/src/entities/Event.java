@@ -1,11 +1,14 @@
 package entities;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -22,6 +25,9 @@ public class Event {
 	@ManyToOne
 	@JoinColumn(name="projects_id")
 	private Project project;
+	
+	@ManyToMany (mappedBy="eventList")
+	private List<Cohort> cohortList;
 	
 	//gets and sets
 	public int getId() {
@@ -55,6 +61,12 @@ public class Event {
 		this.project = project;
 	}
 	
+	public List<Cohort> getCohortList() {
+		return cohortList;
+	}
+	public void setCohortList(List<Cohort> cohortList) {
+		this.cohortList = cohortList;
+	}
 	//toString
 	@Override
 	public String toString() {

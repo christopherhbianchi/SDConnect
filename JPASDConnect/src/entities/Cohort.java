@@ -8,6 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -34,6 +37,29 @@ public class Cohort {
 	//one cohort has many users
 	@OneToMany(mappedBy="cohort")
 	List<User> users;
+	
+	@ManyToMany
+	@JoinTable(name="cohort_has_events",
+	joinColumns=@JoinColumn(name="cohort_id"),
+	inverseJoinColumns=@JoinColumn(name="event_id")
+			)
+	private List<Event> eventList;
+
+	public List<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
+
+	public List<Event> getEventList() {
+		return eventList;
+	}
+
+	public void setEventList(List<Event> eventList) {
+		this.eventList = eventList;
+	}
 
 	public int getId() {
 		return id;
