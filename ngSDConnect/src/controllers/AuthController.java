@@ -15,7 +15,7 @@ import entities.User;
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
-
+//adding a comment
 	@Autowired
 	private AuthDAO authDAO;
 	

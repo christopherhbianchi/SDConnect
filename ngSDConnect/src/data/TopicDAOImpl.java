@@ -101,7 +101,10 @@ public class TopicDAOImpl implements TopicDAO{
 		
 		try {
 			deleteTopic = em.find(Topic.class, topicId);
-			em.remove(deleteTopic);
+			
+			String query = "DELETE FROM Topic t WHERE t.id= :topicId";
+			em.createQuery(query).setParameter("topicId", topicId).executeUpdate();
+		
 			return true;
 		}
 		catch(Exception e) {

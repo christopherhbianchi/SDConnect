@@ -7,8 +7,6 @@ import entities.Topic;
 
 public interface EventDAO {
 	
-	
-	
 	//read all
 		public Set<Event> showAll(); //needs a user id to find a user, then grab events by cohort
 		//read by cohort
