@@ -8,9 +8,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 
 @Entity
 public class Cohort {
@@ -37,6 +44,30 @@ public class Cohort {
 	@JsonManagedReference(value="usersForCohort")
 	@OneToMany(mappedBy="cohort")
 	List<User> users;
+	
+	@JsonIgnore
+	@ManyToMany
+	@JoinTable(name="cohort_has_events",
+	joinColumns=@JoinColumn(name="cohort_id"),
+	inverseJoinColumns=@JoinColumn(name="event_id")
+			)
+	private List<Event> eventList;
+
+	public List<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
+
+	public List<Event> getEventList() {
+		return eventList;
+	}
+
+	public void setEventList(List<Event> eventList) {
+		this.eventList = eventList;
+	}
 
 	public int getId() {
 		return id;

@@ -6,4 +6,5 @@ bin
 .gradle
 Servers
 .recommenders
-.settings
+.settings/**
+Servers*/**

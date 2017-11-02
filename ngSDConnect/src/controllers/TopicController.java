@@ -44,17 +44,17 @@ public class TopicController {
 
 //  PUT /topics/{id}
 	@RequestMapping(path="topics/{id}", method=RequestMethod.PUT)
-	public Topic update(@PathVariable int tid, @RequestBody String topicJson) {
+	public Topic update(@PathVariable int id, @RequestBody String topicJson) {
 		// TODO Auto-generated method stub
-		return topic.updateTopic(tid, topicJson);
+		return topic.updateTopic(id, topicJson);
 	}
 
 
 //  DELETE /topics/{id}
 	@RequestMapping(path="topics/{id}", method=RequestMethod.DELETE)
-	public boolean destroy(@PathVariable int tid) {
+	public boolean destroy(@PathVariable int id) {
 		// TODO Auto-generated method stub
-		return topic.deleteTopic(tid);
+		return topic.deleteTopic(id);
 	}
 
 	
