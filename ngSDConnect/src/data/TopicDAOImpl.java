@@ -1,5 +1,6 @@
 package data;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.EntityManager;
@@ -17,14 +18,15 @@ public class TopicDAOImpl implements TopicDAO{
 	@PersistenceContext
 	private EntityManager em;
 	@Override
-	public Set<Topic> showAll(int userId) {
-		// TODO Auto-generated method stub
-		return null;
+	public Set<Topic> showAll() {
+		String query = "SELECT t FROM Topic t";
+		Set<Topic> topics = new HashSet<>(em.createQuery(query).getResultList());
+		return topics;
 	}
 
 	@Override
-	public Topic showTopicById(int userId, int topicId) {
-		// TODO Auto-generated method stub
+	public Topic showTopicById(int topicId) {
+		Topic t = em.find(Topic.class, topicId);
 		return null;
 	}
 

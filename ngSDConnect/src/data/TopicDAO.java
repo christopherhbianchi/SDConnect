@@ -7,9 +7,9 @@ import entities.Topic;
 public interface TopicDAO {
 	
 	//read all
-	public Set<Topic> showAll(int userId);
+	public Set<Topic> showAll(); //does not need id to show all topics
 	//read 1
-	public Topic showTopicById(int userId, int topicId);
+	public Topic showTopicById(int topicId); //all users can see every topic, no need for id
 	//create
 	public Topic createTopic(int userId, String topicJson);
 	//update
