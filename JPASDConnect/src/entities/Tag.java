@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 public class Tag {
 	
@@ -16,7 +18,7 @@ public class Tag {
 	private int id;
 	
 	private String type;
-	
+	@JsonManagedReference(value="topicsForTag")
 	@ManyToMany(mappedBy = "tags")
 	private List<Topic> topics;
 
