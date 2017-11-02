@@ -3,6 +3,7 @@
 		<property name="context-root" value="ngSDConnect"/>
 		<wb-resource deploy-path="/WEB-INF/classes" source-path="src"/>
 		<wb-resource deploy-path="/" source-path="WebContent"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/JPASDConnect/JPASDConnect">
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
