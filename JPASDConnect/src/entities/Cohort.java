@@ -47,7 +47,7 @@ public class Cohort {
 	
 	@JsonIgnore
 	@ManyToMany
-	@JoinTable(name="cohort_has_events",
+	@JoinTable(name="cohort_has_event",
 	joinColumns=@JoinColumn(name="cohort_id"),
 	inverseJoinColumns=@JoinColumn(name="event_id")
 			)
