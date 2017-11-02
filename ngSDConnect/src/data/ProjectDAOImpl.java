@@ -72,7 +72,7 @@ public class ProjectDAOImpl implements ProjectDAO{
 				if(!updateProj.getName().equals("")) {
 					p.setName(updateProj.getName());
 				}
-				if(Integer.valueOf(updateProj.getEstimatedHours()) == null) { //made it an object
+				if(Integer.valueOf(updateProj.getEstimatedHours()) != null) { //made it an object
 					p.setEstimatedHours(updateProj.getEstimatedHours());
 				}
 				
