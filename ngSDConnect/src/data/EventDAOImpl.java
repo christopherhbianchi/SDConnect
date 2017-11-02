@@ -17,7 +17,7 @@ import entities.Cohort;
 import entities.Event;
 import entities.User;
 
-@Transactional
+@Transactional(noRollbackFor = Exception.class)
 @Repository
 public class EventDAOImpl implements EventDAO{
 	

@@ -21,7 +21,7 @@ public class Project {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@Column(name="desc")
+	@Column(name="description")
 	private String description;
 	
 	@Column(name="estimated_hours")
