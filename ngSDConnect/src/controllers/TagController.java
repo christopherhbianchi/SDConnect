@@ -61,6 +61,20 @@ public class TagController {
 		  return tag;
 	  }
 	  
+	  @RequestMapping(path="tags/{tid}", method=RequestMethod.PUT) 
+		public Tag update(	@PathVariable("tid") int tagId, 
+							@RequestBody String tagJson, 
+							HttpServletResponse res) {
+			Tag tag = tagDao.updateTag(tagId, tagJson);
+			if(tag == null) {
+				res.setStatus(400);
+			}
+			else {
+				res.setStatus(202);
+			}
+			return tag;	
+		}
+	  
 	  @RequestMapping(path="tags/{tid}", method=RequestMethod.DELETE)
 	  public boolean destroy(HttpServletResponse res, @PathVariable("tid") int tagId) {
 		  Boolean answer = tagDao.deleteTag(tagId);
