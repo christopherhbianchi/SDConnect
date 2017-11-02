@@ -1,5 +1,6 @@
 package data;
 
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -9,6 +10,8 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import entities.Topic;
@@ -28,7 +31,6 @@ public class TopicDAOImpl implements TopicDAO{
 		return topics;
 	}
 	
-
 	@Override
 	public Topic showTopicById(int topicId) {
 		Topic topicById = em.find(Topic.class, topicId);
@@ -36,101 +38,64 @@ public class TopicDAOImpl implements TopicDAO{
 	}
 
 	@Override
-	public Topic createTopic(int userId, String topicJson) {
+	public Topic createTopic(String topicJson) {
 		ObjectMapper mapper = new ObjectMapper();
 		
-		User user = em.find(User.class, userId);
+		Topic newTopic = null;
 		
-		if (user != null) {
-			try {
-				
-			}
-			catch (Exception e) {
-				
-			}
+		try {
+			newTopic = mapper.readValue(topicJson, Topic.class);
+			em.persist(newTopic);
+			em.flush();
+		} catch (JsonParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+			
+		return newTopic;
+	}
+
+
+	@Override
+	public Topic updateTopic(int topicId, String topicJson) {
+		ObjectMapper mapper = new ObjectMapper();
+		
+		Topic oldTopic = em.find(Topic.class, topicId);
+		Topic editedTopic = null;
+		
+		try {
+			editedTopic = mapper.readValue(topicJson, Topic.class);
+			oldTopic.setName(editedTopic.getName());
+			oldTopic.setPosts(editedTopic.getPosts());
+			oldTopic.setTags(editedTopic.getTags());
+		}
+		catch(Exception e) {
+			e.printStackTrace();
 		}
 		
 		return null;
 	}
-	
-//	@Override
-//	public Todo create(int uid, String todoJson) {
-//		
-//		ObjectMapper mapper = new ObjectMapper();
-//		User u = em.find(User.class, uid);
-//		Todo todoCreate = null;
-//		if (u != null) {
-//			try {
-//				todoCreate = mapper.readValue(todoJson, Todo.class);
-//				todoCreate.setUser(u);
-//				em.persist(todoCreate);
-//				em.flush();
-//				System.out.println(todoCreate.toString());
-//				return todoCreate;
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			}
-//		}
-//
-//		return null;
-//	}
+
 
 	@Override
-	public Topic updateTopic(int userId, int topicId, String topicJson) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public boolean deleteTopic(int userId, int todoId) {
-		// TODO Auto-generated method stub
+	public boolean deleteTopic(int topicId) {
+		Topic deleteTopic = null;
+		
+		try {
+			deleteTopic = em.find(Topic.class, topicId);
+			em.remove(deleteTopic);
+			return true;
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
 		return false;
 	}
 
 }
-
-
-//
-//	@Override
-//	public Todo update(int uid, int tid, String todoJson) {
-//		ObjectMapper mapper = new ObjectMapper();
-//		Todo todoCurrent = em.find(Todo.class, tid);
-//		Todo todoUpdate = null;
-//		User u = em.find(User.class, uid);
-//
-//		if (u == todoCurrent.getUser()) {
-//
-//			try {
-//				todoUpdate = mapper.readValue(todoJson, Todo.class);
-////				todoUpdate.setUser(u);
-//				todoCurrent.setCompleted(todoUpdate.getCompleted());
-//				todoCurrent.setCompleteDate(todoUpdate.getCompleteDate());
-//				todoCurrent.setCreatedAt(todoUpdate.getCreatedAt());
-//				todoCurrent.setDescription(todoUpdate.getDescription());
-//				todoCurrent.setDueDate(todoUpdate.getDueDate());
-//				todoCurrent.setTask(todoUpdate.getTask());
-//				todoCurrent.setUpdatedAt(todoUpdate.getUpdatedAt());
-//				return todoCurrent;
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			}
-//		}
-//		return null;
-//	}
-//
-//	@Override
-//	public boolean destroy(int uid, int tid) {
-//		Todo deleteTodo = null;
-//
-//		try {
-//			deleteTodo = em.find(Todo.class, tid);
-//			em.remove(deleteTodo);
-//			return true;
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//		return false;
-//	}
-//
-//}
-//

@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -11,6 +12,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Topic {
@@ -21,16 +25,19 @@ public class Topic {
 	
 	private String name;
 	
-	
-	@OneToMany(mappedBy="topic")
+	@JsonManagedReference(value="postsForTopic")
+	@OneToMany(mappedBy="topic", fetch=FetchType.EAGER)
 	private List<Post> posts;
 	
+	@JsonBackReference(value="topicsForTag")
 	@ManyToMany (cascade= {CascadeType.PERSIST, CascadeType.REMOVE})
 	@JoinTable(name="topic_has_tags",
 	  joinColumns=@JoinColumn(name="topic_id"),
 	  inverseJoinColumns=@JoinColumn(name="tag_id"))
 	private List<Tag> tags;
 
+	
+	//GETTERS AND SETTERS 
 	public int getId() {
 		return id;
 	}

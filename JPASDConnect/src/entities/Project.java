@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="project")
 public class Project {
@@ -18,11 +20,16 @@ public class Project {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
 	@Column(name="desc")
 	private String description;
+	
 	@Column(name="estimated_hours")
 	private int estimatedHours;
+	
 	private String name;
+	
+	@JsonIgnore
 	@OneToMany(mappedBy="project")
 	private List<Event> events;
 	

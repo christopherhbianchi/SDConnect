@@ -14,9 +14,12 @@ public class CareerResources {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
 	private String type;
+	
 	@Column(name="upload_id")
 	private String uploadID;
+	
 	private String link;
 	
 	//gets and sets

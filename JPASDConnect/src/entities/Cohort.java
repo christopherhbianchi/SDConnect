@@ -13,7 +13,11 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 
 @Entity
 public class Cohort {
@@ -37,6 +41,7 @@ public class Cohort {
 	private String mascotImgUrl;
 	
 	//one cohort has many users
+	@JsonManagedReference(value="usersForCohort")
 	@OneToMany(mappedBy="cohort")
 	List<User> users;
 	

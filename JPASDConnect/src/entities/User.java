@@ -1,6 +1,7 @@
 package entities;
 
 import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,6 +12,10 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class User {
@@ -29,6 +34,7 @@ public class User {
 	@JoinColumn(name = "user_type_id")
 	private Type type;
 	
+	@JsonIgnore
 	@ManyToMany
 	@JoinTable(name="has_form",
 	joinColumns=@JoinColumn(name="user_id"),
@@ -37,15 +43,18 @@ public class User {
 	private List<Form> form;
 
 	// many users in one cohort
+	@JsonBackReference(value="usersForCohort")
 	@ManyToOne
 	@JoinColumn(name = "cohort_id")
 	private Cohort cohort;
 
 	// one user to one profile
+	@JsonManagedReference(value="profileForUser")
 	@OneToOne(mappedBy = "user")
 	private Profile profile;
 
 	// one user has many posts
+	@JsonIgnore
 	@OneToMany(mappedBy = "user")
 	private List<Post> posts;
 
