@@ -15,7 +15,7 @@ public class ProfileDAOImpl implements ProfileDAO {
 
 
 	@Override
-	public Profile editUserProfile(int pid, String profileJson) {
+	public Profile editUserProfile(int uid, int pid, String profileJson) {
 		// TODO Auto-generated method stub
 		ObjectMapper mapper = new ObjectMapper();
 		
@@ -71,7 +71,7 @@ public class ProfileDAOImpl implements ProfileDAO {
 	}
 
 	@Override
-	public Boolean deleteUserProfile(int pid) {
+	public Boolean deleteUserProfile(int uid, int pid) {
 		// TODO Auto-generated method stub
 		Profile p = em.find(Profile.class, pid);
 		
@@ -86,7 +86,7 @@ public class ProfileDAOImpl implements ProfileDAO {
 	}
 
 	@Override
-	public Profile readUserProfile(User user, int pid) {
+	public Profile readUserProfile(int uid, int pid) {
 		// TODO Auto-generated method stub
 		return em.find(Profile.class, pid);
 		
