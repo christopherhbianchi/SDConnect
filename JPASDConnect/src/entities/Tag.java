@@ -8,17 +8,20 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Tag {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	private String type;
-	@JsonManagedReference(value="topicsForTag")
+
+
+	@JsonIgnore
 	@ManyToMany(mappedBy = "tags")
 	private List<Topic> topics;
 

@@ -65,9 +65,6 @@ public class TagDAOImpl implements TagDAO {
 			if(mappedTag.getType() != null && mappedTag.getType() != "") {
 				managedTag.setType(mappedTag.getType());
 			}
-			if(mappedTag.getTopics() != null) {
-				managedTag.setTopics(mappedTag.getTopics());
-			}
 		}
 		catch(Exception e) {
 			e.printStackTrace();
