@@ -11,10 +11,8 @@ angular.module("appModule")
 			vm.postView = false;
 			
 			var getAllTopics = function(){
-				vm.postView = false;
 				topicService.index()
 				.then(function(resp){
-					console.log(resp.data);
 					vm.currentTopics = resp.data;
 				})
 				.catch(function(error){
@@ -24,7 +22,18 @@ angular.module("appModule")
 			
 			getAllTopics();
 			
-			var getPostsPerTopic = function(tid) {
+			vm.getKeywordOnly = function(word){
+				topicService.topicTagKeyword(word)
+				.then(function(resp){
+					vm.currentTopics = resp.data;
+				})
+				.catch(function(error){
+					console.log(error)
+				});
+			};
+			
+			vm.getPostsPerTopic = function(tid) {
+				console.log('In getPostsPerTopic');
 				vm.postView = true;
 				postService.index(tid)
 				.then(function(resp){
@@ -35,6 +44,12 @@ angular.module("appModule")
 					console.log(error)
 				})
 			}
+			
+			vm.displayTopics = function(){
+				vm.currentPosts = [];
+				vm.postView = false;
+				getAllTopics();
+			};
 			
 		},
 		

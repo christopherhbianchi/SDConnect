@@ -2,7 +2,7 @@ angular.module('appModule')
 	.factory('profileService', function($http, $filter, $location, authService){
 
 
-var profileService = {};
+	var profileService = {};
 	
 	var date = $filter('date')(Date.now(), 'MM/dd/yyyy'); 
 	
@@ -29,10 +29,10 @@ var profileService = {};
 		    });
 		  }
 
-		profileService.update = function(uid,pid) {
+		profileService.update = function(profile) {
 			return $http({
 		      method : 'PUT',
-		      url : "rest/users/" + uid + "/profiles",
+		      url : "rest/users/" + profile.id + "/profiles",
 		      headers : {
 		        'Content-Type' : 'application/json'
 		      },
@@ -40,18 +40,13 @@ var profileService = {};
 		    });
 		  }
 
-		profileService.destroy = function(uid, pid) {
-		   return $http({
-		      method : 'DELETE',
-		      url : "rest/users/" + uid + "/profiles",
-		    });
-		  }
-		  
 		  profileService.getDate = function(){
 			  
 			  return $filter('date')(Date.now(), 'MM/dd/yyyy');
-			  
+			
 		  }
+		  
+		  return profileService;
 	
 	
 	})

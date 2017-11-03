@@ -3,10 +3,12 @@ package entities;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -20,10 +22,13 @@ public class Tag {
 
 	private String type;
 
-
 	@JsonIgnore
 	@ManyToMany(mappedBy = "tags")
 	private List<Topic> topics;
+	
+//	@JsonManagedReference(value="tagsForTopic")
+//	@OneToMany(mappedBy="tag", fetch=FetchType.EAGER)
+//	private List<TopicTag> topicTags;
 
 	public int getId() {
 		return id;
