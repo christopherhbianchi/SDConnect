@@ -116,36 +116,14 @@ public class TopicDAOImpl implements TopicDAO{
 	}
 
 	@Override
-	public Set<Topic> getCareerResources(String word) {
-		String queryString = "Select t from Tag t where t.id=:id";
-		int tid = 0;
-		switch(word) {
-			case "resume":
-				tid = 3;
-				break;
-			case "cover":
-				tid = 4;
-				break;
-			case "interview":
-				tid = 5;
-				break;
-			default:
-				break;
-		}
-		System.out.println(tid);
-		List<Tag> tempList = em.createQuery(queryString, Tag.class)
-							  .setParameter("id", tid)
-							  .getResultList();
-		
-		if(tempList.size() > 0) {
-			Tag tag = tempList.get(0);
-			List<Topic> topicList = tag.getTopics();
-			Set<Topic> topicSet = new HashSet(topicList);
-			return topicSet;
-		}
-		Set<Topic> topicSetDefault = new HashSet<>();
-		topicSetDefault.add(showTopicById(1));
-		return topicSetDefault;
+	public Set<Topic> getByTagKeyword(String word) {
+		String queryString = "Select tt.topic from TopicTag tt where tt.tag.type=:name";
+		List<Topic> topicList = em.createQuery(queryString, Topic.class)
+							   .setParameter("name", word)
+							   .getResultList();
+		System.out.println("*********Topics: " + topicList);
+		Set<Topic> topicSet = new HashSet<>(topicList);
+		return topicSet;
 	}
 
 

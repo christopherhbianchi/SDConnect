@@ -35,6 +35,10 @@ public class Topic {
 	  joinColumns=@JoinColumn(name="topic_id"),
 	  inverseJoinColumns=@JoinColumn(name="tag_id"))
 	private List<Tag> tags;
+	
+	@JsonManagedReference(value="topicsForTag")
+	@OneToMany(mappedBy="topic")
+	private List<TopicTag> topicTags;
 
 
 	//GETTERS AND SETTERS
