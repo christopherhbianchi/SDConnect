@@ -272,10 +272,11 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `topic_has_tags` ;
 
 CREATE TABLE IF NOT EXISTS `topic_has_tags` (
+  `id` INT NOT NULL AUTO_INCREMENT,
   `topic_id` INT NOT NULL,
   `tags_id` INT NOT NULL,
-  PRIMARY KEY (`topic_id`, `tags_id`),
   INDEX `fk_topic_has_tags_tag_idx` (`tags_id` ASC),
+  PRIMARY KEY (`id`),
   CONSTRAINT `fk_topic_has_tags_topic`
     FOREIGN KEY (`topic_id`)
     REFERENCES `topic` (`id`)
@@ -445,12 +446,11 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `sdconnectdb`;
-INSERT INTO `topic_has_tags` (`topic_id`, `tags_id`) VALUES (1, 1);
-INSERT INTO `topic_has_tags` (`topic_id`, `tags_id`) VALUES (1, 2);
-INSERT INTO `topic_has_tags` (`topic_id`, `tags_id`) VALUES (2, 3);
-INSERT INTO `topic_has_tags` (`topic_id`, `tags_id`) VALUES (2, 4);
-INSERT INTO `topic_has_tags` (`topic_id`, `tags_id`) VALUES (3, 5);
-INSERT INTO `topic_has_tags` (`topic_id`, `tags_id`) VALUES (4, 4);
+INSERT INTO `topic_has_tags` (`id`, `topic_id`, `tags_id`) VALUES (1, 1, 1);
+INSERT INTO `topic_has_tags` (`id`, `topic_id`, `tags_id`) VALUES (2, 1, 2);
+INSERT INTO `topic_has_tags` (`id`, `topic_id`, `tags_id`) VALUES (3, 2, 3);
+INSERT INTO `topic_has_tags` (`id`, `topic_id`, `tags_id`) VALUES (4, 2, 4);
+INSERT INTO `topic_has_tags` (`id`, `topic_id`, `tags_id`) VALUES (5, 3, 5);
 
 COMMIT;
 
