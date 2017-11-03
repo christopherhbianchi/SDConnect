@@ -1,6 +1,7 @@
 package data;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -118,7 +119,6 @@ public class TopicDAOImpl implements TopicDAO{
 	public Set<Topic> getCareerResources(String word) {
 		String queryString = "Select t from Tag t where t.id=:id";
 		int tid = 0;
-		
 		switch(word) {
 			case "resume":
 				tid = 3;
@@ -132,14 +132,20 @@ public class TopicDAOImpl implements TopicDAO{
 			default:
 				break;
 		}
-		
+		System.out.println(tid);
 		List<Tag> tempList = em.createQuery(queryString, Tag.class)
 							  .setParameter("id", tid)
 							  .getResultList();
-		Tag tag = tempList.get(0);
-		List<Topic> topicList = tag.getTopics();
-		Set<Topic> topicSet = new HashSet(topicList);
-		return topicSet;
+		
+		if(tempList.size() > 0) {
+			Tag tag = tempList.get(0);
+			List<Topic> topicList = tag.getTopics();
+			Set<Topic> topicSet = new HashSet(topicList);
+			return topicSet;
+		}
+		Set<Topic> topicSetDefault = new HashSet<>();
+		topicSetDefault.add(showTopicById(1));
+		return topicSetDefault;
 	}
 
 
