@@ -3,19 +3,20 @@ angular.module('appModule')
 		return function(topicList){
 			var filtered = [];
 			var foundTag = false;
-			for(var i = 0; i < topicList.length; i++) {
-				tagList = topicList.getTags();
-				for(var j = 0; i < topicList.length; j++) {
-					if(topicList[j].getType() == 'resume'
-					 || topicList[j].getType() == 'cover letter'
-					 || topicList[j].getType() == 'interview') {
-						foundTag = true
+			var resumeList = topicService.careerResource('resume');
+			var interviewList = topicService.careerResource('interview');
+			var coverList = topicService.careerResource('cover');
+			var careerList = resumeList.concat(interviewList).concat(coverList);
+			console.log(careerList);
+			for(var i=0; i<topicList.length; i++) {
+				for(var j=0; j<careerList.length; j++) {
+					if (careerList[j].name == topicList[i].name) {
+						foundKey = true;
 					}
 				}
-				if(!foundTag) {
+				if(!foundKey) {
 					filtered.push(topicList[i])
 				}
-				foundTag = false;
 			}
 			return filtered;
 		}

@@ -4,7 +4,8 @@ angular.module('appModule')
 		
 		var checkLogin = function(){
 			var userIdPass = authService.getToken();
-			return userIdPass.id;
+//			return userIdPass.id;
+			return 1;
 		};
 		
 		service.index = function(){
@@ -64,6 +65,19 @@ angular.module('appModule')
 				return $http({
 					method : 'DELETE',
 					url : 'rest/topics/' + tid
+				})
+			}
+		}
+		
+		service.careerResource = function(keyword) {
+			var uid = checkLogin();
+			if(isNaN(uid)) {
+				$location.path('/login');
+			}
+			else {
+				return $http({
+					method : 'GET',
+					url : 'rest/topics/tags/' + keyword
 				})
 			}
 		}

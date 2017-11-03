@@ -2,6 +2,7 @@ package data;
 
 import java.util.Set;
 
+import entities.Tag;
 import entities.Topic;
 
 public interface TopicDAO {
@@ -16,5 +17,7 @@ public interface TopicDAO {
 	public Topic updateTopic(int topicId, String topicJson);
 	//delete
 	public boolean deleteTopic(int topicId);
+	
+	public Set<Topic> getCareerResources(String word);
 	
 }
