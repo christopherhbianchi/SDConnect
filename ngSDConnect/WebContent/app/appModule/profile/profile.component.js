@@ -14,13 +14,19 @@ angular.module("appModule").component("profile", {
 			}
 			reload();
 			
-			vm.edit = function(){
-				 profileService.update(pid)
+			vm.edit = null;
+			
+			vm.submit = function(profile){
+				console.log(profile);
+				 profileService.update(profile)
 				 .then(function(res){
-					 vm.selected = res.data;
-					 vm.reload();
+					 vm.edit = false;
+					 vm.profile = res.data;
+					 reload();
 				 });
 			}
+			
+			vm.selected = null;
 			
 		},
 	 controllerAs : "vm"

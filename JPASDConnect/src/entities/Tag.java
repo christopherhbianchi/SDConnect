@@ -2,11 +2,14 @@ package entities;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -20,9 +23,8 @@ public class Tag {
 
 	private String type;
 
-
-	@JsonIgnore
-	@ManyToMany(mappedBy = "tags")
+	@JsonManagedReference(value="topicsForTag")
+	@OneToMany(mappedBy="tag", fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	private List<Topic> topics;
 
 	public int getId() {

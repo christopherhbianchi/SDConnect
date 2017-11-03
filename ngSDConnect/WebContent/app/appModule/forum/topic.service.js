@@ -69,7 +69,7 @@ angular.module('appModule')
 			}
 		}
 		
-		service.careerResource = function(keyword) {
+		service.topicTagKeyword = function(keyword) {
 			var uid = checkLogin();
 			if(isNaN(uid)) {
 				$location.path('/login');

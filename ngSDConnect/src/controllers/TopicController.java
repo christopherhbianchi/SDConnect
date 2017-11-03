@@ -60,7 +60,7 @@ public class TopicController {
 	
 	@RequestMapping(path="topics/tags/{word}", method=RequestMethod.GET)
 	public Set<Topic> getCareerResource(@PathVariable String word) {
-		return topic.getCareerResources(word);
+		return topic.getByTagKeyword(word);
 	}
 
 	

@@ -18,6 +18,6 @@ public interface TopicDAO {
 	//delete
 	public boolean deleteTopic(int topicId);
 	
-	public Set<Topic> getCareerResources(String word);
+	public Set<Topic> getByTagKeyword(String word);
 	
 }

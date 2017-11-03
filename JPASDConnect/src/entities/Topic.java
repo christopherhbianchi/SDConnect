@@ -9,11 +9,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
@@ -29,14 +28,12 @@ public class Topic {
 	@OneToMany(mappedBy="topic", fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	private List<Post> posts;
 
-	@JsonIgnore
-	@ManyToMany (cascade= {CascadeType.PERSIST, CascadeType.REMOVE})
-	@JoinTable(name="topic_has_tags",
-	  joinColumns=@JoinColumn(name="topic_id"),
-	  inverseJoinColumns=@JoinColumn(name="tag_id"))
-	private List<Tag> tags;
-
-
+	//many topics for one tag
+	@JsonBackReference(value="topicsForTag")
+	@ManyToOne()
+	@JoinColumn(name="tag_id")
+	private Tag tag;
+	
 	//GETTERS AND SETTERS
 	public int getId() {
 		return id;
@@ -62,12 +59,12 @@ public class Topic {
 		this.posts = posts;
 	}
 
-	public List<Tag> getTags() {
-		return tags;
+	public Tag getTag() {
+		return tag;
 	}
 
-	public void setTags(List<Tag> tags) {
-		this.tags = tags;
+	public void setTag(Tag tag) {
+		this.tag = tag;
 	}
 
 	@Override

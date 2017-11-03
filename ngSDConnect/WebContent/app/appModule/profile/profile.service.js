@@ -29,10 +29,10 @@ angular.module('appModule')
 		    });
 		  }
 
-		profileService.update = function(uid) {
+		profileService.update = function(profile) {
 			return $http({
 		      method : 'PUT',
-		      url : "rest/users/" + uid + "/profiles",
+		      url : "rest/users/" + profile.id + "/profiles",
 		      headers : {
 		        'Content-Type' : 'application/json'
 		      },
