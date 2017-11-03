@@ -36,11 +36,9 @@ public class Event {
 	@JoinColumn(name = "projects_id")
 	private Project project;
 	
-	
 	@ManyToMany (mappedBy="eventList", fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	private Set<Cohort> cohortList;
-	
-	//gets and sets
+
 
 	// gets and sets
 	public int getId() {
