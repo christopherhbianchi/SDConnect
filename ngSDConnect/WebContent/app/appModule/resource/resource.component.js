@@ -56,6 +56,13 @@ angular.module("appModule")
 				})
 			}
 			
+			vm.setCategory = function(category){
+				topicService.topicTagKeyword(category)//whatever the keyword is goes in there
+					.then(function(response){
+						reload();
+					})
+			}
+			
 		},
 		controllerAs:"vm"
 		
