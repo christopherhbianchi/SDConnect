@@ -23,7 +23,7 @@ angular.module("appModule")
 			reload(); //load right away
 			
 			vm.showResource = function(resource){ //can grab the id out of it later in the service
-				topicService.show(resource).then(function(response){
+				topicService.show(resource.id).then(function(response){
 					vm.selected = response.data;
 				})
 			}
@@ -57,9 +57,11 @@ angular.module("appModule")
 			}
 			
 			vm.setCategory = function(category){
-				topicService.topicTagKeyword(category)//whatever the keyword is goes in there
+				topicService.getTopicByTagKeyword(category)//whatever the keyword is goes in there
 					.then(function(response){
-						reload();
+						vm.selectedCategory = category;
+						vm.resources = response.data;
+						console.log(vm.resources);
 					})
 			}
 			

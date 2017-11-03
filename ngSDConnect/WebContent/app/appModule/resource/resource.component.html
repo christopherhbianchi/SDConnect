@@ -24,12 +24,48 @@
               <p class="card-text">Interview Questions</p>
             </div>
 
-            <div class="card">
+            <!-- <div class="card">
               <img data-src="holder.js/100px280?theme=thumb" alt="Card image cap">
               <p class="card-text">Additional Resources</p>
-            </div>
+            </div> -->
            
           </div>
 
         </div>
+      </div>
+      
+      
+     
+      
+      <!-- our list of topics that show up with a keyword -->
+      <div name="list" class="album text-muted">
+      	
+      	<!-- button to show all the categories again -->
+      	<div>
+      	<input type="submit" ng-click="vm.setCategory(null)" value="Show Categories"/>
+      </div>
+      
+      	<table>
+      		<thead>
+      			<tr>
+					<th>Id</th>      			
+					<th>Name</th>      			
+					<th>Posted By</th>      			
+      			</tr>
+      		</thead>
+      		<tbody>
+      			<tr ng-repeat="resource in vm.resources"> <!-- resource is a topic -->
+					<td>{{resource.id}}</td>      			
+					<td ng-click="vm.showResource(resource)">{{resource.name}}</td>      			
+					<td>{{resource.posts[0].user.profile.fname}} {{resource.posts[0].user.profile.lname}}</td>      			
+      			</tr>
+      		</tbody>
+      	
+      	
+      	
+      	</table>
+      
+      
+      
+      
       </div>

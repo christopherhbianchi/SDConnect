@@ -25,31 +25,22 @@ public class ProfileDAOImpl implements ProfileDAO {
 	@Override
 	public Profile editUserProfile(int uid, String profileJson) {
 		
-		User u = em.find(User.class, uid); //profile from db
-		//profile has a user object
+		User u = em.find(User.class, uid); 
+		
 		Profile p = u.getProfile();
-		if(u.getId() == uid) { //may need to go
+		if(u.getId() == uid) { 
 			
-		//put this at the end of your entire code
-		
-		
 				ObjectMapper mapper = new ObjectMapper();
 				
 				try {
-					//profile from a json string, that we use to get info from for an existing profile
+					
 					Profile mappedProfile = mapper.readValue(profileJson, Profile.class);
 					
 					if(!mappedProfile.getBackgroundDescription().equals("")) {
 						p.setBackgroundDescription(mappedProfile.getBackgroundDescription());
 					}
 					
-					
-		//			String query = "SELECT p FROM Profile p WHERE p.id = :pid";
-		//			Profile poww = em.createQuery(query, Profile.class)
-		//							.setParameter("pid", pid)
-		//							.getResultList()
-		//							.get(0);
-		//			
+				
 					//*********************************************************
 					p.setImg(mappedProfile.getImg());
 					p.setBackgroundDescription(mappedProfile.getBackgroundDescription());
