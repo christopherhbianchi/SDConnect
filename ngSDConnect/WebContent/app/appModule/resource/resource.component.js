@@ -23,7 +23,7 @@ angular.module("appModule")
 			reload(); //load right away
 			
 			vm.showResource = function(resource){ //can grab the id out of it later in the service
-				topicService.show(resource).then(function(response){
+				topicService.show(resource.id).then(function(response){
 					vm.selected = response.data;
 				})
 			}

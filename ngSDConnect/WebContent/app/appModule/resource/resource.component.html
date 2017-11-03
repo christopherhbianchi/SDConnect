@@ -34,8 +34,16 @@
         </div>
       </div>
       
+      
+     
+      
       <!-- our list of topics that show up with a keyword -->
-      <div name="list">
+      <div name="list" class="album text-muted">
+      	
+      	<!-- button to show all the categories again -->
+      	<div>
+      	<input type="submit" ng-click="vm.setCategory(null)" value="Show Categories"/>
+      </div>
       
       	<table>
       		<thead>
@@ -48,7 +56,7 @@
       		<tbody>
       			<tr ng-repeat="resource in vm.resources"> <!-- resource is a topic -->
 					<td>{{resource.id}}</td>      			
-					<td>{{resource.name}}</td>      			
+					<td ng-click="vm.showResource(resource)">{{resource.name}}</td>      			
 					<td>{{resource.posts[0].user.profile.fname}} {{resource.posts[0].user.profile.lname}}</td>      			
       			</tr>
       		</tbody>
