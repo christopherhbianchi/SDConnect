@@ -337,6 +337,8 @@ USE `sdconnectdb`;
 INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`) VALUES (1, 'chrishbianchi@gmail.com', 'teamawesome', 1, 1);
 INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`) VALUES (2, 'jmckenna@gmail.com', 'donutdiva', 2, 1);
 INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`) VALUES (3, 'kkane@gmail.com', 'buildit', 1, 1);
+INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`) VALUES (4, 'mpentermann@gmail.com', 'hotsauce', 2, 1);
+INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`) VALUES (5, 'sryzek@gmail.com', 'pointedfalcon', 2, 1);
 
 COMMIT;
 
@@ -347,6 +349,9 @@ COMMIT;
 START TRANSACTION;
 USE `sdconnectdb`;
 INSERT INTO `topic` (`id`, `name`) VALUES (1, 'Searching for roommate.');
+INSERT INTO `topic` (`id`, `name`) VALUES (2, 'Here\'s my resume.');
+INSERT INTO `topic` (`id`, `name`) VALUES (3, 'Interview at Google. Look at some interview questions!');
+INSERT INTO `topic` (`id`, `name`) VALUES (4, 'Cover Letter yes or no? Thoughts?');
 
 COMMIT;
 
@@ -358,6 +363,13 @@ START TRANSACTION;
 USE `sdconnectdb`;
 INSERT INTO `post` (`id`, `message`, `post_ts`, `user_id`, `topic_id`, `link`) VALUES (1, 'Hi Everyone. Searching for a roommate in SD 12. I\'m coming from California and would like to share rent with someone.', DEFAULT, 1, 1, NULL);
 INSERT INTO `post` (`id`, `message`, `post_ts`, `user_id`, `topic_id`, `link`) VALUES (2, 'What\'s up Mr. Bianchi! I\'m an instructor here at SD and have a room available if you\'re interested. Contact me via email at kkris@gmail.com.', DEFAULT, 3, 1, NULL);
+INSERT INTO `post` (`id`, `message`, `post_ts`, `user_id`, `topic_id`, `link`) VALUES (3, 'Interested in an entry-level full stack development position at Amazon. Would love to hear your thoughts.', DEFAULT, 2, 2, 'www.google.com');
+INSERT INTO `post` (`id`, `message`, `post_ts`, `user_id`, `topic_id`, `link`) VALUES (4, 'Hi Jacqualine, the resume looks great. I would highlight most applicable work experience.', DEFAULT, 1, 2, NULL);
+INSERT INTO `post` (`id`, `message`, `post_ts`, `user_id`, `topic_id`, `link`) VALUES (5, 'Thank you! I\'ll put in those changes. Wish me luck.', DEFAULT, 2, 2, NULL);
+INSERT INTO `post` (`id`, `message`, `post_ts`, `user_id`, `topic_id`, `link`) VALUES (6, 'Just completed my Google superday. Notable questions: What is OOP? What is the benefit of using an MVC framework? How many ping pong balls could you fit in an entire 747 boeing jet?', DEFAULT, 3, 3, NULL);
+INSERT INTO `post` (`id`, `message`, `post_ts`, `user_id`, `topic_id`, `link`) VALUES (7, 'Thanks Kris. I know what I\'m going to go study now. Hope it went well.', DEFAULT, 2, 3, NULL);
+INSERT INTO `post` (`id`, `message`, `post_ts`, `user_id`, `topic_id`, `link`) VALUES (8, 'Just finished my Cover Letter. Would love to hear what you all think. The more feedback the better!', DEFAULT, 1, 4, 'www.google.com');
+INSERT INTO `post` (`id`, `message`, `post_ts`, `user_id`, `topic_id`, `link`) VALUES (9, 'Put the name of somebody who referred you in the first sentence. If nobody referred you, do some LinkedIn research to find mutual connections and mention one of them. A warm introduction is likely to elicit response.', DEFAULT, 2, 4, NULL);
 
 COMMIT;
 
@@ -421,6 +433,9 @@ START TRANSACTION;
 USE `sdconnectdb`;
 INSERT INTO `tag` (`id`, `type`) VALUES (1, 'Roommate');
 INSERT INTO `tag` (`id`, `type`) VALUES (2, 'Homehunting');
+INSERT INTO `tag` (`id`, `type`) VALUES (3, 'Resume');
+INSERT INTO `tag` (`id`, `type`) VALUES (4, 'CoverLetter');
+INSERT INTO `tag` (`id`, `type`) VALUES (5, 'Interview');
 
 COMMIT;
 
@@ -432,6 +447,10 @@ START TRANSACTION;
 USE `sdconnectdb`;
 INSERT INTO `topic_has_tags` (`topic_id`, `tags_id`) VALUES (1, 1);
 INSERT INTO `topic_has_tags` (`topic_id`, `tags_id`) VALUES (1, 2);
+INSERT INTO `topic_has_tags` (`topic_id`, `tags_id`) VALUES (2, 3);
+INSERT INTO `topic_has_tags` (`topic_id`, `tags_id`) VALUES (2, 4);
+INSERT INTO `topic_has_tags` (`topic_id`, `tags_id`) VALUES (3, 5);
+INSERT INTO `topic_has_tags` (`topic_id`, `tags_id`) VALUES (4, 4);
 
 COMMIT;
 
