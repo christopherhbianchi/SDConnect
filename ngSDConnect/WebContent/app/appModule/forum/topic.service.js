@@ -69,7 +69,7 @@ angular.module('appModule')
 			}
 		}
 		
-		service.topicTagKeyword = function(keyword) {
+		service.getTopicByTagKeyword = function(keyword) {
 			var uid = checkLogin();
 			if(isNaN(uid)) {
 				$location.path('/login');
