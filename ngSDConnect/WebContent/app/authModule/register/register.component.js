@@ -6,17 +6,11 @@ angular.module("authModule").component("register", {
 		vm.login = 
 		
 		vm.register = function(user, profile) {
-			
 			console.log("inside register")
-			
 			authService.register(user)
-			
 			.then(function(response){
-				
-			registerService.create(profile);
-			
-			$location.path("/home");
-			
+				registerService.create(profile);
+				$location.path("/home");
 			})
 		}
 	},
