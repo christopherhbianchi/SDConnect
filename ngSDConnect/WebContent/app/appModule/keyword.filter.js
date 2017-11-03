@@ -4,9 +4,9 @@ angular.module('appModule')
 			var filtered = [];
 			var foundKey = false;
 			for(var i = 0; i < topicList.length; i++) {
-				tagList = topicList.getTags();
+				tagList = topicList[i].tags;
 				for(var j = 0; i < topicList.length; j++) {
-					if(topicList[j].getType() == keyword)
+					if(topicList[j].type == keyword)
 					foundTag = true;
 				}
 				if(foundTag) {

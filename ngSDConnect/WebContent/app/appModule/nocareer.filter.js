@@ -4,11 +4,12 @@ angular.module('appModule')
 			var filtered = [];
 			var foundTag = false;
 			for(var i = 0; i < topicList.length; i++) {
-				tagList = topicList.getTags();
+				tagList = topicList[i].tags;
+				console.log(tagList);
 				for(var j = 0; i < topicList.length; j++) {
-					if(topicList[j].getType() == 'resume'
-					 || topicList[j].getType() == 'cover letter'
-					 || topicList[j].getType() == 'interview') {
+					if(topicList[j].type == 'resume'
+					 || topicList[j].type == 'cover letter'
+					 || topicList[j].type == 'interview') {
 						foundTag = true
 					}
 				}
