@@ -11,12 +11,10 @@ angular.module('authModule')
     service.getToken = function() {
       // Return an object with id and email properties,
       // the values are the values of the cookies
-   
 	    	var user = {
 	    		"id" : $cookies.get("id"),
 	    		"email" : $cookies.get("email")
 	    		}
-    	
 	    	return	user;
     	
     }
@@ -25,7 +23,6 @@ angular.module('authModule')
       //Remove both the id and email cookies
 	    	$cookies.remove("id");
 	    	$cookies.remove("email");
-    	
     }
 
     service.login = function(user) {
@@ -39,14 +36,11 @@ angular.module('authModule')
     			"Content-Type" : "application/json"
     		},
     		data: user
-    	})
-    	.then(function(res){
-    		//some code
-    		service.getToken();
-    		saveToken(res.data);
-    		return res;
-    		
-    	});
+   		})
+   		.then(function(res){
+   			saveToken(res.data);
+   			return res;
+   		});
     	
     	
     }
@@ -64,8 +58,7 @@ angular.module('authModule')
     		data: user
 	    	})
 	    	.then(function(res){
-	    		//some code
-	    		saveToken();
+	    		saveToken(res.data);
 	    		return res;
 	    		
 	    	});
@@ -80,7 +73,6 @@ angular.module('authModule')
     		url: "rest/auth/logout"
       	})
 	    	.then(function(res){
-	    		//some code
 	    		removeToken();
 	    		return res;
 	 

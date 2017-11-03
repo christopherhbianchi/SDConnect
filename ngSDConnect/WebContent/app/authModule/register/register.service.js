@@ -11,10 +11,10 @@ angular.module("authModule").factory("registerService",
 							'Content-Type' : 'application/json'
 						},
 						data : profile
-					})
-					.then(function(response) {
-						return response;
-					});//end of the then function
+						})
+						.then(function(response) {
+							return response;
+						});//end of the then function
 
 			}
 

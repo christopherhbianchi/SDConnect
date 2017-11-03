@@ -17,7 +17,6 @@ angular.module("appModule").component("profile", {
 			vm.edit = null;
 			
 			vm.submit = function(profile){
-				console.log(profile);
 				 profileService.update(profile)
 				 .then(function(res){
 					 vm.edit = false;
