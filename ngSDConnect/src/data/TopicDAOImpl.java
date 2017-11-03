@@ -117,13 +117,19 @@ public class TopicDAOImpl implements TopicDAO{
 
 	@Override
 	public Set<Topic> getByTagKeyword(String word) {
-		String queryString = "Select tt.topic from TopicTag tt where tt.tag.type=:name";
-		List<Topic> topicList = em.createQuery(queryString, Topic.class)
+		String queryString = "Select t from Tag t where t.type=:name";
+		List<Topic> topicList = null;
+		List<Tag> tagList = em.createQuery(queryString, Tag.class)
 							   .setParameter("name", word)
 							   .getResultList();
-		System.out.println("*********Topics: " + topicList);
-		Set<Topic> topicSet = new HashSet<>(topicList);
-		return topicSet;
+		if(tagList.size() > 0) {
+			Tag tag = tagList.get(0);
+			topicList = tag.getTopics();
+			System.out.println("*********Topics: " + topicList);
+			Set<Topic> topicSet = new HashSet<>(topicList);
+			return topicSet;
+		}
+		return null;
 	}
 
 }
