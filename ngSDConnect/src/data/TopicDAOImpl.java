@@ -126,6 +126,4 @@ public class TopicDAOImpl implements TopicDAO{
 		return topicSet;
 	}
 
-
-	
 }

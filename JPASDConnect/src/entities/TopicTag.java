@@ -23,12 +23,12 @@ public class TopicTag {
 	private int id;
 	
 	@JsonBackReference(value="topicsForTag")
-	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name="topic_id")
 	private Topic topic;
 	
 	@JsonBackReference(value="tagsForTopic")
-	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name="tag_id")
 	private Tag tag;
 

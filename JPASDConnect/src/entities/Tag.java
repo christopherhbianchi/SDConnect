@@ -3,6 +3,7 @@ package entities;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,9 +26,9 @@ public class Tag {
 	@ManyToMany(mappedBy = "tags")
 	private List<Topic> topics;
 	
-	@JsonManagedReference(value="tagsForTopic")
-	@OneToMany(mappedBy="tag")
-	private List<TopicTag> topicTags;
+//	@JsonManagedReference(value="tagsForTopic")
+//	@OneToMany(mappedBy="tag", fetch=FetchType.EAGER)
+//	private List<TopicTag> topicTags;
 
 	public int getId() {
 		return id;
