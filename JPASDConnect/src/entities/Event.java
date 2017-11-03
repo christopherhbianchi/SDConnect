@@ -39,7 +39,6 @@ public class Event {
 	@ManyToMany (mappedBy="eventList", fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	private Set<Cohort> cohortList;
 
-
 	// gets and sets
 	public int getId() {
 		return id;
