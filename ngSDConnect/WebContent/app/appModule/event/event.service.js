@@ -5,32 +5,33 @@ angular.module('appModule')
 		eventService.index = function(id){  //one post
 				return $http({
 					method : 'GET',
-					url : 'rest/topics/' + id + '/posts'
+					url : 'rest/events/' + id
 				})
 		};
 		
 		eventService.show = function() {  //show all posts
 			return $http({
 				method : 'GET',
-				url : 'rest/posts/' + id
-			})
+				url : 'rest/events'
+					})
 		};
 		
-		service.create = function(post, tid) {
-			var uid = checkLogin();
-			if(isNaN(uid)) {
-				$location.path('/login');
-			}
-			else {
+		eventService.showEventsByCohortId = function(id) {
+			return $http({
+				method:"GET",
+				url: "rest/cohorts/"+id+"/events"
+			})
+		}
+		
+		eventService.createEvent = function(event) {
 				return $http({
 					method : 'POST',
-					url : 'rest/topics/' + tid + '/users/' + uid + '/posts',
+					url : 'rest/users/' + uid + '/events',
 					headers : {
 						'Content-Type' : 'application/json'
 					},
 					data : post
 				})
-			}
 		}
 	
 		service.update = function(post) {
