@@ -36,7 +36,7 @@ body {
 /* Customize container */
 @media (min-width: 200px) {
   .container {
-  	margin-top: 30px;
+  	margin-top: 150px;
     max-width: 600px;
     
   }
@@ -80,4 +80,9 @@ body {
   .jumbotron {
     border-bottom: 0;
   }
+  #banner {
+  background-color: gray;
+  padding: 15px;
+  }
+
 }

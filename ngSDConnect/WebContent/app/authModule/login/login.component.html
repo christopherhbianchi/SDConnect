@@ -1,10 +1,12 @@
-<navigation></navigation>
-
+<div id="banner">
 <form>
-<input type ="text" placeholder=" Your Email" ng-model="u.email"/>
-<input type ="text" placeholder = "Your Password" ng-model="u.password"/>
-<input type ="submit" ng-click="vm.login(u)"/>
+		<div class="d-flex flex-row-reverse">
+			<input type="text" placeholder=" Your Email" ng-model="u.email" /> 
+			<input type="text" placeholder="Your Password" ng-model="u.password" /> 
+			<button type="button" class="btn btn-info" ng-click="vm.login(u)">Login</button>					
+	</div>
 </form>
+</div>
 
 <register></register>
 

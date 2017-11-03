@@ -5,17 +5,14 @@ angular.module('authModule', ["ngCookies", "ngRoute"])
 	.when("/register", {
 		template: "<register></register>"
 	})
-	
 	.when("/login", {
 		template: "<login></login>"
 	})
-	
 	.when("/logout", {
 		template: "<logout></logout>"
 	})
-	
 	.otherwise ({
-		template: "<h1>404 BOZO</h1>"
+		template: "<h1>404</h1>"
 	})
 	
 })
