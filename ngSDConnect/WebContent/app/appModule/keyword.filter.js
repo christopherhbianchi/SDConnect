@@ -1,18 +1,19 @@
 angular.module('appModule')
-	.filter('keyword' , function(){
+	.filter('keyword' , function(topicService){
+//		Note: only works for career keywords
 		return function(topicList, keyword){
 			var filtered = [];
 			var foundKey = false;
-			for(var i = 0; i < topicList.length; i++) {
-				tagList = topicList.getTags();
-				for(var j = 0; i < topicList.length; j++) {
-					if(topicList[j].getType() == keyword)
-					foundTag = true;
+			var careerList = topicService.careerResource(keyword);
+			for(var i=0; i<topicList.length; i++) {
+				for(var j=0; j<careerList.length; j++) {
+					if (careerList[j].name == topicList[i].name) {
+						foundKey = true;
+					}
 				}
-				if(foundTag) {
+				if(foundKey) {
 					filtered.push(topicList[i])
 				}
-				foundTag = false;
 			}
 			return filtered;
 		}

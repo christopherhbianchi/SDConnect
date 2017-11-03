@@ -20,12 +20,12 @@ public class ProfileDAOImpl implements ProfileDAO {
 
 
 	@Override
-	public Profile editUserProfile(int uid, int pid, String profileJson) {
-
-		Profile p = em.find(Profile.class, pid); //profile from db
+	public Profile editUserProfile(int uid, String profileJson) {
+		
+		User u = em.find(User.class, uid); //profile from db
 		//profile has a user object
-		User u = p.getUser();
-		if(u.getId() == uid) {
+		Profile p = u.getProfile();
+		if(u.getId() == uid) { //may need to go
 			
 		//put this at the end of your entire code
 		
@@ -96,29 +96,22 @@ public class ProfileDAOImpl implements ProfileDAO {
 	}
 
 	@Override
-	public Boolean deleteUserProfile(int uid, int pid) {
+	public Boolean deleteUserProfile(int uid) {
 		// TODO Auto-generated method stub
-		Profile p = em.find(Profile.class, pid);
+		User u = em.find(User.class, uid);
+		em.remove(u.getProfile());
 		
-		try {
-			String query = "SELECT p FROM Profile p WHERE p.id = :pid";
-			p = em.createQuery(query, Profile.class)
-							.setParameter("pid", pid)
-							.getResultList()
-							.get(0);
-			em.remove(p);
+		if(u.getProfile() == null) {
 			return true;
 		}
-		catch(Exception e) {
-			return false;
-		}
 		
+		return false;
 	}
 
 	@Override
-	public Profile readUserProfile(int uid, int pid) {
+	public Profile readUserProfile(int uid) {
 		// TODO Auto-generated method stub
-		return em.find(Profile.class, pid);
+		return em.find(User.class, uid).getProfile();
 		
 	}
 

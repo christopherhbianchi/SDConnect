@@ -3,7 +3,7 @@
 <div class="container">
       <div class="row">
       <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
-           <A href="edit.h tml" >Edit Profile</A>
+           <A href="profileService.update" >Edit Profile</A>
 
         <A href="edit.html" >Logout</A>
        <br>
@@ -14,52 +14,44 @@
    
           <div class="panel panel-info">
             <div class="panel-heading">
-              <h3 class="panel-title">Sheena Shrestha</h3>
+              <h3 class="panel-title">{{profile.fname}}{{profile.lname}}</h3>
             </div>
             <div class="panel-body">
               <div class="row">
-                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive"> </div>
+                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src={{profile.img}} class="img-circle img-responsive"> </div>
                 
                 <div class=" col-md-9 col-lg-9 "> 
                   <table class="table table-user-information">
                     <tbody>
                       <tr>
-                        <td>Department:</td>
-                        <td>Programming</td>
+                        <td>Background:</td>
+                        <td>{{vm.profile.background}}</td> <!-- profile.background -->
                       </tr>
                       <tr>
-                        <td>Hire date:</td>
-                        <td>06/23/2013</td>
+                        <td>Previous Industry</td>
+                        <td>{{profile.previousIndustry}}</td>
                       </tr>
                       <tr>
-                        <td>Date of Birth</td>
-                        <td>01/24/1988</td>
+                        <td>Coding Experience</td>
+                        <td>{{profile.codingExperience}}</td>
                       </tr>
                    
                          <tr>
                              <tr>
-                        <td>Gender</td>
-                        <td>Female</td>
+                        <td>Personal Website</td>
+                        <td>{{profile.websiteUrl}}</td>
                       </tr>
                         <tr>
-                        <td>Home Address</td>
-                        <td>Kathmandu,Nepal</td>
+                        <td>GitHub</td>
+                        <td>{{profile.githubUrl}}</td>
                       </tr>
                       <tr>
-                        <td>Email</td>
-                        <td><a href="mailto:info@support.com">info@support.com</a></td>
-                      </tr>
-                        <td>Phone Number</td>
-                        <td>123-4567-890(Landline)<br><br>555-4567-890(Mobile)
-                        </td>
-                           
-                      </tr>
+                        <td>LinkedIn</td>
+                        <td>{{profile.linkedinUrl}}</td>
                      
                     </tbody>
                   </table>
-                  
-                  <a href="#" class="btn btn-primary">My Sales Performance</a>
-                  <a href="#" class="btn btn-primary">Team Sales Performance</a>
+                 
                 </div>
               </div>
             </div>

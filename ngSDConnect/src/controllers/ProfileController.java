@@ -24,12 +24,12 @@ public class ProfileController{
 		return "pongProfile";
 	}
 	
-	@RequestMapping(path = "users/{uid}/profiles/{pid}", method = RequestMethod.GET)
+	@RequestMapping(path = "users/{uid}/profiles", method = RequestMethod.GET)
 	public Profile readUserProfile(HttpServletRequest req, HttpServletResponse res, 
-			@PathVariable int uid, 
-			@PathVariable int pid) {
+			@PathVariable int uid 
+			) {
 	
-		return profileDao.readUserProfile(uid, pid);
+		return profileDao.readUserProfile(uid);
 	}
 
 	@RequestMapping(path = "users/{uid}/profiles", method = RequestMethod.POST)
@@ -41,21 +41,20 @@ public class ProfileController{
 	} 
 
 
-	@RequestMapping(path = "users/{uid}/profiles/{pid}", method = RequestMethod.PUT)
+	@RequestMapping(path = "users/{uid}/profiles", method = RequestMethod.PUT)
 	public Profile editUserProfile(HttpServletRequest req, HttpServletResponse res,
 			@PathVariable int uid,
-			@PathVariable int pid, 
 			@RequestBody String profileJson) {
 		
-		return profileDao.editUserProfile(uid, pid, profileJson);
+		return profileDao.editUserProfile(uid, profileJson);
 	}
 
-	@RequestMapping(path = "users/{uid}/profiles/{pid}", method = RequestMethod.DELETE)
+	@RequestMapping(path = "users/{uid}/profiles", method = RequestMethod.DELETE)
 	public Boolean deleteUserProfile(HttpServletRequest req, HttpServletResponse res, 
-			@PathVariable int uid, 
-			@PathVariable int pid) {
+			@PathVariable int uid
+			) {
 		
-		return profileDao.deleteUserProfile(uid, pid);
+		return profileDao.deleteUserProfile(uid);
 	
 	}
 }

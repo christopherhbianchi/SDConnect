@@ -1,5 +1,6 @@
 package controllers;
 
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,6 +56,11 @@ public class TopicController {
 	public boolean destroy(@PathVariable int id) {
 		// TODO Auto-generated method stub
 		return topic.deleteTopic(id);
+	}
+	
+	@RequestMapping(path="topics/tags/{word}", method=RequestMethod.GET)
+	public Set<Topic> getCareerResource(@PathVariable String word) {
+		return topic.getCareerResources(word);
 	}
 
 	

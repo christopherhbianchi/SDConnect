@@ -2,6 +2,7 @@ package data;
 
 import java.io.IOException;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.EntityManager;
@@ -14,8 +15,8 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import entities.Tag;
 import entities.Topic;
-import entities.User;
 
 @Transactional
 @Repository
@@ -113,4 +114,34 @@ public class TopicDAOImpl implements TopicDAO{
 		return false;
 	}
 
+	@Override
+	public Set<Topic> getCareerResources(String word) {
+		String queryString = "Select t from Tag t where t.id=:id";
+		int tid = 0;
+		
+		switch(word) {
+			case "resume":
+				tid = 3;
+				break;
+			case "cover":
+				tid = 4;
+				break;
+			case "interview":
+				tid = 5;
+				break;
+			default:
+				break;
+		}
+		
+		List<Tag> tempList = em.createQuery(queryString, Tag.class)
+							  .setParameter("id", tid)
+							  .getResultList();
+		Tag tag = tempList.get(0);
+		List<Topic> topicList = tag.getTopics();
+		Set<Topic> topicSet = new HashSet(topicList);
+		return topicSet;
+	}
+
+
+	
 }
