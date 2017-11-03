@@ -18,7 +18,7 @@ angular.module("appModule", ['ngRoute', 'ngCookies', 'authModule'])
 			.when('/resources',{
 				template:'<resources></resources>'
 			})
-			.when('/profile',{
+			.when('/users/1/profiles',{
 				template:'<profile></profile>'
 			})
 			.otherwise({
