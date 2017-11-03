@@ -22,8 +22,8 @@ angular.module("appModule")
 			
 			getAllTopics();
 			
-			vm.getKeywordOnly = function(word){
-				topicService.topicTagKeyword(word)
+			vm.getTopicByTagKeyword = function(word){
+				topicService.getTopicByTagKeyword(word)
 				.then(function(resp){
 					vm.currentTopics = resp.data;
 				})
