@@ -3,18 +3,18 @@
 <div class="container">
       <div class="row">
       <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
-           <A href="profileService.update" >Edit Profile</A>
+           <A href="vm.edit" ng-hide="">Edit Profile</A>
 
         <A href="edit.html" >Logout</A>
        <br>
-		<p class=" text-info">May 05, 2014, 03:00 pm </p>
+		<p class=" text-info">{{Date.now()}} </p>
       </div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
    
    
           <div class="panel panel-info">
             <div class="panel-heading">
-              <h3 class="panel-title">{{profile.fname}}{{profile.lname}}</h3>
+              <h3 class="panel-title" >{{vm.profile.fname}} {{vm.profile.lname}}</h3>
             </div>
             <div class="panel-body">
               <div class="row">
@@ -25,29 +25,29 @@
                     <tbody>
                       <tr>
                         <td>Background:</td>
-                        <td>{{vm.profile.background}}</td> <!-- profile.background -->
+                        <td>{{vm.profile.backgroundDescription}}</td> <!-- profile.background -->
                       </tr>
                       <tr>
                         <td>Previous Industry</td>
-                        <td>{{profile.previousIndustry}}</td>
+                        <td>{{vm.profile.previousIndustry}}</td>
                       </tr>
                       <tr>
                         <td>Coding Experience</td>
-                        <td>{{profile.codingExperience}}</td>
+                        <td>{{vm.profile.codingExperience}}</td>
                       </tr>
                    
                          <tr>
                              <tr>
                         <td>Personal Website</td>
-                        <td>{{profile.websiteUrl}}</td>
+                        <td>{{vm.profile.websiteUrl}}</td>
                       </tr>
                         <tr>
                         <td>GitHub</td>
-                        <td>{{profile.githubUrl}}</td>
+                        <td>{{vm.profile.githubUrl}}</td>
                       </tr>
                       <tr>
                         <td>LinkedIn</td>
-                        <td>{{profile.linkedinUrl}}</td>
+                        <td>{{vm.profile.linkedinUrl}}</td>
                      
                     </tbody>
                   </table>
