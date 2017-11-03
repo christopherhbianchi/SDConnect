@@ -1,5 +1,8 @@
 package data;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -8,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import entities.Event;
 import entities.Profile;
 import entities.User;
 
@@ -113,6 +117,14 @@ public class ProfileDAOImpl implements ProfileDAO {
 		// TODO Auto-generated method stub
 		return em.find(User.class, uid).getProfile();
 		
+	}
+
+	@Override
+	public Set<Profile> readAllProfiles() {
+		String query = "SELECT p FROM Profile p";
+		Set<Profile> profiles = new HashSet<>(em.createQuery(query, Profile.class)
+								.getResultList());				
+		return profiles;			
 	}
 
 }

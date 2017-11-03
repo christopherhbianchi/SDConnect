@@ -1,5 +1,7 @@
 package controllers;
 
+import java.util.Set;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -24,11 +26,19 @@ public class ProfileController{
 		return "pongProfile";
 	}
 	
-	@RequestMapping(path = "users/{uid}/profiles", method = RequestMethod.GET)
-	public Profile readUserProfile(HttpServletRequest req, HttpServletResponse res, 
-			@PathVariable int uid 
+	@RequestMapping(path = "profile", method = RequestMethod.GET)
+	public Set<Profile> readAllProfiles(HttpServletRequest req, HttpServletResponse res, 
+			@PathVariable int uid
 			) {
 	
+		return profileDao.readAllProfiles();
+	}
+	
+	@RequestMapping(path = "users/{uid}/profiles", method = RequestMethod.GET)
+	public Profile readUserProfile(HttpServletRequest req, HttpServletResponse res, 
+			@PathVariable int uid
+			) {
+		
 		return profileDao.readUserProfile(uid);
 	}
 
