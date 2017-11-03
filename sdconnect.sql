@@ -112,6 +112,19 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `tag`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `tag` ;
+
+CREATE TABLE IF NOT EXISTS `tag` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `type` VARCHAR(80) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `type_UNIQUE` (`type` ASC))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `topic`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `topic` ;
@@ -119,7 +132,14 @@ DROP TABLE IF EXISTS `topic` ;
 CREATE TABLE IF NOT EXISTS `topic` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(400) NOT NULL,
-  PRIMARY KEY (`id`))
+  `tag_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_topic_tag1_idx` (`tag_id` ASC),
+  CONSTRAINT `fk_topic_tag1`
+    FOREIGN KEY (`tag_id`)
+    REFERENCES `tag` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
@@ -252,43 +272,6 @@ CREATE TABLE IF NOT EXISTS `cohort_has_event` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-
--- -----------------------------------------------------
--- Table `tag`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `tag` ;
-
-CREATE TABLE IF NOT EXISTS `tag` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `type` VARCHAR(80) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE INDEX `type_UNIQUE` (`type` ASC))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `topic_has_tags`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `topic_has_tags` ;
-
-CREATE TABLE IF NOT EXISTS `topic_has_tags` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `topic_id` INT NOT NULL,
-  `tags_id` INT NOT NULL,
-  INDEX `fk_topic_has_tags_tag_idx` (`tags_id` ASC),
-  PRIMARY KEY (`id`),
-  CONSTRAINT `fk_topic_has_tags_topic`
-    FOREIGN KEY (`topic_id`)
-    REFERENCES `topic` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_topic_has_tags_tag`
-    FOREIGN KEY (`tags_id`)
-    REFERENCES `tag` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
 SET SQL_MODE = '';
 GRANT USAGE ON *.* TO sdconnector;
  DROP USER sdconnector;
@@ -345,14 +328,29 @@ COMMIT;
 
 
 -- -----------------------------------------------------
+-- Data for table `tag`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `sdconnectdb`;
+INSERT INTO `tag` (`id`, `type`) VALUES (1, 'Roommate');
+INSERT INTO `tag` (`id`, `type`) VALUES (2, 'Weekend');
+INSERT INTO `tag` (`id`, `type`) VALUES (3, 'Resume');
+INSERT INTO `tag` (`id`, `type`) VALUES (4, 'CoverLetter');
+INSERT INTO `tag` (`id`, `type`) VALUES (5, 'Interview');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
 -- Data for table `topic`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `sdconnectdb`;
-INSERT INTO `topic` (`id`, `name`) VALUES (1, 'Searching for roommate.');
-INSERT INTO `topic` (`id`, `name`) VALUES (2, 'Here\'s my resume.');
-INSERT INTO `topic` (`id`, `name`) VALUES (3, 'Interview at Google. Look at some interview questions!');
-INSERT INTO `topic` (`id`, `name`) VALUES (4, 'Cover Letter yes or no? Thoughts?');
+INSERT INTO `topic` (`id`, `name`, `tag_id`) VALUES (1, 'Searching for roommate.', 1);
+INSERT INTO `topic` (`id`, `name`, `tag_id`) VALUES (2, 'Here\'s my resume.', 3);
+INSERT INTO `topic` (`id`, `name`, `tag_id`) VALUES (3, 'Interview at Google. Look at some interview questions!', 4);
+INSERT INTO `topic` (`id`, `name`, `tag_id`) VALUES (4, 'Cover Letter yes or no? Thoughts?', 5);
+INSERT INTO `topic` (`id`, `name`, `tag_id`) VALUES (5, 'Skill Disitllery BBQ this weekend?', 2);
 
 COMMIT;
 
@@ -423,34 +421,6 @@ INSERT INTO `cohort_has_event` (`cohort_id`, `event_id`) VALUES (1, 1);
 INSERT INTO `cohort_has_event` (`cohort_id`, `event_id`) VALUES (1, 2);
 INSERT INTO `cohort_has_event` (`cohort_id`, `event_id`) VALUES (1, 3);
 INSERT INTO `cohort_has_event` (`cohort_id`, `event_id`) VALUES (2, 1);
-
-COMMIT;
-
-
--- -----------------------------------------------------
--- Data for table `tag`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `sdconnectdb`;
-INSERT INTO `tag` (`id`, `type`) VALUES (1, 'Roommate');
-INSERT INTO `tag` (`id`, `type`) VALUES (2, 'Homehunting');
-INSERT INTO `tag` (`id`, `type`) VALUES (3, 'Resume');
-INSERT INTO `tag` (`id`, `type`) VALUES (4, 'CoverLetter');
-INSERT INTO `tag` (`id`, `type`) VALUES (5, 'Interview');
-
-COMMIT;
-
-
--- -----------------------------------------------------
--- Data for table `topic_has_tags`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `sdconnectdb`;
-INSERT INTO `topic_has_tags` (`id`, `topic_id`, `tags_id`) VALUES (1, 1, 1);
-INSERT INTO `topic_has_tags` (`id`, `topic_id`, `tags_id`) VALUES (2, 1, 2);
-INSERT INTO `topic_has_tags` (`id`, `topic_id`, `tags_id`) VALUES (3, 2, 3);
-INSERT INTO `topic_has_tags` (`id`, `topic_id`, `tags_id`) VALUES (4, 2, 4);
-INSERT INTO `topic_has_tags` (`id`, `topic_id`, `tags_id`) VALUES (5, 3, 5);
 
 COMMIT;
 
