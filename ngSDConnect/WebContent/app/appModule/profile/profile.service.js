@@ -8,20 +8,22 @@ angular.module('appModule')
 	
 	// public
 	  profileService.index = function() {
-		var userId = authService.getToken().id;
-		var profileId = authService.getToken().id;  0
+		  var user = authService.getToken();
 		  
 		  return $http({
 			method : "GET",
-		//	url : "rest/users/"+ uid +"/profiles" + pid,
-			url : "rest/users/1/profiles"
+			url : "rest/users/3/profiles"
 		});
+		
 	  }
 
-	  profileService.create = function(uid) {
+	  profileService.create = function() {
+		  
+		  var user = authService.getToken();
+		  
 		    return $http({
 		      method : 'POST',
-		      url : "rest/users/" + uid + "/profiles",
+		      url : "rest/users/" + user.id + "/profiles",
 		      headers : {
 		        'Content-Type' : 'application/json'
 		      },
@@ -30,9 +32,12 @@ angular.module('appModule')
 		  }
 
 		profileService.update = function(profile) {
+			
+			 var user = authService.getToken();
+			 
 			return $http({
 		      method : 'PUT',
-		      url : "rest/users/" + profile.id + "/profiles",
+		      url : "rest/users/3/profiles",
 		      headers : {
 		        'Content-Type' : 'application/json'
 		      },
@@ -41,11 +46,8 @@ angular.module('appModule')
 		  }
 
 		  profileService.getDate = function(){
-			  
 			  return $filter('date')(Date.now(), 'MM/dd/yyyy');
-			
 		  }
-		  
 		  return profileService;
 	
 	
