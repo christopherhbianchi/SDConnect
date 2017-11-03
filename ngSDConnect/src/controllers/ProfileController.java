@@ -27,9 +27,7 @@ public class ProfileController{
 	}
 	
 	@RequestMapping(path = "profile", method = RequestMethod.GET)
-	public Set<Profile> readAllProfiles(HttpServletRequest req, HttpServletResponse res, 
-			@PathVariable int uid
-			) {
+	public Set<Profile> readAllProfiles(HttpServletRequest req, HttpServletResponse res) {
 	
 		return profileDao.readAllProfiles();
 	}
