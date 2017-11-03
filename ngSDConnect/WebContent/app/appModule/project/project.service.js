@@ -1,5 +1,5 @@
 angular.module('appModule')
-	.factory('topicService', function($http, $filter, $location, authService){
+	.factory('projectService', function($http, $filter, $location, authService){
 		var service = {};
 		
 		var checkLogin = function(){
@@ -16,60 +16,12 @@ angular.module('appModule')
 			else {
 				return $http({
 					method : 'GET',
-					url : 'rest/topics'
+					url : 'rest/projects'
 				})
 			}
 		};
 		
-		service.create = function(topic) {
-			var uid = checkLogin();
-			if(isNaN(uid)) {
-				$location.path('/login');
-			}
-			else {
-				return $http({
-					method : 'POST',
-					url : 'rest/topics',
-					headers : {
-						'Content-Type' : 'application/json'
-					},
-					data : topic
-				})
-			}
-		}
-	
-		service.update = function(topic) {
-			var tid = topic.id;
-			var uid = checkLogin();
-			if(isNaN(uid)) {
-				$location.path('/login');
-			}
-			else {
-				return $http({
-					method : 'PUT',
-					url : 'rest/topics/' + tid,
-					headers : {
-						'Content-Type' : 'application/json'
-					},
-					data : topic
-				})
-			}
-		}
-		
-		service.destroy = function(tid) {
-			var uid = checkLogin();
-			if(isNaN(uid)) {
-				$location.path('/login');
-			}
-			else {
-				return $http({
-					method : 'DELETE',
-					url : 'rest/topics/' + tid
-				})
-			}
-		}
-		
-		service.getTopicByTagKeyword = function(keyword) {
+		service.show = function(pid){
 			var uid = checkLogin();
 			if(isNaN(uid)) {
 				$location.path('/login');
@@ -77,7 +29,55 @@ angular.module('appModule')
 			else {
 				return $http({
 					method : 'GET',
-					url : 'rest/topics/tags/' + keyword
+					url : 'rest/projects/' + pid
+				})
+			}
+		};
+		
+		service.create = function(project) {
+			var uid = checkLogin();
+			if(isNaN(uid)) {
+				$location.path('/login');
+			}
+			else {
+				return $http({
+					method : 'POST',
+					url : 'rest/projects',
+					headers : {
+						'Content-Type' : 'application/json'
+					},
+					data : project
+				})
+			}
+		}
+	
+		service.update = function(project) {
+			var pid = project.id;
+			var uid = checkLogin();
+			if(isNaN(uid)) {
+				$location.path('/login');
+			}
+			else {
+				return $http({
+					method : 'PUT',
+					url : 'rest/users/' + uid + 'topics/' + pid,
+					headers : {
+						'Content-Type' : 'application/json'
+					},
+					data : project
+				})
+			}
+		}
+		
+		service.destroy = function(pid) {
+			var uid = checkLogin();
+			if(isNaN(uid)) {
+				$location.path('/login');
+			}
+			else {
+				return $http({
+					method : 'DELETE',
+					url : 'rest/users/' + uid + 'topics/' + pid
 				})
 			}
 		}

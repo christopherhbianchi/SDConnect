@@ -1,1 +1,19 @@
-<h3>Project To Do</h3>
+<h3>Projects</h3>
+<div>
+	<table>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+				<th>Estimated Hours</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="project in vm.projectList">
+				<td ng-class='vm.getIntensity(project.estimatedHours)'>{{project.name}}</td>
+				<td ng-class='vm.getIntensity(project.estimatedHours)'>{{project.description}}</td>
+				<td ng-class='vm.getIntensity(project.estimatedHours)'>{{project.estimatedHours}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
