@@ -54,6 +54,5 @@ public class CareerResources {
 		return "CareerResources [id=" + id + ", type=" + type + ", uploadID=" + uploadID + ", link=" + link + "]";
 	}
 	
-	
 
 }
