@@ -10,8 +10,6 @@ angular.module("appModule")
 			var getAllEvents = function() {
 				eventService.index()
 				.then(function(response){
-					console.log("Inside get all response");
-					console.log(response.data);
 					vm.eventList = response.data;
 				})
 			}

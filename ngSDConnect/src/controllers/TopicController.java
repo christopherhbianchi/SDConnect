@@ -58,8 +58,9 @@ public class TopicController {
 		return topic.deleteTopic(id);
 	}
 	
-	@RequestMapping(path="topics/tags/{word}", method=RequestMethod.GET)
+	@RequestMapping(path="topics/tags/{id}/{word}", method=RequestMethod.GET)
 	public Set<Topic> getCareerResource(@PathVariable String word) {
+		System.out.println("in controller");
 		return topic.getByTagKeyword(word);
 	}
 

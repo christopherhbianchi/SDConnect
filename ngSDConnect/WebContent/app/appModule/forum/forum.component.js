@@ -51,6 +51,22 @@ angular.module("appModule")
 				getAllTopics();
 			};
 			
+			vm.currentAuthorTopic = function(tid) {
+				return true;
+			}
+			
+			vm.currentAuthorPost = function(pid) {
+				return true;
+			}
+			
+			vm.editTopic = function(tid) {
+				console.log(tid);
+			}
+			
+			vm.editPost = function(pid) {
+				console.log(pid);
+			}
+			
 		},
 		
 		controllerAs: 'vm'
