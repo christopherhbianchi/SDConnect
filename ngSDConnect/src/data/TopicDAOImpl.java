@@ -117,6 +117,7 @@ public class TopicDAOImpl implements TopicDAO{
 
 	@Override
 	public Set<Topic> getByTagKeyword(String word) {
+		System.out.println("in dao before");
 		String queryString = "Select t from Tag t where t.type=:name";
 		List<Topic> topicList = null;
 		List<Tag> tagList = em.createQuery(queryString, Tag.class)
@@ -127,8 +128,10 @@ public class TopicDAOImpl implements TopicDAO{
 			topicList = tag.getTopics();
 			System.out.println("*********Topics: " + topicList);
 			Set<Topic> topicSet = new HashSet<>(topicList);
+			System.out.println("in dao after in if");
 			return topicSet;
 		}
+		System.out.println("in dao after");
 		return null;
 	}
 

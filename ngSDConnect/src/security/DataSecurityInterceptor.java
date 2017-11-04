@@ -15,14 +15,15 @@ public class DataSecurityInterceptor implements HandlerInterceptor {
 			throws Exception {
 		Object objUser = request.getSession().getAttribute("user");
 		System.out.println("****************************************");
-		System.out.println("User: " + objUser);
+//		System.out.println("User: " + ((User)objUser).getEmail());
 		System.out.println("****************************************");
 		System.out.println("[4]: " + request.getRequestURI().split("/")[4]);
 		if(objUser != null) {
 	    		User u = (User)objUser;
 	    		String URI = request.getRequestURI();
 	    		String[] pathsplit = URI.split("/");
-	    		int pathUserId = Integer.parseInt(pathsplit[4]);
+	    		System.out.println("pathsplit[4]: " + pathsplit[4]);
+	    		int pathUserId = Integer.parseInt(pathsplit[5]);
 	    		if(pathUserId == u.getId()) {
 	    			return true;
 	    		}

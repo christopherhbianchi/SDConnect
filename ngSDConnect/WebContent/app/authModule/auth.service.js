@@ -15,6 +15,9 @@ angular.module('authModule')
 	    		"id" : $cookies.get("id"),
 	    		"email" : $cookies.get("email")
 	    		}
+	    	
+	    	console.log($cookies.get("id"));
+	    	console.log($cookies.get("email"));
 	    	return	user;
     	
     }
