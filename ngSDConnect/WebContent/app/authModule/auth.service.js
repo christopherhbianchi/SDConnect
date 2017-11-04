@@ -59,7 +59,7 @@ angular.module('authModule')
     service.register = function(user) {
       // Use the auth/register route to create and authenticate the user
       // On success, use saveToken to store the users id/email
-    	
+    	console.log(user);
       	return $http({
 	    		method:"POST", 
 	    		url: "rest/auth/register",
