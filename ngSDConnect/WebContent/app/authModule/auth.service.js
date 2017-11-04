@@ -53,19 +53,19 @@ angular.module('authModule')
       // On success, use saveToken to store the users id/email
     	
       	return $http({
-    		method:"POST", 
-    		url: "rest/auth/register",
-    		headers: {
-    			"Content-Type" : "application/json"
-    		},
-    		data: user
-	    	})
-	    	.then(function(res){
-	    		saveToken(res.data);
-	    		return res;
-	    		
+	    		method:"POST", 
+	    		url: "rest/auth/register",
+	    		headers: {
+	    			"Content-Type" : "application/json"
+	    		},
+	    		data: user
+		    	})
+		    	.then(function(res){
+		    		saveToken(res.data);
+		    		return res;
+		    		
 	    	});
-	    }
+	}
 
     service.logout = function() {
       // Use the auth/logout route to remove the users session
