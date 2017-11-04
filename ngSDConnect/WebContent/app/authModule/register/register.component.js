@@ -1,9 +1,7 @@
 angular.module("authModule").component("register", {
 	templateUrl : "app/authModule/register/register.component.html",
 	controller : function(authService, $filter, $location, $http, $routeParams, $cookies) {
-		var vm = this;
-		
-		vm.login = 
+		var vm = this; 
 		
 		vm.register = function(user) {
 			console.log("inside register")
@@ -13,7 +11,7 @@ angular.module("authModule").component("register", {
 			
 			authService.register(user)
 			.then(function(response){
-				$location.path("/users/"+ authService.getToken().id +"/profiles");
+				$location.path("/users/"+ authService.getToken().id +"/registerprofiles");
 			})
 		}
 	},

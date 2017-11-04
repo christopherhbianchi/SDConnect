@@ -2,10 +2,13 @@ angular.module('authModule')
   .factory('authService', function($http, $cookies) {
     var service = {};
     
+    var admin = false;
+    
     var saveToken = function(user) {
       // Store the user's id and email in cookies
 	    	$cookies.put("id", user.id);
 	    	$cookies.put("email", user.email);
+	    	$cookies.put("type", user.type.type);
     }
 
     service.getToken = function() {
@@ -13,11 +16,13 @@ angular.module('authModule')
       // the values are the values of the cookies
 	    	var user = {
 	    		"id" : $cookies.get("id"),
-	    		"email" : $cookies.get("email")
+	    		"email" : $cookies.get("email"),
+	    		"type" : $cookies.get("type")
 	    		}
 	    	
 	    	console.log($cookies.get("id"));
 	    	console.log($cookies.get("email"));
+	    	console.log($cookies.get("type"));
 	    	return	user;
     	
     }
@@ -26,6 +31,7 @@ angular.module('authModule')
       //Remove both the id and email cookies
 	    	$cookies.remove("id");
 	    	$cookies.remove("email");
+	    	$cookies.remove("type");
     }
 
     service.login = function(user) {
@@ -43,6 +49,7 @@ angular.module('authModule')
    		})
    		.then(function(res){
    			saveToken(res.data);
+   			console.log(res.data);
    			return res;
    		});
     	

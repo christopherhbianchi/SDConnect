@@ -9,7 +9,17 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 
-	<!-- <bean id="SDConnectInterceptor" class="security.DataSecurityInterceptor"/> -->
+	<!-- <bean id="SDConnectInterceptor" class="security.DataSecurityInterceptor"/>
+	<mvc:interceptors>
+	   <mvc:interceptor>
+	     <mvc:mapping path="/login/*/**"/>
+		 <ref bean="SDConnectInterceptor"/>
+	   </mvc:interceptor>
+	     <mvc:interceptor>
+	     <mvc:mapping path="/register/*/**"/>
+		 <ref bean="SDConnectInterceptor"/>
+	   </mvc:interceptor>
+	</mvc:interceptors> -->
 	
 	<!-- <mvc:interceptors>
 		<mvc:interceptor>

@@ -24,6 +24,9 @@ angular.module("appModule", ['ngRoute', 'ngCookies', 'authModule'])
 			.when('/profile',{
 				template:'<alumni></alumni>'
 			})
+			.when('/users/:id/registerprofiles',{
+				template:'<registerprofile></registerprofile>'
+			})
 			.otherwise({
 				template:'<h1>404 - NOT FOUND </h1>'
 			})	
