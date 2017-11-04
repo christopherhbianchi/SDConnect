@@ -14,8 +14,13 @@ public class DataSecurityInterceptor implements HandlerInterceptor {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		Object objUser = request.getSession().getAttribute("user");
+<<<<<<< HEAD
+		System.out.println("****************************************");
+//		System.out.println("User: " + ((User)objUser).getEmail()); //this is a null object and causes internal server error
+=======
 //		System.out.println("****************************************");
 //		System.out.println("User: " + ((User)objUser).getEmail());
+>>>>>>> 99ef43a7fac96dce30d5d7b85d49bc4a0fe471ed
 		System.out.println("****************************************");
 		System.out.println("[0]: " + request.getRequestURI().split("/")[0]);
 		System.out.println("[1]: " + request.getRequestURI().split("/")[1]);

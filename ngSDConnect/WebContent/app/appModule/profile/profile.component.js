@@ -8,8 +8,8 @@ angular.module("appModule").component("profile", {
 			vm.profile = {};
 			
 			var reload = function(){
-				profileService.index().then(function(response){
-					vm.profile = response.data;
+				profileService.index().then(function(res){
+					vm.profile = res.data;
 				});
 			}
 			reload();
@@ -29,6 +29,6 @@ angular.module("appModule").component("profile", {
 			
 		},
 	 controllerAs : "vm"
- })
+ }) 
 	
 	

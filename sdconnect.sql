@@ -22,7 +22,7 @@ DROP TABLE IF EXISTS `user_type` ;
 
 CREATE TABLE IF NOT EXISTS `user_type` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `type` VARCHAR(200) NOT NULL,
+  `type` VARCHAR(200) NOT NULL DEFAULT 'student',
   PRIMARY KEY (`id`),
   UNIQUE INDEX `type_UNIQUE` (`type` ASC))
 ENGINE = InnoDB;
@@ -309,6 +309,13 @@ START TRANSACTION;
 USE `sdconnectdb`;
 INSERT INTO `cohort` (`id`, `name`, `start_date`, `end_date`, `cohort_num`, `mascot_img_url`) VALUES (1, 'Lions', '2017-07-31', '2017-11-21', 12, NULL);
 INSERT INTO `cohort` (`id`, `name`, `start_date`, `end_date`, `cohort_num`, `mascot_img_url`) VALUES (2, 'Manatees', '2017-10-01', '2017-12-23', 13, NULL);
+INSERT INTO `cohort` (`id`, `name`, `start_date`, `end_date`, `cohort_num`, `mascot_img_url`) VALUES (3, 'Neanderthals', '2018-10-01', '2018-12-23', 14, NULL);
+INSERT INTO `cohort` (`id`, `name`, `start_date`, `end_date`, `cohort_num`, `mascot_img_url`) VALUES (4, 'Octothorpes', '2019-10-01', '2019-12-23', 15, NULL);
+INSERT INTO `cohort` (`id`, `name`, `start_date`, `end_date`, `cohort_num`, `mascot_img_url`) VALUES (5, 'Pomeranians', '2020-10-01', '2020-12-23', 16, NULL);
+INSERT INTO `cohort` (`id`, `name`, `start_date`, `end_date`, `cohort_num`, `mascot_img_url`) VALUES (6, 'Quails', '2021-10-01', '2021-12-23', 17, NULL);
+INSERT INTO `cohort` (`id`, `name`, `start_date`, `end_date`, `cohort_num`, `mascot_img_url`) VALUES (7, 'Raccoons', '2022-10-01', '2022-12-23', 18, NULL);
+INSERT INTO `cohort` (`id`, `name`, `start_date`, `end_date`, `cohort_num`, `mascot_img_url`) VALUES (8, 'Sharks', '2023-10-01', '2023-12-23', 19, NULL);
+INSERT INTO `cohort` (`id`, `name`, `start_date`, `end_date`, `cohort_num`, `mascot_img_url`) VALUES (9, 'Tigers', '2024-10-01', '2024-12-23', 20, NULL);
 
 COMMIT;
 
