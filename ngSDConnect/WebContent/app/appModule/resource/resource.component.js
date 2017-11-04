@@ -2,7 +2,7 @@ angular.module("appModule")
 	.component("resource", {
 	
 		templateUrl:"app/appModule/resource/resource.component.html",
-		controller:function(topicService){ //we use the topicService instead sine a resource is a topic object
+		controller:function(topicService){ //we use the topicService instead since a resource is a topic object
 			
 			//point of this is to handle requests from the html file
 			//we w
@@ -11,6 +11,7 @@ angular.module("appModule")
 			vm.selectedCategory = null; //if they choose a button to filter by at the top
 			vm.selected = null; //if they choose a single entry
 			vm.edit = null; //if somebody selects a resource to edit.. on other side we can verify they have permission
+			vm.add = null; //if somebody wants to add, we set it here
 			
 			vm.resources = [];
 			
@@ -25,14 +26,24 @@ angular.module("appModule")
 			vm.showResource = function(resource){ //can grab the id out of it later in the service
 				topicService.show(resource.id).then(function(response){
 					vm.selected = response.data;
+					vm.selectedCategory = null;
 					console.log(response.data);
 				})
 			}
 			
+			vm.addResource = function(){
+				vm.add = true;
+			}
+			
 			vm.createResource = function(resource){ //name is resource, but its a topic obj
-				topicService.create(resource).then(function(response){
+				topicService.create(resource).then(function(response){ //can attach this function to a save button
 					reload(); //after it's made, reload our data
+					vm.add = null;//once it's added, turn it off
 				})
+			}
+			
+			vm.cancelCreation = function(){
+				vm.add = null; //if they cancel they go back to category page
 			}
 			
 			vm.deleteResource = function(resource){ //we can pull the id out of this later in the service to give to the controller
@@ -64,6 +75,7 @@ angular.module("appModule")
 						vm.selectedCategory = category;
 						vm.resources = response.data;
 						console.log(vm.resources);
+						vm.selected = null;
 					})
 			}
 			
