@@ -91,5 +91,15 @@ angular.module('appModule')
 			}
 		}
 		
+		service.returnUser = function() {
+			var uid = checkLogin();
+			if(isNaN(uid)) {
+				$location.path('/login');
+			}
+			else {
+				return uid;
+			}
+		}
+		
 		return service;
 	});

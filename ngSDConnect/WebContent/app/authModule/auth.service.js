@@ -34,7 +34,7 @@ angular.module('authModule')
     		
     	return $http({
     		method:"POST", 
-    		url: "rest/auth/login",
+    		url: "rest/users/"+authService.getToken().id+"/profiles",
     		headers: {
     			"Content-Type" : "application/json"
     		},

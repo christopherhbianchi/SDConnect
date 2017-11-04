@@ -25,8 +25,6 @@
                 		       <td ng-hide="vm.edit">{{vm.profile.backgroundDescription}}</td> <!-- profile.background -->
                 		       <td ng-show="vm.edit">
 							  <textarea name="message" rows="5" cols="30" ng-model="vm.profile.backgroundDescription">{{vm.profile.backgroundDescription}}</textarea>
-							  
-							  
 							</td>
                       </tr>
                       <tr>
@@ -34,7 +32,6 @@
                         <td ng-hide="vm.edit">{{vm.profile.previousIndustry}}</td>
                 		       <td ng-show="vm.edit">
 							  <textarea name="message" rows="2" cols="30" ng-model="vm.profile.previousIndustry">{{vm.profile.Industry}}</textarea>
-							 
 							</td>
                       </tr>
                       <tr>
@@ -42,7 +39,6 @@
                         <td ng-hide="vm.edit">{{vm.profile.codingExperience}}</td>
                 		       <td ng-show="vm.edit">
 							  <textarea name="message" rows="2" cols="30" ng-model="vm.profile.codingExperience">{{vm.profile.codingExperience}}</textarea>
-							  
 							</td>
                       </tr>
                    
@@ -52,7 +48,6 @@
                         <td ng-hide="vm.edit">{{vm.profile.websiteUrl}}</td>
                 		       <td ng-show="vm.edit">
 							  <textarea name="message" rows="1" cols="30" ng-model="vm.profile.websiteUrl">{{vm.profile.websiteUrl}}</textarea>
-							 
 							</td>
                       </tr>
                         <tr>
@@ -60,7 +55,6 @@
                         <td ng-hide="vm.edit">{{vm.profile.githubUrl}}</td>
                 		       <td ng-show="vm.edit">
 							  <textarea name="message" rows="1" cols="30" ng-model="vm.profile.githubUrl">{{vm.profile.githubUrl}}</textarea>
-							  
 							</td>
                       </tr>
                       <tr>
@@ -69,16 +63,13 @@
                 		       <td ng-show="vm.edit">
 							  <textarea name="message" rows="1" cols="30" ng-model="vm.profile.linkedinUrl">{{vm.profile.linkedinUrl}}</textarea>
 							</td>
-                     
+   
                     </tbody>
                   </table>
 							<input type="submit" ng-click="vm.submit(vm.profile)" ng-show="vm.edit">
-                 
                 </div>
               </div>
             </div>
-      
-            
           </div>
         </div>
       </div>
