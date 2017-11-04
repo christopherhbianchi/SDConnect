@@ -12,7 +12,6 @@ angular.module("authModule").component("register", {
 			
 			authService.register(user)
 			.then(function(response){
-				//registerService.create(response.data);
 				$location.path("/users/"+ authService.getToken().id +"/profiles");
 			})
 		}
