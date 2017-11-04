@@ -21,6 +21,7 @@ public class AuthController {
 	public User register(HttpSession session, @RequestBody User user, HttpServletResponse res) {
 		System.out.println("password: " + user.getPassword());
 		System.out.println("cohort: " + user.getCohort());
+		System.out.println("user" + user);
 		User u = authDAO.register(user); //this should have a user returned
 		if(u != null) {
 			session.setAttribute("user", u); //set the session attribute if a user returned
