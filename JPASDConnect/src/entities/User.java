@@ -2,7 +2,9 @@ package entities;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -30,8 +32,8 @@ public class User {
 	private String password;
 
 	//many users of one type
-	@ManyToOne	
-	@JoinColumn(name = "user_type_id")
+	@ManyToOne
+	@JoinColumn(name = "user_type_id" )
 	private Type type;
 	
 	@JsonIgnore
@@ -44,7 +46,7 @@ public class User {
 
 	// many users in one cohort
 	@JsonBackReference(value="usersForCohort")
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.MERGE)
 	@JoinColumn(name = "cohort_id")
 	private Cohort cohort;
 

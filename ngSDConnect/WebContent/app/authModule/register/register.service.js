@@ -3,20 +3,21 @@ angular.module("authModule").factory("registerService",
 
 			var registerService = {};
 			
-			registerService.create = function(profile) {	
+			registerService.create = function(user) {	
 					return $http({
 						method : 'POST',
 						url : "rest/users/"+authService.getToken().id+"/profiles",
 						headers : {
 							'Content-Type' : 'application/json'
 						},
-						data : profile
+						data : user
 						})
 						.then(function(response) {
 							return response;
 						});//end of the then function
 
 			}
+			return registerService;
 
 		})// end of function
 
