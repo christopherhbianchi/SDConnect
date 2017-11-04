@@ -18,6 +18,7 @@
 			</tr>
 		</tbody>
 	</table>
+	<input type='submit' value='New Thread' ng-click='vm.newPost=true' />
 <!-- 	<input type='submit' name='submit' value='Filter by Resume Only' ng-click='vm.getTopicByTagKeyword("Resume")' /> -->
 </div>
 <div ng-show='vm.postView'>
@@ -58,6 +59,21 @@
 		<lable>Title:</lable><input type='text' ng-model='vm.topicSelected.name'><br>
 		<input type='submit' value='Save' ng-click='vm.updateTopic(vm.topicSelected)' /><br>
 		<input type='submit' value='Delete' ng-click='vm.deleteTopic(vm.topicSelected.id)' /><br>
+		<input type='submit' value='Cancel' ng-click='vm.displayTopics()' /><br>
+	</form>
+</div>
+<div ng-show="vm.newPost">
+	<form>
+		<lable>Message:</lable><input type='text' ng-model='new.message'><br>
+		<lable>Link:</lable><input type='text' ng-model='new.link'><br>
+		<input type='submit' value='Save' ng-click='vm.newPost(new)' /><br>
+		<input type='submit' value='Cancel' ng-click='vm.displayTopics()' /><br>
+	</form>
+</div>
+<div ng-show="vm.newTopic">
+	<form>
+		<lable>Title:</lable><input type='text' ng-model='new.name'><br>
+		<input type='submit' value='Save' ng-click='vm.newTopic(new)' /><br>
 		<input type='submit' value='Cancel' ng-click='vm.displayTopics()' /><br>
 	</form>
 </div>

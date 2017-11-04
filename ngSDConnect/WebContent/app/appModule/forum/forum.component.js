@@ -8,11 +8,17 @@ angular.module("appModule")
 			vm.currentTopics = [];
 			vm.currentPosts = [];
 			
-			vm.postView = false;
-			vm.postSelected = null;
-			vm.topicSelected = null;
-			
 			var currentUserToken = postService.returnUser();
+			
+			var setEverythingToNull = function(){
+				vm.postView = false;
+				vm.postSelected = null;
+				vm.topicSelected = null;
+				vm.newTopic = false;
+				vm.newPost = false;
+			};
+			
+			setEverythingToNull();
 			
 			var getAllTopics = function(){
 				topicService.index()
@@ -37,9 +43,8 @@ angular.module("appModule")
 			};
 			
 			vm.getPostsPerTopic = function(tid) {
+				setEverythingToNull();
 				vm.postView = true;
-				vm.postSelected = null;
-				vm.topicSelected = null;
 				postService.index(tid)
 				.then(function(resp){
 					console.log(resp.data);
@@ -48,68 +53,62 @@ angular.module("appModule")
 				.catch(function(error){
 					console.log(error)
 				})
-			}
+			};
 			
 			vm.displayTopics = function(){
 				vm.currentPosts = [];
-				vm.postView = false;
-				vm.postSelected = null;
-				vm.topicSelected = null;
+				setEverythingToNull();
 				getAllTopics();
 			};
 			
 			vm.currentAdmin = function() {
 				return currentUserToken.type == 'admin';
-			}
+			};
 			
 			vm.currentAuthorPost = function(post) {
 				var uid = currentUserToken.id;
 				var compare = post.user.id;
 				return uid == compare;
-			}
+			};
 			
 			vm.editTopic = function(topic) {
-				vm.postView = false;
-				vm.postSelected = null;
+				setEverythingToNull();
 				vm.topicSelected = topic;
-			}
+			};
 			
 			vm.updateTopic = function(topic){
-				vm.postView = false;
-				vm.postSelected = null;
-				vm.topicSelected = null;
-				console.log("in updateTopic");
-				console.log(topic);
+				topicService.update(topic);
+				setEverythingToNull();
 			};
 			
 			vm.deleteTopic = function(tid){
-				vm.postView = false;
-				vm.postSelected = null;
-				vm.topicSelected = null;
-				console.log("in deleteTopic");
-				console.log(tid);
+				topicService.destroy(tid);
+				setEverythingToNull();
+			};
+			
+			vm.newTopic = function(topic) {
+				topicService.create(topic);
+				setEverythingToNull();
 			};
 			
 			vm.editPost = function(post) {
-				vm.postView = false;
+				setEverythingToNull();
 				vm.postSelected = post;
-				vm.topicSelected = null;
-			}
+			};
 			
 			vm.updatePost = function(post){
-				vm.postView = false;
-				vm.postSelected = null;
-				vm.topicSelected = null;
-				console.log("in updatePost");
-				console.log(post);
+				postService.update(post);
+				setEverythingToNull();
 			};
 			
 			vm.deletePost = function(pid){
-				vm.postView = false;
-				vm.postSelected = null;
-				vm.topicSelected = null;
-				console.log("in deletePost");
-				console.log(pid);
+				postService.destroy(pid);
+				setEverythingToNull();
+			};
+			
+			vm.newPost = function(post) {
+				postService.create(post);
+				setEverythingToNull();
 			};
 			
 		},
