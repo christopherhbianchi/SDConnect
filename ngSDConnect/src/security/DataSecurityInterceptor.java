@@ -17,8 +17,6 @@ public class DataSecurityInterceptor implements HandlerInterceptor {
 		System.out.println("****************************************");
 		System.out.println("User: " + objUser);
 		System.out.println("****************************************");
-		System.out.println("Path: " + request.getRequestURI());
-		System.out.println("[3]: " + request.getRequestURI().split("/")[3]);
 		System.out.println("[4]: " + request.getRequestURI().split("/")[4]);
 		if(objUser != null) {
 	    		User u = (User)objUser;

@@ -8,7 +8,9 @@ angular.module('appModule')
 		};
 		
 		service.index = function(tid){
+			console.log("entering index method");
 			var uid = checkLogin();
+			console.log("uid" + uid);
 			if(isNaN(uid)) {
 				$location.path('/login');
 			}
