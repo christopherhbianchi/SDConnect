@@ -9,6 +9,10 @@ angular.module("appModule")
 			vm.currentPosts = [];
 			
 			vm.postView = false;
+			vm.postSelected = null;
+			vm.topicSelected = null;
+			
+			var currentUserToken = postService.returnUser();
 			
 			var getAllTopics = function(){
 				topicService.index()
@@ -33,8 +37,9 @@ angular.module("appModule")
 			};
 			
 			vm.getPostsPerTopic = function(tid) {
-				console.log('In getPostsPerTopic');
 				vm.postView = true;
+				vm.postSelected = null;
+				vm.topicSelected = null;
 				postService.index(tid)
 				.then(function(resp){
 					console.log(resp.data);
@@ -48,30 +53,64 @@ angular.module("appModule")
 			vm.displayTopics = function(){
 				vm.currentPosts = [];
 				vm.postView = false;
+				vm.postSelected = null;
+				vm.topicSelected = null;
 				getAllTopics();
 			};
 			
-			vm.currentAdmin = function(topic) {
-				var uid = postService.returnUser();
-				
-				console.log(compare);
-				return true;
+			vm.currentAdmin = function() {
+				return currentUserToken.type == 'admin';
 			}
 			
 			vm.currentAuthorPost = function(post) {
-				var uid = postService.returnUser();
+				var uid = currentUserToken.id;
 				var compare = post.user.id;
-				console.log(compare);
-				return true;
+				return uid == compare;
 			}
 			
 			vm.editTopic = function(topic) {
-				console.log(tid);
+				vm.postView = false;
+				vm.postSelected = null;
+				vm.topicSelected = topic;
 			}
 			
+			vm.updateTopic = function(topic){
+				vm.postView = false;
+				vm.postSelected = null;
+				vm.topicSelected = null;
+				console.log("in updateTopic");
+				console.log(topic);
+			};
+			
+			vm.deleteTopic = function(tid){
+				vm.postView = false;
+				vm.postSelected = null;
+				vm.topicSelected = null;
+				console.log("in deleteTopic");
+				console.log(tid);
+			};
+			
 			vm.editPost = function(post) {
-				console.log(pid);
+				vm.postView = false;
+				vm.postSelected = post;
+				vm.topicSelected = null;
 			}
+			
+			vm.updatePost = function(post){
+				vm.postView = false;
+				vm.postSelected = null;
+				vm.topicSelected = null;
+				console.log("in updatePost");
+				console.log(post);
+			};
+			
+			vm.deletePost = function(pid){
+				vm.postView = false;
+				vm.postSelected = null;
+				vm.topicSelected = null;
+				console.log("in deletePost");
+				console.log(pid);
+			};
 			
 		},
 		
