@@ -4,15 +4,15 @@
 	<table>
 		<thead>
 			<tr>
-				<th>Event</th>
-				<th>Description</th>
+				<th>Event Description</th>
+				<th>Public?</th>
 				<th>Date</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr ng-repeat="event in vm.eventList">
-				<td>{{event.publicEvent}}</td>
 				<td>{{event.description}}</td>
+				<td>{{event.publicEvent}}</td>
 				<td>{{event.date}}</td>
 			</tr>
 		</tbody>

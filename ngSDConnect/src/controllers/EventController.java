@@ -52,8 +52,7 @@ public class EventController {
 	public boolean destroy(@PathVariable int eventId, @PathVariable int userId) {
 		return dao.deleteEvent(userId, eventId);
 	}
-	
-	
+
 //  index	
 //  show
 //  create	
