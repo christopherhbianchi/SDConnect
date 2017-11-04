@@ -21,8 +21,8 @@ USE `sdconnectdb` ;
 DROP TABLE IF EXISTS `user_type` ;
 
 CREATE TABLE IF NOT EXISTS `user_type` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `type` VARCHAR(200) NOT NULL DEFAULT 'student',
+  `id` INT NOT NULL DEFAULT 2,
+  `type` VARCHAR(200) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `type_UNIQUE` (`type` ASC))
 ENGINE = InnoDB;
