@@ -51,19 +51,25 @@ angular.module("appModule")
 				getAllTopics();
 			};
 			
-			vm.currentAuthorTopic = function(tid) {
+			vm.currentAdmin = function(topic) {
+				var uid = postService.returnUser();
+				
+				console.log(compare);
 				return true;
 			}
 			
-			vm.currentAuthorPost = function(pid) {
+			vm.currentAuthorPost = function(post) {
+				var uid = postService.returnUser();
+				var compare = post.user.id;
+				console.log(compare);
 				return true;
 			}
 			
-			vm.editTopic = function(tid) {
+			vm.editTopic = function(topic) {
 				console.log(tid);
 			}
 			
-			vm.editPost = function(pid) {
+			vm.editPost = function(post) {
 				console.log(pid);
 			}
 			
