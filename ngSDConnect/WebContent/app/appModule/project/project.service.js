@@ -4,8 +4,8 @@ angular.module('appModule')
 		
 		var checkLogin = function(){
 			var userIdPass = authService.getToken();
-//			return userIdPass.id;
-			return 1;
+			return userIdPass.id;
+	
 		};
 		
 		service.index = function(){

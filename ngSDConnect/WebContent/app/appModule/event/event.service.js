@@ -2,14 +2,14 @@ angular.module('appModule')
 	.factory('eventService', function($http, $filter, $location, authService){
 		var eventService = {};
 		
-		eventService.index = function(id){  //one post
+		eventService.show = function(id){  //one post
 				return $http({
 					method : 'GET',
 					url : 'rest/events/' + id
 				})
 		};
 		
-		eventService.show = function() {  //show all posts
+		eventService.index = function() {  //show all posts
 			return $http({
 				method : 'GET',
 				url : 'rest/events'
@@ -23,47 +23,41 @@ angular.module('appModule')
 			})
 		}
 		
+		/// route for create --> users/{userId}/events
 		eventService.createEvent = function(event) {
-				return $http({
+			
+					return $http({
 					method : 'POST',
-					url : 'rest/users/' + uid + '/events',
+					url : 'rest/users/' + authService.getToken().id + '/events',
 					headers : {
 						'Content-Type' : 'application/json'
 					},
-					data : post
+					data : event
 				})
 		}
 	
-		service.update = function(post) {
-			var pid = post.id;
-			var uid = checkLogin();
-			if(isNaN(uid)) {
-				$location.path('/login');
-			}
-			else {
+		// route for update --> users/{userId}/events/{eventId}
+		eventService.update = function(event) {
+		
 				return $http({
 					method : 'PUT',
-					url : 'rest/users/' + uid + '/posts/' + pid,
+					url : 'rest/users/' + authService.getToken().id + '/events/' + event.id,
 					headers : {
 						'Content-Type' : 'application/json'
 					},
-					data : post
+					data : event
 				})
 			}
-		}
 		
-		service.destroy = function(pid) {
-			var uid = checkLogin();
-			if(isNaN(uid)) {
-				$location.path('/login');
-			}
-			else {
+		
+		//route for delete -->users/{userId}/events/{eventId}
+	eventService.destroy = function(id) {
+			
 				return $http({
 					method : 'DELETE',
-					url : 'rest/user/' + uid + '/posts/' + pid
+					url : 'rest/users/' + authService.getToken().id + '/events/' + id
 				})
 			}
-		}
 		
-		return service;
+		return eventService;
 	});
