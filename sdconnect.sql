@@ -318,11 +318,11 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `sdconnectdb`;
-INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`) VALUES (1, 'chrishbianchi@gmail.com', 'teamawesome', 1, 1);
-INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`) VALUES (2, 'jmckenna@gmail.com', 'donutdiva', 2, 1);
-INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`) VALUES (3, 'kkane@gmail.com', 'buildit', 1, 1);
-INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`) VALUES (4, 'mpentermann@gmail.com', 'hotsauce', 2, 1);
-INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`) VALUES (5, 'sryzek@gmail.com', 'pointedfalcon', 2, 1);
+INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`) VALUES (1, 'chrishbianchi@gmail.com', '$2a$10$CZ13mvoyPnO4nHjq82p.7.rWh0uizvHhk79domk8Lk06OtJGsjury', 1, 1);
+INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`) VALUES (2, 'jmckenna@gmail.com', '$2a$10$CZ13mvoyPnO4nHjq82p.7.rWh0uizvHhk79domk8Lk06OtJGsjury', 2, 1);
+INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`) VALUES (3, 'kkane@gmail.com', '$2a$10$CZ13mvoyPnO4nHjq82p.7.rWh0uizvHhk79domk8Lk06OtJGsjury', 1, 1);
+INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`) VALUES (4, 'mpentermann@gmail.com', '$2a$10$CZ13mvoyPnO4nHjq82p.7.rWh0uizvHhk79domk8Lk06OtJGsjury', 2, 1);
+INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`) VALUES (5, 'sryzek@gmail.com', '$2a$10$CZ13mvoyPnO4nHjq82p.7.rWh0uizvHhk79domk8Lk06OtJGsjury', 2, 1);
 
 COMMIT;
 
