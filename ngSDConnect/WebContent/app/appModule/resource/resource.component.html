@@ -1,6 +1,6 @@
  <navigation></navigation>
  
- <div class="album text-muted" ng-hide="vm.selectedCategory">
+ <div class="album text-muted" ng-hide="vm.selectedCategory || vm.add"> <!-- may need to circle back -->
         <div class="container">
           <div class="row">
             <div class="card">
@@ -24,28 +24,43 @@
               <p class="card-text">Interview Questions</p>
             </div>
 
-            <!-- <div class="card">
+         <div class="card">
+         	<a ng-click="vm.setAddResource()"><!-- set a ng-show/hide with a var -->
               <img data-src="holder.js/100px280?theme=thumb" alt="Card image cap">
-              <p class="card-text">Additional Resources</p>
-            </div> -->
+            </a>  
+              <p class="card-text">Add a Resource</p>
+         </div>
            
           </div>
 
         </div>
       </div>
       
+  <!-- our add a resource page --> <!-- can we submit a form with a post on it? -->
+  <div ng-show="vm.add">
+	  <form>
+	  	<input type="text" ng-model="resource.name"/>
+	  	<input type="text" ng-model="resource.posts[0].message"/><!-- gives it a topic object and assigns its name -->
+	  	<input type="text" ng-model="resource.posts[0].link"/><!-- gives it a topic object and assigns its name -->
+	  	<input type="submit" value="Add Resource" ng-click="vm.createResource(resource)"/>
+	  	<input/>
+	  </form>
+   </div>
+  
+  
+      
       
      
       
       <!-- our list of topics that show up with a keyword -->
-      <div name="list" class="album text-muted">
-      	
+   <div name="list" class="album text-muted">
       	<!-- button to show all the categories again -->
       	<div>
-      	<input type="submit" ng-click="vm.setCategory(null)" value="Show Categories"/>
-      </div>
+      		<input type="submit" ng-click="vm.setCategory(null)" value="Show Categories" ng-show="vm.selectedCategory"/>
+      	</div>
       
-      	<table>
+      <!-- our table of all topics -->
+      	<table ng-show="vm.selectedCategory">
       		<thead>
       			<tr>
 					<th>Id</th>      			
@@ -62,12 +77,29 @@
 					<td>{{resource.posts[0].postDate}}</td>      			
       			</tr>
       		</tbody>
+      	</table> 
       	
-      	
-      	
-      	</table>
-      
-      
-      
-      
-      </div>
+      	<!-- our topic with its posts written out underneath it -->
+   <div ng-show="vm.selected">
+      	<h1>{{vm.selected.name}}</h1> <br>
+		   <h3>Posts</h3>
+			<table>
+				<thead>
+					<tr>
+						<th>Post Date</th>
+						<th>Message</th>
+						<th>User</th>
+						<th>Edit</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="post in vm.selected.posts">
+						<td>{{post.postDate}}</td>
+						<td>{{post.message}}</td>
+						<td>{{post.user.email}}</td>
+						<td ng-show='vm.currentAuthorPost(post.id)'><input type='submit' name='submit' value='Edit' ng-click='vm.editPost(post.id)' /></td>
+					</tr>
+				</tbody>
+			</table>
+	</div> 
+ </div>
