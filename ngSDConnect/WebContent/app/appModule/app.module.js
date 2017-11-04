@@ -15,7 +15,7 @@ angular.module("appModule", ['ngRoute', 'ngCookies', 'authModule'])
 			.when('/alumni', {
 				template:'<alumni></alumni>' //these are the snake case names of the comps
 			})
-			.when('/resource',{
+			.when('/resources',{
 				template:'<resource></resource>'
 			})
 			.when('/users/:id/profiles',{
