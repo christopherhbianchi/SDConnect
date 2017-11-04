@@ -24,14 +24,14 @@ public class TopicController {
 		return "pong";
 	}
 	
-//  GET /topics/{id}
+//  GET /topics/
 	@RequestMapping(path="topics", method=RequestMethod.GET)
 	public Set<Topic> index() {
 		return topic.showAll();
 	}
 
 //  GET /topics/{id}
-	@RequestMapping(path="topics/{id}", method=RequestMethod.GET)
+	@RequestMapping(path="topics/{tid}", method=RequestMethod.GET)
 	public Topic show(@PathVariable int tid) {
 		return topic.showTopicById(tid);
 	}

@@ -18,6 +18,11 @@ public class DataSecurityInterceptor implements HandlerInterceptor {
 		System.out.println("****************************************");
 
 		System.out.println("****************************************");
+
+		System.out.println("[0]: " + request.getRequestURI().split("/")[0]);
+		System.out.println("[1]: " + request.getRequestURI().split("/")[1]);
+		System.out.println("[2]: " + request.getRequestURI().split("/")[2]);
+		System.out.println("[3]: " + request.getRequestURI().split("/")[3]);
 		System.out.println("[4]: " + request.getRequestURI().split("/")[4]);
 		if(objUser != null) {
 	    		User u = (User)objUser;
@@ -37,14 +42,14 @@ public class DataSecurityInterceptor implements HandlerInterceptor {
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
 			throws Exception {
 		// TODO Auto-generated method stub
-		
+
 	}
-	
+
 }
