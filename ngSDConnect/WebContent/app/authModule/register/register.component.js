@@ -7,12 +7,12 @@ angular.module("authModule").component("register", {
 		
 		vm.register = function(user) {
 			console.log("inside register")
+			console.log(user);
 			console.log(authService.getToken().id);
 			console.log(user.id);
 			
 			authService.register(user)
 			.then(function(response){
-				//registerService.create(response.data);
 				$location.path("/users/"+ authService.getToken().id +"/profiles");
 			})
 		}

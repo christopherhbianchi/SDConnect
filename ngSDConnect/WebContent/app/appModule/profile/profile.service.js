@@ -1,7 +1,6 @@
 angular.module('appModule')
 	.factory('profileService', function($http, $filter, $location, authService){
 
-
 	var profileService = {};
 	
 	var date = $filter('date')(Date.now(), 'MM/dd/yyyy'); 
@@ -12,7 +11,7 @@ angular.module('appModule')
 		  
 		  return $http({
 			method : "GET",
-			url : "rest/users/3/profiles"
+			url : "rest/users/"+ authService.getToken().id+ "/profiles"
 		});
 		
 	  }

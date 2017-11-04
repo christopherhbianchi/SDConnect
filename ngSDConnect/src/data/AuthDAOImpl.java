@@ -11,6 +11,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import entities.Cohort;
 import entities.User;
 
 @Transactional
@@ -25,10 +26,20 @@ public class AuthDAOImpl implements AuthDAO{
 	
 	@Override
 	public User register(User u) {
+		String query = "SELECT c FROM Cohort c where c.cohortNum = " + u.getCohort().getCohortNum();
+		try {
+		Cohort cohort = em.createQuery(query, Cohort.class).getSingleResult();
+		
+		System.out.println(cohort);
+		u.setCohort(cohort);
 		String passwordSha = encoder.encode(u.getPassword());
 		u.setPassword(passwordSha);
 		em.persist(u);
 		em.flush();
+		return u;
+		}catch(Exception e) {
+			System.out.println(e);
+		}
 		return u;
 	}
 
