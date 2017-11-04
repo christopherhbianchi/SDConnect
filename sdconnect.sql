@@ -21,7 +21,7 @@ USE `sdconnectdb` ;
 DROP TABLE IF EXISTS `user_type` ;
 
 CREATE TABLE IF NOT EXISTS `user_type` (
-  `id` INT NOT NULL DEFAULT 2,
+  `id` INT NOT NULL,
   `type` VARCHAR(200) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `type_UNIQUE` (`type` ASC))
@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `email` VARCHAR(100) NOT NULL,
   `password` VARCHAR(255) NOT NULL,
-  `user_type_id` INT NOT NULL,
+  `user_type_id` INT NOT NULL DEFAULT 2,
   `cohort_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_user_cohort1_idx` (`cohort_id` ASC),
