@@ -22,15 +22,12 @@ angular.module("appModule")
 			
 			vm.getIntensity = function(estHours){
 				if(estHours < 5) {
-					console.log("project class is green");
 					return 'green';
 				}
 				else if(estHours < 10) {
-					console.log("project class is yellow");
 					return 'yellow';
 				}
 				else {
-					console.log("project class is red");
 					return 'red';
 				}
 				
