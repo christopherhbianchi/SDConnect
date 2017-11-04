@@ -5,6 +5,8 @@ angular.module("authModule").component("login", {
 		
 		vm.login = function(user) {
 			console.log("inside login")
+			authService.getToken(); //console.log in the authService
+			
 			authService.login(user)
 			.then(function(response){
 				$location.path("/home");

@@ -15,7 +15,7 @@ public class DataSecurityInterceptor implements HandlerInterceptor {
 			throws Exception {
 		Object objUser = request.getSession().getAttribute("user");
 		System.out.println("****************************************");
-		System.out.println("User: " + objUser);
+		System.out.println("User: " + ((User)objUser).getEmail());
 		System.out.println("****************************************");
 		System.out.println("Path: " + request.getRequestURI());
 		System.out.println("[3]: " + request.getRequestURI().split("/")[3]);
@@ -24,7 +24,8 @@ public class DataSecurityInterceptor implements HandlerInterceptor {
 	    		User u = (User)objUser;
 	    		String URI = request.getRequestURI();
 	    		String[] pathsplit = URI.split("/");
-	    		int pathUserId = Integer.parseInt(pathsplit[4]);
+	    		System.out.println("pathsplit[4]: " + pathsplit[4]);
+	    		int pathUserId = Integer.parseInt(pathsplit[5]);
 	    		if(pathUserId == u.getId()) {
 	    			return true;
 	    		}

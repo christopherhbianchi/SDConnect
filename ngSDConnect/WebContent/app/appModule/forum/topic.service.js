@@ -4,6 +4,7 @@ angular.module('appModule')
 		
 		var checkLogin = function(){
 			var userIdPass = authService.getToken();
+			console.log("in checkLogin: " + userIdPass);
 			return userIdPass.id;
 		};
 		
@@ -77,13 +78,15 @@ angular.module('appModule')
 		
 		service.getTopicByTagKeyword = function(keyword) {
 			var uid = checkLogin();
+			console.log("uid: " + uid);
+			console.log("keyword: " + keyword);
 			if(isNaN(uid)) {
 				$location.path('/login');
 			}
 			else {
 				return $http({
 					method : 'GET',
-					url : 'rest/topics/tags/' + keyword
+					url : 'rest/topics/tags/' + uid + "/" + keyword
 				})
 			}
 		}
