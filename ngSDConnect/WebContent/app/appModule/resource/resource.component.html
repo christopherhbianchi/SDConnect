@@ -51,13 +51,15 @@
 					<th>Id</th>      			
 					<th>Name</th>      			
 					<th>Posted By</th>      			
+					<th>Date</th>      			
       			</tr>
       		</thead>
       		<tbody>
       			<tr ng-repeat="resource in vm.resources"> <!-- resource is a topic -->
 					<td>{{resource.id}}</td>      			
-					<td ng-click="vm.showResource(resource)">{{resource.name}}</td>      			
+					<td><a ng-click="vm.showResource(resource)">{{resource.name}}</a></td>      			
 					<td>{{resource.posts[0].user.profile.fname}} {{resource.posts[0].user.profile.lname}}</td>      			
+					<td>{{resource.posts[0].postDate}}</td>      			
       			</tr>
       		</tbody>
       	

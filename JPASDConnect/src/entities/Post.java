@@ -32,7 +32,6 @@ public class Post {
 	private Topic topic;
 	
 	//many posts belong to one user
-	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	private User user;
