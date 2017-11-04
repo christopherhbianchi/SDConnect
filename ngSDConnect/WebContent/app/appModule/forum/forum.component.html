@@ -62,7 +62,7 @@
 		<input type='submit' value='Cancel' ng-click='vm.displayTopics()' /><br>
 	</form>
 </div>
-<div ng-show="vm.newPost">
+<div ng-show="vm.newPost == true">
 	<form>
 		<lable>Message:</lable><input type='text' ng-model='new.message'><br>
 		<lable>Link:</lable><input type='text' ng-model='new.link'><br>
@@ -70,7 +70,7 @@
 		<input type='submit' value='Cancel' ng-click='vm.displayTopics()' /><br>
 	</form>
 </div>
-<div ng-show="vm.newTopic">
+<div ng-show="vm.newTopic == true">
 	<form>
 		<lable>Title:</lable><input type='text' ng-model='new.name'><br>
 		<input type='submit' value='Save' ng-click='vm.newTopic(new)' /><br>
