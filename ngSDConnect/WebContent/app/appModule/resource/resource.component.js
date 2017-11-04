@@ -14,7 +14,7 @@ angular.module("appModule")
 			
 			vm.resources = [];
 			
-			var reload = function(){
+			function reload(){
 				topicService.index().then(function(response){
 					vm.resources = response.data; //resources are "topic" objects
 				})
