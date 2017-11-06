@@ -93,11 +93,15 @@ public class ProfileDAOImpl implements ProfileDAO {
 	@Override
 	public Boolean deleteUserProfile(int uid, int pid) {
 		// TODO Auto-generated method stub
-		User u = em.find(User.class, uid);
-		em.remove(u.getProfile());
 
-		if(u.getProfile() == null) {
+
+		try {
+			Profile p = em.find(Profile.class, pid);
+			em.remove(p);
 			return true;
+		}
+		catch (Exception e) {
+			e.printStackTrace();
 		}
 
 		return false;
