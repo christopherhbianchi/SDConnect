@@ -47,6 +47,16 @@ angular.module('appModule')
 		  profileService.getDate = function(){
 			  return $filter('date')(Date.now(), 'MM/dd/yyyy');
 		  }
+		  
+		  
+		  profileService.destroy = function(profile) {
+			  console.log("clicked");
+					return $http({
+						method : 'DELETE',
+						url : 'rest/users/profile'
+					})
+				
+			}
 		  return profileService;
 
 	})

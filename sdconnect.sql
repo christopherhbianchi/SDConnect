@@ -57,6 +57,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `password` VARCHAR(255) NOT NULL,
   `user_type_id` INT NOT NULL DEFAULT 2,
   `cohort_id` INT NOT NULL,
+  `active` VARCHAR(45) NOT NULL DEFAULT 'on',
   PRIMARY KEY (`id`),
   INDEX `fk_user_cohort1_idx` (`cohort_id` ASC),
   INDEX `fk_user_user_type_idx` (`user_type_id` ASC),
@@ -192,7 +193,7 @@ DROP TABLE IF EXISTS `profile` ;
 
 CREATE TABLE IF NOT EXISTS `profile` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `img_url` VARCHAR(45) NULL DEFAULT 'img/profilePictures/profile.png',
+  `img_url` VARCHAR(500) NULL DEFAULT 'img/profilePictures/profile.png',
   `background_desc` VARCHAR(5000) NULL,
   `first_name` VARCHAR(45) NOT NULL,
   `last_name` VARCHAR(45) NOT NULL,
@@ -325,11 +326,11 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `sdconnectdb`;
-INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`) VALUES (1, 'chrishbianchi@gmail.com', '$2a$10$CZ13mvoyPnO4nHjq82p.7.rWh0uizvHhk79domk8Lk06OtJGsjury', 1, 1);
-INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`) VALUES (2, 'jmckenna@gmail.com', '$2a$10$CZ13mvoyPnO4nHjq82p.7.rWh0uizvHhk79domk8Lk06OtJGsjury', 2, 1);
-INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`) VALUES (3, 'kkane@gmail.com', '$2a$10$CZ13mvoyPnO4nHjq82p.7.rWh0uizvHhk79domk8Lk06OtJGsjury', 1, 1);
-INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`) VALUES (4, 'mpentermann@gmail.com', '$2a$10$CZ13mvoyPnO4nHjq82p.7.rWh0uizvHhk79domk8Lk06OtJGsjury', 2, 1);
-INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`) VALUES (5, 'sryzek@gmail.com', '$2a$10$CZ13mvoyPnO4nHjq82p.7.rWh0uizvHhk79domk8Lk06OtJGsjury', 2, 1);
+INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`, `active`) VALUES (1, 'chrishbianchi@gmail.com', '$2a$10$CZ13mvoyPnO4nHjq82p.7.rWh0uizvHhk79domk8Lk06OtJGsjury', 1, 1, 'on');
+INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`, `active`) VALUES (2, 'jmckenna@gmail.com', '$2a$10$CZ13mvoyPnO4nHjq82p.7.rWh0uizvHhk79domk8Lk06OtJGsjury', 2, 1, 'on');
+INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`, `active`) VALUES (3, 'kkane@gmail.com', '$2a$10$CZ13mvoyPnO4nHjq82p.7.rWh0uizvHhk79domk8Lk06OtJGsjury', 1, 1, 'on');
+INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`, `active`) VALUES (4, 'mpentermann@gmail.com', '$2a$10$CZ13mvoyPnO4nHjq82p.7.rWh0uizvHhk79domk8Lk06OtJGsjury', 2, 1, 'on');
+INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`, `active`) VALUES (5, 'sryzek@gmail.com', '$2a$10$CZ13mvoyPnO4nHjq82p.7.rWh0uizvHhk79domk8Lk06OtJGsjury', 2, 1, 'on');
 
 COMMIT;
 
@@ -369,12 +370,12 @@ START TRANSACTION;
 USE `sdconnectdb`;
 INSERT INTO `post` (`id`, `message`, `post_ts`, `user_id`, `topic_id`, `link`) VALUES (1, 'Hi Everyone. Searching for a roommate in SD 12. I\'m coming from California and would like to share rent with someone.', DEFAULT, 1, 1, NULL);
 INSERT INTO `post` (`id`, `message`, `post_ts`, `user_id`, `topic_id`, `link`) VALUES (2, 'What\'s up Mr. Bianchi! I\'m an instructor here at SD and have a room available if you\'re interested. Contact me via email at kkris@gmail.com.', DEFAULT, 3, 1, NULL);
-INSERT INTO `post` (`id`, `message`, `post_ts`, `user_id`, `topic_id`, `link`) VALUES (3, 'Interested in an entry-level full stack development position at Amazon. Would love to hear your thoughts.', DEFAULT, 2, 2, 'www.google.com');
+INSERT INTO `post` (`id`, `message`, `post_ts`, `user_id`, `topic_id`, `link`) VALUES (3, 'Interested in an entry-level full stack development position at Amazon. Would love to hear your thoughts.', DEFAULT, 2, 2, 'img/resume/McKenna_26Oct17PDF.pdf');
 INSERT INTO `post` (`id`, `message`, `post_ts`, `user_id`, `topic_id`, `link`) VALUES (4, 'Hi Jacqualine, the resume looks great. I would highlight most applicable work experience.', DEFAULT, 1, 2, NULL);
 INSERT INTO `post` (`id`, `message`, `post_ts`, `user_id`, `topic_id`, `link`) VALUES (5, 'Thank you! I\'ll put in those changes. Wish me luck.', DEFAULT, 2, 2, NULL);
 INSERT INTO `post` (`id`, `message`, `post_ts`, `user_id`, `topic_id`, `link`) VALUES (6, 'Just completed my Google superday. Notable questions: What is OOP? What is the benefit of using an MVC framework? How many ping pong balls could you fit in an entire 747 boeing jet?', DEFAULT, 3, 3, NULL);
 INSERT INTO `post` (`id`, `message`, `post_ts`, `user_id`, `topic_id`, `link`) VALUES (7, 'Thanks Kris. I know what I\'m going to go study now. Hope it went well.', DEFAULT, 2, 3, NULL);
-INSERT INTO `post` (`id`, `message`, `post_ts`, `user_id`, `topic_id`, `link`) VALUES (8, 'Just finished my Cover Letter. Would love to hear what you all think. The more feedback the better!', DEFAULT, 1, 4, 'www.google.com');
+INSERT INTO `post` (`id`, `message`, `post_ts`, `user_id`, `topic_id`, `link`) VALUES (8, 'Just finished my Cover Letter. Would love to hear what you all think. The more feedback the better!', DEFAULT, 1, 4, 'img/resume/Christopher_Bianchi_Resume.pdf');
 INSERT INTO `post` (`id`, `message`, `post_ts`, `user_id`, `topic_id`, `link`) VALUES (9, 'Put the name of somebody who referred you in the first sentence. If nobody referred you, do some LinkedIn research to find mutual connections and mention one of them. A warm introduction is likely to elicit response.', DEFAULT, 2, 4, NULL);
 
 COMMIT;
@@ -400,7 +401,7 @@ COMMIT;
 START TRANSACTION;
 USE `sdconnectdb`;
 INSERT INTO `profile` (`id`, `img_url`, `background_desc`, `first_name`, `last_name`, `prev_industry`, `coding_exp`, `shirt_size`, `user_id`, `website_url`, `github_url`, `linkedin_url`) VALUES (1, 'img/profilePictures/ChrisBProfileImage.jpg', 'Software solutions architect for B2Bi commerce.', 'Christopher', 'Bianchi', 'Business Commerce', '2 years', 'L', 1, NULL, NULL, NULL);
-INSERT INTO `profile` (`id`, `img_url`, `background_desc`, `first_name`, `last_name`, `prev_industry`, `coding_exp`, `shirt_size`, `user_id`, `website_url`, `github_url`, `linkedin_url`) VALUES (2, 'img/profilePictures/profile.png', '8 years in the military.', 'Jacqualine', 'McKenna', 'Intelligence', '1 year', 'S', 2, NULL, NULL, NULL);
+INSERT INTO `profile` (`id`, `img_url`, `background_desc`, `first_name`, `last_name`, `prev_industry`, `coding_exp`, `shirt_size`, `user_id`, `website_url`, `github_url`, `linkedin_url`) VALUES (2, 'img/profilePictures/JacqualineProfileImage.jpg', '8 years in the military.', 'Jacqualine', 'McKenna', 'Intelligence', '1 year', 'S', 2, NULL, NULL, NULL);
 INSERT INTO `profile` (`id`, `img_url`, `background_desc`, `first_name`, `last_name`, `prev_industry`, `coding_exp`, `shirt_size`, `user_id`, `website_url`, `github_url`, `linkedin_url`) VALUES (3, 'img/profilePictures/KrisProfileImage.jpg', 'Extensive history in projects implementing variety of technologies', 'Kris', 'Kane', 'Application Development', '21 years', 'XL', 3, NULL, NULL, NULL);
 
 COMMIT;

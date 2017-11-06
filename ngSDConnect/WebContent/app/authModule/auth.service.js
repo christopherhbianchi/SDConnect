@@ -10,7 +10,8 @@ angular.module('authModule')
 	    	$cookies.put("email", user.email);
 	    	$cookies.put("type", user.type.type);
     }
-
+    
+    
     service.getToken = function() {
       // Return an object with id and email properties,
       // the values are the values of the cookies
