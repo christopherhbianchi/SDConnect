@@ -57,12 +57,12 @@ public class ProfileController{
 		return profileDao.editUserProfile(uid, profileJson);
 	}
 
-	@RequestMapping(path = "users/{uid}/profiles", method = RequestMethod.DELETE)
+	@RequestMapping(path = "users/{uid}/profiles/{pid}", method = RequestMethod.DELETE)
 	public Boolean deleteUserProfile(HttpServletRequest req, HttpServletResponse res, 
-			@PathVariable int uid
+			@PathVariable int uid, @PathVariable int pid
 			) {
 		
-		return profileDao.deleteUserProfile(uid);
+		return profileDao.deleteUserProfile(uid, pid);
 	
 	}
 }

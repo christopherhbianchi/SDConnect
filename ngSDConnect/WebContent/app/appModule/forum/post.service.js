@@ -28,6 +28,7 @@ angular.module('appModule')
 		};
 		
 		service.create = function(post, tid) {
+			console.log("in service.create");
 			var uid = checkLogin();
 			if(isNaN(uid)) {
 				$location.path('/login');
@@ -70,7 +71,7 @@ angular.module('appModule')
 			else {
 				return $http({
 					method : 'DELETE',
-					url : 'rest/user/' + uid + '/posts/' + pid
+					url : 'rest/users/' + uid + '/posts/' + pid
 				})
 			}
 		}

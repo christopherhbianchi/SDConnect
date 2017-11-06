@@ -100,5 +100,9 @@ angular.module('appModule')
 				}
 			}
 		
+		service.returnUser = function() {
+			return authService.getToken();
+		}
+		
 		return service;
 	});

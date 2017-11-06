@@ -1,5 +1,6 @@
 package data;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -40,17 +41,26 @@ public class PostDAOImpl implements PostDAO {
 
 	@Override
 	public Post createPost(int userId, int topicId, String postJson) {
+		Topic currentTopic = em.find(Topic.class, topicId);
+		List<Post> posts;
+		if(currentTopic.getPosts().size() == 0) {
+			posts = new ArrayList<>();
+		}
+		else {
+			posts = currentTopic.getPosts();
+		}
 		ObjectMapper mapper = new ObjectMapper();
 		User user = getUserById(userId);
-		Topic topic = getTopicById(topicId);
 		Post mappedPost = null;
 		try {
 			mappedPost = mapper.readValue(postJson, Post.class);
 			mappedPost.setUser(user);
-			mappedPost.setTopic(topic);
+			mappedPost.setTopic(currentTopic);
 			mappedPost.setPostDate(new java.sql.Date(new java.util.Date().getTime()));
 			em.persist(mappedPost);
 			em.flush();
+			posts.add(mappedPost);
+			currentTopic.setPosts(posts);
 		}
 		catch(Exception e) {
 			e.printStackTrace();
@@ -93,10 +103,6 @@ public class PostDAOImpl implements PostDAO {
 		if(managedPost==null) {
 			return false;
 		}
-		if(managedPost.getUser().getId() != userId) {
-			return false;
-		}
-//		em.remove(managedPost); //not working bug
 		String query = "DELETE FROM Post p WHERE p.id = :id";
 		em.createQuery(query).setParameter("id", postId).executeUpdate();
 		return true;

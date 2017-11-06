@@ -24,6 +24,8 @@ angular.module("appModule").component("profile", {
 					 reload();
 				 });
 			}
+	
+			
 			
 			vm.selected = null;
 			
