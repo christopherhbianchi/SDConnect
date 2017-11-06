@@ -26,7 +26,7 @@ angular.module("appModule")
 			vm.showResource = function(resource){ //can grab the id out of it later in the service
 				topicService.show(resource.id).then(function(response){
 					vm.selected = response.data;
-					vm.selectedCategory = null;
+//					vm.selectedCategory = null;
 					console.log(response.data);
 				})
 			}
