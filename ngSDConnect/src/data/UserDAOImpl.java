@@ -17,7 +17,12 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public User getUserById(int uid) {
-		return em.find(User.class, uid);
+		User user = em.find(User.class, uid);
+		if(user.getProfile().getImg() == "null" || user.getProfile().getImg() == "" ) {
+			user.getProfile().setImg("img/profilePictures/profile.png");
+		}
+		
+		return user;
 	}
 
 }
