@@ -5,7 +5,8 @@
  <div class="container marketing" ng-repeat="profile in vm.profiles">
         <div class="row">
           <div class="col-lg-4">
-            <img ng-src="profile.img" class="rounded-circle" width="140" height="140">
+
+            <img class="rounded-circle" ng-src="{{profile.img}}" width="140" height="140">
             <h2>{{profile.fname}} {{profile.lname}}</h2>
             <p><a class="btn btn-secondary" role="button" ng-click="vm.viewProfile()">View Profile</a></p>
          	<div ng-show="vm.viewProfile()">
