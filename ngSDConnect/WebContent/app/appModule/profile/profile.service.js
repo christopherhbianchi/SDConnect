@@ -53,7 +53,7 @@ angular.module('appModule')
 			  console.log("clicked");
 					return $http({
 						method : 'DELETE',
-						url : 'rest/users/profile'
+						url : 'rest/users/' + user.id + '/profiles'
 					})
 				
 			}
