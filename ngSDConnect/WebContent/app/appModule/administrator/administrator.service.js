@@ -47,6 +47,6 @@ angular.module('appModule')
 		  profileService.getDate = function(){
 			  return $filter('date')(Date.now(), 'MM/dd/yyyy');
 		  }
-		  return adminService;
+		  return admin1Service;
 
 	})
