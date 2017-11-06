@@ -4,7 +4,7 @@ angular.module("appModule").factory("userService",
 			var userService = {};
 
 			var students = [];
-
+			
 			userService.index = function() {
 				console.log("Inside UserService")
 				 var user = authService.getToken();

@@ -43,6 +43,7 @@ angular.module("appModule")
 			};
 			
 			vm.getPostsPerTopic = function(tid) {
+				console.log(tid);
 				setEverythingToNull();
 				vm.postView = true;
 				postService.index(tid)
@@ -86,12 +87,21 @@ angular.module("appModule")
 				setEverythingToNull();
 			};
 			
-			vm.newTopic = function(topic) {
-				topicService.create(topic);
-				setEverythingToNull();
+			vm.createTopic = function(topic){
+				console.log("entering create topic");
+				topicService.create(topic)
+				.then(function(res){
+					console.log(res.data);
+					setEverythingToNull();
+					getAllTopics();
+				})
+				.catch(function(error){
+					console.log(error);
+				});
+				
 			};
 			
-			vm.editPost = function(post) {
+			vm.editPost = function(post){
 				setEverythingToNull();
 				vm.postSelected = post;
 			};
@@ -106,7 +116,7 @@ angular.module("appModule")
 				setEverythingToNull();
 			};
 			
-			vm.newPost = function(post) {
+			vm.createPost = function(post){
 				postService.create(post);
 				setEverythingToNull();
 			};

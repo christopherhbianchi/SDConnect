@@ -21,9 +21,9 @@ angular.module('authModule')
 	    		"type" : $cookies.get("type")
 	    		}
 	    	
-	    	console.log($cookies.get("id"));
-	    	console.log($cookies.get("email"));
-	    	console.log($cookies.get("type"));
+//	    	console.log($cookies.get("id"));
+//	    	console.log($cookies.get("email"));
+//	    	console.log($cookies.get("type"));
 	    	return	user;
     	
     }
@@ -50,7 +50,6 @@ angular.module('authModule')
    		})
    		.then(function(res){
    			saveToken(res.data);
-   			console.log(res.data);
    			return res;
    		});
     	
