@@ -1,6 +1,7 @@
 package controllers;
 
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import data.PostDAO;
 import entities.Post;
-import entities.Topic;
 
 @RestController
 public class PostController {
@@ -33,11 +33,13 @@ public class PostController {
 		Set<Post> posts = postDao.showAllByTopicId(topicId);
 		 if(posts==null || posts.size()==0) {
 			  res.setStatus(404);
+			  return new HashSet<Post>();
 		  }
 		  else {
 			  res.setStatus(200);
+			  return posts;
 		  }
-		return posts;
+		
 	}
 	
 	  @RequestMapping(path="posts/{pid}", method=RequestMethod.GET)

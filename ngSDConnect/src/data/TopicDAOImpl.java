@@ -16,6 +16,7 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import entities.Post;
 import entities.Tag;
 import entities.Topic;
 
@@ -42,11 +43,14 @@ public class TopicDAOImpl implements TopicDAO{
 	@Override
 	public Topic createTopic(String topicJson) {
 		ObjectMapper mapper = new ObjectMapper();
-		
 		Topic newTopic = null;
 		
 		try {
 			newTopic = mapper.readValue(topicJson, Topic.class);
+//			if(newTopic.getPosts().size() == 0) {
+//				List<Post> posts = new ArrayList<>();
+//				newTopic.setPosts(posts);
+//			}
 			em.persist(newTopic);
 			em.flush();
 		} catch (JsonParseException e) {
