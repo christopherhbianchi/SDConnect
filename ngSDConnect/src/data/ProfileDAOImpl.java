@@ -73,7 +73,8 @@ public class ProfileDAOImpl implements ProfileDAO {
 		
 		try {
 			Profile mappedProfile = mapper.readValue(profileJson, Profile.class);
-			User u = em.find(User.class, uid);
+			User u = em.find(User.class, uid);	
+			
 			mappedProfile.setUser(u);
 			
 			em.persist(mappedProfile);
