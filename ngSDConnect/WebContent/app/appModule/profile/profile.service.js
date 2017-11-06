@@ -50,10 +50,11 @@ angular.module('appModule')
 		  
 		  
 		  profileService.destroy = function(profile) {
+			  var user = authService.getToken();
 			  console.log("clicked");
 					return $http({
 						method : 'DELETE',
-						url : 'rest/users/' + user.id + '/profiles'
+						url : 'rest/users/' + user.id + '/profiles/' + profile.id,
 					})
 				
 			}
