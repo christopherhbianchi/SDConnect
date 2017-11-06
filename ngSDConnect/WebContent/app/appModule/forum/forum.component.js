@@ -2,13 +2,16 @@ angular.module("appModule")
 	.component("forum", {
 		templateUrl: "app/appModule/forum/forum.component.html",
 			
-		controller: function(topicService, postService, $filter, $location, $routeParams){
+		controller: function(topicService, postService, tagService, $filter, $location, $routeParams){
 			var vm = this;
 			
 			vm.currentTopics = [];
 			vm.currentPosts = [];
+			vm.allTags = [];
 			
 			var currentUserToken = postService.returnUser();
+			
+			vm.currentTid = null;
 			
 			var setEverythingToNull = function(){
 				vm.postView = false;
@@ -32,6 +35,18 @@ angular.module("appModule")
 			
 			getAllTopics();
 			
+			var getAllTags = function(){
+				tagService.index()
+				.then(function(resp){
+					vm.allTags = resp.data;
+				})
+				.catch(function(error){
+					console.log(error);
+				});
+			};
+			
+			getAllTags();
+			
 			vm.getTopicByTagKeyword = function(word){
 				topicService.getTopicByTagKeyword(word)
 				.then(function(resp){
@@ -43,12 +58,11 @@ angular.module("appModule")
 			};
 			
 			vm.getPostsPerTopic = function(tid) {
-				console.log(tid);
+				vm.currentTid = tid;
 				setEverythingToNull();
 				vm.postView = true;
 				postService.index(tid)
 				.then(function(resp){
-					console.log(resp.data);
 					vm.currentPosts = resp.data;
 				})
 				.catch(function(error){
@@ -83,15 +97,20 @@ angular.module("appModule")
 			};
 			
 			vm.deleteTopic = function(tid){
-				topicService.destroy(tid);
-				setEverythingToNull();
+				topicService.destroy(tid)
+				.then(function(res){
+					setEverythingToNull();
+					getAllTopics();
+				})
+				.catch(function(error){
+					console.log(error);
+				});
 			};
 			
 			vm.createTopic = function(topic){
-				console.log("entering create topic");
+				delete topic.tag.topics;
 				topicService.create(topic)
 				.then(function(res){
-					console.log(res.data);
 					setEverythingToNull();
 					getAllTopics();
 				})
@@ -107,18 +126,35 @@ angular.module("appModule")
 			};
 			
 			vm.updatePost = function(post){
-				postService.update(post);
-				setEverythingToNull();
+				postService.update(post)
+				.then(function(res){
+					setEverythingToNull();
+				})
+				.catch(function(error){
+					console.log(error);
+				});
 			};
 			
 			vm.deletePost = function(pid){
-				postService.destroy(pid);
-				setEverythingToNull();
+				postService.destroy(pid)
+				.then(function(res){
+					setEverythingToNull();
+				})
+				.catch(function(error){
+					console.log(error);
+				});
 			};
 			
 			vm.createPost = function(post){
-				postService.create(post);
-				setEverythingToNull();
+				console.log("entering createPost");
+				console.log("Tid: " + vm.currentTid);
+				postService.create(post, vm.currentTid)
+				.then(function(res){
+					setEverythingToNull();
+				})
+				.catch(function(error){
+					console.log(error);
+				});
 			};
 			
 		},
