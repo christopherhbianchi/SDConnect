@@ -129,6 +129,8 @@ angular.module("appModule")
 				postService.update(post)
 				.then(function(res){
 					setEverythingToNull();
+					vm.postView = true;
+					vm.getPostsPerTopic(vm.currentTid);
 				})
 				.catch(function(error){
 					console.log(error);
@@ -139,6 +141,8 @@ angular.module("appModule")
 				postService.destroy(pid)
 				.then(function(res){
 					setEverythingToNull();
+					vm.postView = true;
+					vm.getPostsPerTopic(vm.currentTid);
 				})
 				.catch(function(error){
 					console.log(error);
@@ -151,6 +155,8 @@ angular.module("appModule")
 				postService.create(post, vm.currentTid)
 				.then(function(res){
 					setEverythingToNull();
+					vm.postView = true;
+					vm.getPostsPerTopic(vm.currentTid);
 				})
 				.catch(function(error){
 					console.log(error);

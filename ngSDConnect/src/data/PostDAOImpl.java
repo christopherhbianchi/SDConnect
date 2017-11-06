@@ -103,10 +103,6 @@ public class PostDAOImpl implements PostDAO {
 		if(managedPost==null) {
 			return false;
 		}
-		if(managedPost.getUser().getId() != userId) {
-			return false;
-		}
-//		em.remove(managedPost); //not working bug
 		String query = "DELETE FROM Post p WHERE p.id = :id";
 		em.createQuery(query).setParameter("id", postId).executeUpdate();
 		return true;
