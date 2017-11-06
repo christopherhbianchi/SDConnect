@@ -11,7 +11,7 @@ angular.module('appModule')
 		  
 		  return $http({
 			method : "GET",
-			url : "rest/users/"+ authService.getToken().id+ "/profiles"
+			url : "rest/users/"+ user.id+ "/profiles"
 		});
 		
 	  }
@@ -48,8 +48,5 @@ angular.module('appModule')
 			  return $filter('date')(Date.now(), 'MM/dd/yyyy');
 		  }
 		  return profileService;
-	
-	
+
 	})
-
-

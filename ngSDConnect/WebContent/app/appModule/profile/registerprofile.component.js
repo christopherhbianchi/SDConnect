@@ -7,9 +7,6 @@ angular.module("authModule").component("registerprofile", {
 		
 		vm.register = function(user) {
 			console.log("inside register")
-			console.log(user);
-			console.log(authService.getToken().id);
-			console.log(user.id);
 			
 			authService.register(user)
 			.then(function(response){
@@ -21,12 +18,9 @@ angular.module("authModule").component("registerprofile", {
 			 profileService.create(profile)
 			 .then(function(res){
 				 vm.profile = res.data;
-				 $location.path("/users/:id/profiles");
+				 $location.path("/profile");
 			 });
 		}
 	},
 			controllerAs: "vm"
 })
-
-		
-	

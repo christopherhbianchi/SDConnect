@@ -30,5 +30,3 @@ angular.module("appModule").component("profile", {
 		},
 	 controllerAs : "vm"
  }) 
-	
-	

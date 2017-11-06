@@ -1,4 +1,3 @@
-
 angular.module("appModule", ['ngRoute', 'ngCookies', 'authModule'])
 	.config(function($routeProvider){
 	
@@ -12,8 +11,8 @@ angular.module("appModule", ['ngRoute', 'ngCookies', 'authModule'])
 			.when('/home', {
 				template:'<home></home>' //these are the snake case names of the comps
 			})
-			.when('/alumni', {
-				template:'<alumni></alumni>' //these are the snake case names of the comps
+			.when('/userconnect', {
+				template:'<userconnect></userconnect>' //these are the snake case names of the comps
 			})
 			.when('/resources',{
 				template:'<resource></resource>'
@@ -22,13 +21,13 @@ angular.module("appModule", ['ngRoute', 'ngCookies', 'authModule'])
 				template:'<profile></profile>'
 			})
 			.when('/profile',{
-				template:'<alumni></alumni>'
+				template:'<profile></profile>'
 			})
 			.when('/users/:id/registerprofiles',{
 				template:'<registerprofile></registerprofile>'
 			})
 			.otherwise({
-				template:'<h1>404 - NOT FOUND </h1>'
+				template:'<navigation></navigation><h1>404 - NOT FOUND </h1>'
 			})	
 		
 	})
