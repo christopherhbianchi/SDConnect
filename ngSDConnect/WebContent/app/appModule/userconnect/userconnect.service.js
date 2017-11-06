@@ -1,23 +1,18 @@
 angular.module("appModule").factory("userService",
-	function(profileService, $http, $filter, authService, $rootScope) {
+	function($http, $filter, authService, $rootScope) {
 
 			var userService = {};
 
 			var students = [];
 
 			userService.index = function() {
+				console.log("Inside UserService")
+				 var user = authService.getToken();
 					return $http({
 						method : 'GET',
 						url : "rest/profile"
 					})
 				}
-			
-			userService.getOne = function() {
-				return $http({
-					method:"GET", 
-					url: ""
-			})
-		}
 
 			return userService;
 
