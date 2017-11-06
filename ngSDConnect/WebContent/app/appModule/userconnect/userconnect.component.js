@@ -10,16 +10,29 @@ angular.module("appModule")
 			
 			vm.viewProfile = false;
 			
+			vm.userType = function(){
+			if(authService.getToken().type === 'admin'){
+				return true;
+			}
+			return false;
+			}
+			var reload = function(){
+				userService.index().then(function(res){
+					vm.profiles = res.data;
+					vm.userType();
+					console.log("Inside Reload");
+					console.log(vm.userType());
+				});
+			}
 
-			if(authService.getToken().type === 1){
-				vm.deleteProfile = function(profile){
-					console.log("clicked");
-					profileService.destroy(profile)
-					.then(function(response){
-						reload(); //after it's deleted, reload our data
-					})
-				}
+				reload();
 			
+			vm.deleteProfile = function(profile){
+				console.log("clicked");
+				profileService.destroy(profile)
+				.then(function(response){
+					reload(); //after it's deleted, reload our data
+				})
 			}
 						
 			 var getAllUsers = function(){
