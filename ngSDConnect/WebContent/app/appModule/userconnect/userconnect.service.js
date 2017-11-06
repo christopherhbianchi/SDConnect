@@ -1,5 +1,5 @@
 angular.module("appModule").factory("userService",
-	function($http, $filter, authService, $rootScope) {
+	function($http, $filter, authService,  $rootScope) {
 
 			var userService = {};
 
