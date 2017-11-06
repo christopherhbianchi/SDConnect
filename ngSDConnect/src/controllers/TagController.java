@@ -26,7 +26,7 @@ public class TagController {
 	}
 	
 	@RequestMapping(path="tags", method=RequestMethod.GET)
-	public Collection<Tag> indexPost(HttpServletResponse res) {
+	public Collection<Tag> indexTag(HttpServletResponse res) {
 		Set<Tag> tags = tagDao.showAll();
 		 if(tags==null || tags.size()==0) {
 			  res.setStatus(404);
