@@ -6,6 +6,8 @@ angular.module("appModule")
 			var vm = this;
 			
 			vm.profiles = [];
+			
+			vm.viewProfile = false;
 						
 			 var getAllUsers = function(){
 				userService.index()
