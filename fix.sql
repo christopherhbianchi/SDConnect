@@ -126,7 +126,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `topic`
+-- Table ``
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `topic` ;
 
@@ -166,7 +166,7 @@ CREATE TABLE IF NOT EXISTS `post` (
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_post_thread1`
     FOREIGN KEY (`topic_id`)
-    REFERENCES `topic` (`id`)
+    REFERENCES `` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -361,7 +361,7 @@ COMMIT;
 
 
 -- -----------------------------------------------------
--- Data for table `topic`
+-- Data for table ``
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `sdconnectdb`;
@@ -407,6 +407,8 @@ INSERT INTO `post` (`id`, `message`, `post_ts`, `user_id`, `topic_id`, `link`) V
 INSERT INTO `post` (`id`, `message`, `post_ts`, `user_id`, `topic_id`, `link`) VALUES (21, 'Interview: Sounds cliche, but be yourself. It’s okay to say “I don’t know, but it’s something I will look into.” Many interviews turn sour when a candidate boasts knowledge about a topic, but then struggles to answer detailed questions about that topic. By the way, that answer is okay for all professionals! The good news for you, is… as an “entry level” developer, the interview isn’t the tough part. The tough part is getting to the point of being interviewed. Long story short, it’s all about networking (face-to-face is better than virtual). Go out and meet Talent Acquisition folks and hiring managers at job fairs. Hand people your resume. Relying only on online job sites is not good enough.', DEFAULT, 4, 9, NULL);
 INSERT INTO `post` (`id`, `message`, `post_ts`, `user_id`, `topic_id`, `link`) VALUES (22, 'Does anyone have any advice in regards to skills we should hone on as we transition from students to future developers?', DEFAULT, 3, 10, NULL);
 INSERT INTO `post` (`id`, `message`, `post_ts`, `user_id`, `topic_id`, `link`) VALUES (23, 'This came from a hiring manager: Skills to focus on: My recommendation, is to pick a few technologies and really focus in on them. For example, Java developers will always find work, so that’s a good pick. Learn how to interface with different databases (you don’t need to learn to be a DB admin). Learn about unit testing and always do it when developing (I ask about unit testing in the interviews I lead). Don’t just do the examples in a textbook. Come up with your own mid-term-type project and develop it yourself, if you can find the time.', DEFAULT, 4, 10, NULL);
+INSERT INTO `post` (`id`, `message`, `post_ts`, `user_id`, `topic_id`, `link`) VALUES (DEFAULT, NULL, DEFAULT, DEFAULT, DEFAULT, NULL);
+INSERT INTO `post` (`id`, `message`, `post_ts`, `user_id`, `topic_id`, `link`) VALUES (DEFAULT, NULL, DEFAULT, DEFAULT, DEFAULT, NULL);
 
 COMMIT;
 
@@ -433,8 +435,20 @@ USE `sdconnectdb`;
 INSERT INTO `profile` (`id`, `img_url`, `background_desc`, `first_name`, `last_name`, `prev_industry`, `coding_exp`, `shirt_size`, `user_id`, `website_url`, `github_url`, `linkedin_url`) VALUES (1, 'img/profilePictures/ChrisBProfileImage.jpg', 'Software solutions architect for B2Bi commerce.', 'Christopher', 'Bianchi', 'Business Commerce', '2 years', 'L', 1, NULL, NULL, NULL);
 INSERT INTO `profile` (`id`, `img_url`, `background_desc`, `first_name`, `last_name`, `prev_industry`, `coding_exp`, `shirt_size`, `user_id`, `website_url`, `github_url`, `linkedin_url`) VALUES (2, 'img/profilePictures/JacqualineProfileImage.jpg', '8 years in the military.', 'Jacqualine', 'McKenna', 'Intelligence', '1 year', 'S', 2, NULL, NULL, NULL);
 INSERT INTO `profile` (`id`, `img_url`, `background_desc`, `first_name`, `last_name`, `prev_industry`, `coding_exp`, `shirt_size`, `user_id`, `website_url`, `github_url`, `linkedin_url`) VALUES (3, 'img/profilePictures/KrisProfileImage.jpg', 'Extensive history in projects implementing variety of technologies', 'Kris', 'Kane', 'Application Development', '21 years', 'XL', 3, NULL, NULL, NULL);
-INSERT INTO `profile` (`id`, `img_url`, `background_desc`, `first_name`, `last_name`, `prev_industry`, `coding_exp`, `shirt_size`, `user_id`, `website_url`, `github_url`, `linkedin_url`) VALUES (7, 'img/profilePictures/ErikProfileImage.jpg', NULL, 'Erik', 'Ernst', 'Architect', 'None', 'L', 5, 'http://18.220.214.189/', NULL, 'https://www.linkedin.com/in/erik-ernst-00536458/');
-INSERT INTO `profile` (`id`, `img_url`, `background_desc`, `first_name`, `last_name`, `prev_industry`, `coding_exp`, `shirt_size`, `user_id`, `website_url`, `github_url`, `linkedin_url`) VALUES (4, 'img/profilePictures/MeiraProfileImage.jpg', 'Mother, writer, Physics Guru', 'Meira', 'Penterman', 'Accounting', 'Python', 'M', 4, 'http://18.220.194.202/#/', 'https://github.com/Meira1427', 'https://www.linkedin.com/in/meira-pentermann-02449110/');
+INSERT INTO `profile` (`id`, `img_url`, `background_desc`, `first_name`, `last_name`, `prev_industry`, `coding_exp`, `shirt_size`, `user_id`, `website_url`, `github_url`, `linkedin_url`) VALUES (4, NULL, NULL, 'Jimmy', 'Easter', NULL, NULL, NULL, 10, NULL, NULL, NULL);
+INSERT INTO `profile` (`id`, `img_url`, `background_desc`, `first_name`, `last_name`, `prev_industry`, `coding_exp`, `shirt_size`, `user_id`, `website_url`, `github_url`, `linkedin_url`) VALUES (5, NULL, NULL, 'Doug ', 'Kucera', 'Program Manager', NULL, NULL, 13, NULL, NULL, NULL);
+INSERT INTO `profile` (`id`, `img_url`, `background_desc`, `first_name`, `last_name`, `prev_industry`, `coding_exp`, `shirt_size`, `user_id`, `website_url`, `github_url`, `linkedin_url`) VALUES (6, NULL, NULL, 'Andrew ', 'Conlin', NULL, NULL, NULL, 16, NULL, NULL, 'https://www.linkedin.com/in/andrewcconlin/');
+INSERT INTO `profile` (`id`, `img_url`, `background_desc`, `first_name`, `last_name`, `prev_industry`, `coding_exp`, `shirt_size`, `user_id`, `website_url`, `github_url`, `linkedin_url`) VALUES (7, 'img/profile/ErikProfileImage.jpg', NULL, 'Erik', 'Ernst', 'Architect', 'None', 'L', 5, 'http://18.220.214.189/', NULL, 'https://www.linkedin.com/in/erik-ernst-00536458/');
+INSERT INTO `profile` (`id`, `img_url`, `background_desc`, `first_name`, `last_name`, `prev_industry`, `coding_exp`, `shirt_size`, `user_id`, `website_url`, `github_url`, `linkedin_url`) VALUES (8, NULL, 'USMC Veteran', 'Daniel', 'Clark', 'Military', NULL, 'L', 8, 'http://52.14.139.50/', 'https://github.com/dclarkasu', 'https://www.linkedin.com/in/daniel-clark-26552a115/');
+INSERT INTO `profile` (`id`, `img_url`, `background_desc`, `first_name`, `last_name`, `prev_industry`, `coding_exp`, `shirt_size`, `user_id`, `website_url`, `github_url`, `linkedin_url`) VALUES (9, 'img/profile/BrianProfileImage.jpg', NULL, 'Brian', 'Thomas', NULL, NULL, NULL, 11, 'http://18.220.25.115/', 'https://github.com/flycal6', 'https://www.linkedin.com/in/brian-thomas-332874150/');
+INSERT INTO `profile` (`id`, `img_url`, `background_desc`, `first_name`, `last_name`, `prev_industry`, `coding_exp`, `shirt_size`, `user_id`, `website_url`, `github_url`, `linkedin_url`) VALUES (10, 'img/profile/SteveProfileimage.jpg', 'From Michigan', 'Steve', 'Thompson', 'Always Coding', '10+ Years', 'M', 14, NULL, NULL, 'https://www.linkedin.com/in/steve-thompson-34182712a/');
+INSERT INTO `profile` (`id`, `img_url`, `background_desc`, `first_name`, `last_name`, `prev_industry`, `coding_exp`, `shirt_size`, `user_id`, `website_url`, `github_url`, `linkedin_url`) VALUES (11, 'img/profile/BruceBProfileImage.jpg', 'Co-Founder of Skill Distillery', 'Bruce', 'Batky', '20+ Years', NULL, 'M', 17, NULL, NULL, 'https://www.linkedin.com/in/bruce-batky-a24525/');
+INSERT INTO `profile` (`id`, `img_url`, `background_desc`, `first_name`, `last_name`, `prev_industry`, `coding_exp`, `shirt_size`, `user_id`, `website_url`, `github_url`, `linkedin_url`) VALUES (12, 'img/profile/ChrisBartProfileImage.jpg', 'From Cali went to school in Michigan', 'Christopher', 'Bartkewicz', 'Air Force Mechanic', '2+ Years', 'L', 6, 'http://christophermichael.us/', 'https://github.com/msupg21', 'https://www.linkedin.com/in/cbartkewicz/');
+INSERT INTO `profile` (`id`, `img_url`, `background_desc`, `first_name`, `last_name`, `prev_industry`, `coding_exp`, `shirt_size`, `user_id`, `website_url`, `github_url`, `linkedin_url`) VALUES (13, 'img/profile/StanProfileImage.jpg', NULL, 'Stanton', 'Viaduc', 'Marketing', NULL, 'L', 9, 'http://stantonviaduc.com/', 'https://github.com/sviaduc', 'https://www.linkedin.com/in/stanton-viaduc/');
+INSERT INTO `profile` (`id`, `img_url`, `background_desc`, `first_name`, `last_name`, `prev_industry`, `coding_exp`, `shirt_size`, `user_id`, `website_url`, `github_url`, `linkedin_url`) VALUES (14, NULL, NULL, 'Mustafa', 'Alici', 'Baker', '2+ Years', 'L', 12, NULL, NULL, 'https://www.linkedin.com/in/mustafa-alici-448906118/');
+INSERT INTO `profile` (`id`, `img_url`, `background_desc`, `first_name`, `last_name`, `prev_industry`, `coding_exp`, `shirt_size`, `user_id`, `website_url`, `github_url`, `linkedin_url`) VALUES (15, 'img/profile/RobProfileImage.jpg', NULL, 'Rob', 'Roselius', NULL, NULL, NULL, 15, NULL, NULL, 'https://www.linkedin.com/in/rob-roselius-675b428/');
+INSERT INTO `profile` (`id`, `img_url`, `background_desc`, `first_name`, `last_name`, `prev_industry`, `coding_exp`, `shirt_size`, `user_id`, `website_url`, `github_url`, `linkedin_url`) VALUES (16, 'img/profile/MeiraProfileImage.jpg', 'Mother, writer, Physics Guru', 'Meira', 'Penterman', 'Accounting', 'Python', 'M', 4, 'http://18.220.194.202/#/', 'https://github.com/Meira1427', 'https://www.linkedin.com/in/meira-pentermann-02449110/');
+INSERT INTO `profile` (`id`, `img_url`, `background_desc`, `first_name`, `last_name`, `prev_industry`, `coding_exp`, `shirt_size`, `user_id`, `website_url`, `github_url`, `linkedin_url`) VALUES (17, 'img/profile/SamProfileImage.jpg', 'Former Naval Aviator', 'Samuel', 'Ryzek', 'Defense', 'None', 'L', 7, 'http://18.220.137.48/', 'https://github.com/SamRyzek', 'https://www.linkedin.com/in/samuel-ryzek-msia-4292046/');
 
 COMMIT;
 
