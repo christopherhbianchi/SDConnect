@@ -58,6 +58,14 @@ angular.module('appModule')
 					})
 				
 			}
+		  
+		  profileService.checkEmailDuplication = function(userEmail) {			  
+			  return $http({
+				method : "GET",
+				url : "rest/users/search/"+userEmail
+			});
+		  }
+		  
 		  return profileService;
 
 	})

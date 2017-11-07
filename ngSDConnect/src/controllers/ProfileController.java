@@ -32,6 +32,11 @@ public class ProfileController{
 		return profileDao.readAllProfiles();
 	}
 	
+	@RequestMapping(path = "users/search/{email}", method = RequestMethod.GET)
+	public boolean checkDuplicatedEmail(HttpServletRequest req, HttpServletResponse res, @PathVariable String email) {
+		return profileDao.checkDuplicatedEmail(email);
+	}
+	
 	@RequestMapping(path = "users/{uid}/profiles", method = RequestMethod.GET)
 	public Profile readUserProfile(HttpServletRequest req, HttpServletResponse res, 
 			@PathVariable int uid
