@@ -32,7 +32,6 @@ angular.module("appModule")
 			};
 			
 			vm.createEvent = function(event){
-				console.log(event);
 				eventService.createEvent(event)
 				.then(function(resp){
 					vm.displayEvents();
@@ -44,6 +43,12 @@ angular.module("appModule")
 			
 			vm.editEvent = function(event){
 				vm.eventSelected = event;
+				vm.eventSelected = angular.copy(event);
+//				console.log(vm.eventSelected.date);
+				var splitDate = vm.eventSelected.date.split("-");
+				splitDate = splitDate.map(Number);
+				var newDate = new Date(splitDate[0], splitDate[1] - 1 , splitDate[2]);
+				vm.eventSelected.date = newDate;
 			};
 			
 			vm.updateEvent = function(event){

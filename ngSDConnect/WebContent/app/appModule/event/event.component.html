@@ -1,43 +1,56 @@
+<div class="container-fluid">
+<div class="fixed col-xs-3">
 <h1 style="text-align:center; font-weight:bold">SD Events</h1>
-
-	<table class="table">
-		<thead>
-			<tr>
-				<th>Event Description</th>
-				<th>Public?</th>
-				<th>Date</th>
-				<th></th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr ng-repeat="event in vm.eventList">
-				<td>{{event.description}}</td>
-				<td>{{event.publicEvent}}</td>
-				<td>{{event.date | date: 'dd/MM/yyyy'}}</td>
-				<td ng-show='vm.currentAdmin()'><input type='submit' value='Edit' ng-click='vm.editEvent(event)' /></td>
-			</tr>
-		</tbody>
-	</table>
+	<div ng-hide='vm.eventSelected || vm.newEvent'>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Event Description</th>
+					<th>Public?</th>
+					<th>Date</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="event in vm.eventList">
+					<td>{{event.description}}</td>
+					<td>{{event.publicEvent}}</td>
+					<td>{{event.date | date: 'MM/dd/yyyy'}}</td>
+					<td ng-show='vm.currentAdmin()'><input type='submit' value='Edit' ng-click='vm.editEvent(event)' /></td>
+				</tr>
+			</tbody>
+		</table>
 	<div ng-show='vm.currentAdmin()'>
 		<input type='submit' value='New Event' ng-click='vm.newEvent = true' />
 	</div>
-	
+</div>
+</div>
+</div>
 	<div ng-show="vm.eventSelected">
 		<form>
-			<label>Description:</label><input type='text' ng-model='vm.eventSelected.description'><br>
-			<label>Date:</label><input type='text' ng-model='vm.eventSelected.date'><br>
-			<label>Public:</label><input type='text' ng-model='vm.eventSelected.publicEvent'><br>
+			<label>Description:</label><input type='text' style='width:300px' ng-model='vm.eventSelected.description'><br>
+			<label>Date:</label><input type='date' ng-model='vm.eventSelected.date'><br>
+			<label>Public:</label>
+			<select ng-model='vm.eventSelected.publicEvent'>
+				<option value='YES'>yes</option>
+				<option value='NO'>no</option>
+			</select>
+			<!-- <input type='text' ng-model='vm.eventSelected.publicEvent'><br> -->
 			<input type='submit' value='Save' ng-click='vm.updateEvent(vm.eventSelected)' /><br>
 			<input type='submit' value='Delete' ng-click='vm.deleteEvent(vm.eventSelected.id)' /><br>
-			<input type='submit' value='Cancel' ng-click='vm.displayEvents()' /><br>
+			<input type='submit' value='Cancel' ng-click='vm.eventSelected=null; vm.displayEvents()' /><br>
 		</form>
 	</div>
 	
 	<div ng-show="vm.newEvent == true">
 		<form>
-			<label>Description:</label><input type='text' ng-model='new.description'><br>
-			<label>Date:</label><input type='text' ng-model='new.date'><br>
-			<label>Public:</label><input type='text' ng-model='new.publicEvent'><br>
+			<label>Description:</label><input type='text' style='width:300px' ng-model='new.description'><br>
+			<label>Date:</label><input type='date' ng-model='new.date'><br>
+			<label>Public:</label>
+			<select ng-model='new.publicEvent'>
+				<option value='YES'>yes</option>
+				<option value='NO'>no</option>
+			</select>
 			<input type='submit' value='New Event' ng-click='vm.createEvent(new); new={}' /><br>
 			<input type='submit' value='Cancel' ng-click='vm.displayEvents()' /><br>
 		</form>

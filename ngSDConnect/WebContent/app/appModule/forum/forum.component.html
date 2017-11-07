@@ -1,7 +1,7 @@
-	<div class="container-fluid">
-	<div class="fixed col-xs-3">
+<div class="container-fluid">
+<div class="fixed col-xs-3">
+	<h1 style="font-weight: bold; text-align: center; margin-bottom: 20px">Threads</h1>
 		<div ng-hide='vm.postView || vm.topicSelected || vm.postSelected'>
-		<h1 style="font-weight: bold; text-align: center; margin-bottom: 20px">Threads</h1>
 		<table class="table">
 			<thead>
 				<tr>
@@ -34,6 +34,7 @@
 						<th>Post Date</th>
 						<th>Message</th>
 						<th>User</th>
+						<th></th>
 						<th>Link</th>
 						<th>Edit</th>
 					</tr>
@@ -43,6 +44,7 @@
 						<td>{{post.postDate}}</td>
 						<td>{{post.message}}</td>
 						<td>{{post.user.profile.fname}} {{post.user.profile.lname}}</td>
+						<td><img src='{{post.user.profile.img}}' alt='{{post.user.profile.lname}}' width="50"/></td>
 						<td>{{post.link}}</td>
 						<td ng-show='vm.currentAuthorPost(post)'><input type='submit' name='submit' value='Edit' ng-click='vm.editPost(post)' /></td>
 					</tr>
@@ -57,7 +59,7 @@
 	<div ng-show="vm.postSelected">
 		<form>
 			<label>Message:</label><textarea rows="10" cols="50" ng-model='vm.postSelected.message'></textarea><br>
-			<label>Link:</label><input type='text' ng-model='vm.postSelected.link'><br>
+			<label>Link:</label><input type='text' style='width:300px' ng-model='vm.postSelected.link'><br>
 			<input type='submit' value='Save' ng-click='vm.updatePost(vm.postSelected)' /><br>
 			<input type='submit' value='Delete' ng-click='vm.deletePost(vm.postSelected.id)' /><br>
 			<input type='submit' value='Cancel' ng-click='vm.displayTopics()' /><br>
@@ -65,7 +67,7 @@
 	</div>
 	<div ng-show="vm.topicSelected">
 		<form>
-			<label>Title:</label><input type='text' ng-model='vm.topicSelected.name'><br>
+			<label>Title:</label><input type='text' style='width:400px' ng-model='vm.topicSelected.name'><br>
 			<input type='submit' value='Save' ng-click='vm.updateTopic(vm.topicSelected)' /><br>
 			<input type='submit' value='Delete' ng-click='vm.deleteTopic(vm.topicSelected.id)' /><br>
 			<input type='submit' value='Cancel' ng-click='vm.displayTopics()' /><br>
@@ -73,18 +75,18 @@
 	</div>
 	<div ng-show="vm.newPost == true">
 		<form>
-			<label>Message:</label><input type='text' ng-model='new.message'><br>
-			<label>Link:</label><input type='text' ng-model='new.link'><br>
+			<label>Message:</label><textarea rows="10" cols="50" ng-model='new.message'></textarea><br>
+			<label>Link:</label><input type='text' style='width:300px' ng-model='new.link'><br>
 			<input type='submit' value='New Post' ng-click='vm.createPost(new); new={}' /><br>
 			<input type='submit' value='Cancel' ng-click='vm.displayTopics()' /><br>
 		</form>
 	</div>
 	<div ng-show="vm.newTopic == true">
 		<form ng-model="new">
-			<lable>Title:</lable><input type='text' ng-model='new.name'><br>
+			<lable>Title:</lable><input type='text' style='width:400px' ng-model='new.name'><br>
 			<lable>Tag:</lable>
 			<select ng-options="item.type for item in vm.allTags track by item.id" ng-model="new.tag"></select>
-			<input type='submit' value='New Topic' ng-click='vm.createTopic(new); new={}' /><br>
+			<input type='submit' value='New Thread' ng-click='vm.createTopic(new); new={}' /><br>
 			<input type='submit' value='Cancel' ng-click='vm.displayTopics()' /><br>
 		</form>
 	</div>	
