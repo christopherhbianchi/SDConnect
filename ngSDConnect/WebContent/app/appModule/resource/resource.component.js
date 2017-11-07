@@ -31,7 +31,7 @@ angular.module("appModule")
 				})
 			}
 			
-			vm.addResource = function(){
+			vm.setAddResource = function(){
 				vm.add = true;
 			}
 			

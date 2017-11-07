@@ -38,12 +38,13 @@
       
   <!-- our add a resource page --> <!-- can we submit a form with a post on it? -->
   <div ng-show="vm.add">
+	  <h3>Add</h3>
 	  <form>
-	  	<input type="text" ng-model="resource.name"/>
-	  	<input type="text" ng-model="resource.posts[0].message"/><!-- gives it a topic object and assigns its name -->
-	  	<input type="text" ng-model="resource.posts[0].link"/><!-- gives it a topic object and assigns its name -->
+	  	<input type="text" ng-model="resource.name" placeholder="Name"/><br> <!-- gives it a topic object and assigns its name -->
+	  	<input type="text" ng-model="resource.posts[0].message" placeholder="Description"/><br> <!-- gives that local topic a post object and assigns its message -->
+	  	<input type="text" ng-model="resource.posts[0].link" placeholder="Link"/><br> <!-- can put in a link and click on it and go to it rn -->
 	  	<input type="submit" value="Add Resource" ng-click="vm.createResource(resource)"/>
-	  	<input/>
+	  	<input type="submit" value="Cancel" ng-click="vm.cancelCreation()"/>
 	  </form>
    </div>
   
@@ -62,12 +63,12 @@
       	</div>
       
       <!-- our table of all topics -->
-      	<div class="album text-muted" ng-show="vm.selectedCategory" ng-hide="vm.selected"> <!-- may need to circle back -->
+      	<div class="album text-muted" ng-show="vm.selectedCategory"> <!-- may need to circle back --><!--  ng-hide="vm.selected" -->
         <div class="container">
           <div class="row">
             <div class="card" ng-repeat="resource in vm.resources">
             	 <a ng-click="vm.showResource(resource)"> <!-- this route can change -->
-              <img ng-src="{{resource.posts[0].user.profile.img}}" alt="Card image cap">
+              <img ng-src="{{resource.posts[0].user.profile.img}}" alt="Card image cap" style="width:50px;height:50px;">
              </a>
               <p class="card-text">
               	<ul><!-- need the card to repeat, and a preview of the pdf to show -->

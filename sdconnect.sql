@@ -343,8 +343,8 @@ USE `sdconnectdb`;
 INSERT INTO `tag` (`id`, `type`) VALUES (1, 'Roommate');
 INSERT INTO `tag` (`id`, `type`) VALUES (2, 'Weekend');
 INSERT INTO `tag` (`id`, `type`) VALUES (3, 'Resume');
-INSERT INTO `tag` (`id`, `type`) VALUES (4, 'CoverLetter');
-INSERT INTO `tag` (`id`, `type`) VALUES (5, 'Interview');
+INSERT INTO `tag` (`id`, `type`) VALUES (5, 'CoverLetter');
+INSERT INTO `tag` (`id`, `type`) VALUES (4, 'Interview');
 
 COMMIT;
 
