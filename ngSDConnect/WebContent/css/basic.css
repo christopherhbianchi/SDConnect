@@ -25,16 +25,16 @@ body {
 }
 
 #page-wrapper {
-    padding: 15px 15px;
+    padding: 5px 5px;
     min-height: 600px;
     background: #F3F3F3;
 }
 
 #page-inner {
     width: 100%;
-    margin: 10px 20px 10px 0px;
+    margin: 10px 5px 10px 0px;
     background-color: #fff!important;
-    padding: 10px;
+    padding: 5px;
     min-height: 1200px;
 }
 
@@ -124,6 +124,19 @@ body {
 
 .active > a > .fa.arrow:before {
     content: "\f107";
+}
+
+#post-table {
+	border-collapse: collapse;
+	border: 2px solid navy;
+}
+
+#post-header {
+	font-weight: bold;
+}
+
+#post-row {
+	border-bottom: 2px solid darkslategray;
 }
 
 
@@ -235,7 +248,7 @@ body {
 
 @media (min-width:768px) {
     #page-wrapper {
-        margin: 0 0 0 260px;
+        margin: 0 50px 0 50px;
         padding: 15px 30px;
         min-height: 1200px;
     }
