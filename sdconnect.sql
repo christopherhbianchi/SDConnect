@@ -338,6 +338,11 @@ INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`, `act
 INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`, `active`) VALUES (10, 'jeaster@mail.com', DEFAULT, 2, 1, 'on');
 INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`, `active`) VALUES (12, 'malici@mail.com', DEFAULT, 2, 1, 'on');
 INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`, `active`) VALUES (11, 'bthomas@mail.com', DEFAULT, 2, 1, 'on');
+INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`, `active`) VALUES (13, 'dkucera@mail.com', DEFAULT, 2, 1, 'on');
+INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`, `active`) VALUES (14, 'sthompson@mail.com', DEFAULT, 1, 1, 'on');
+INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`, `active`) VALUES (15, 'rros@mail.com', DEFAULT, 1, 1, 'on');
+INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`, `active`) VALUES (16, 'aconlin@mail.com', DEFAULT, 1, 1, 'on');
+INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`, `active`) VALUES (17, 'bbatky@mail.com', DEFAULT, 1, 1, 'on');
 
 COMMIT;
 
@@ -449,6 +454,11 @@ INSERT INTO `profile` (`id`, `img_url`, `background_desc`, `first_name`, `last_n
 INSERT INTO `profile` (`id`, `img_url`, `background_desc`, `first_name`, `last_name`, `prev_industry`, `coding_exp`, `shirt_size`, `user_id`, `website_url`, `github_url`, `linkedin_url`) VALUES (10, NULL, NULL, 'Jimmy ', 'Easter', NULL, NULL, 'L', 10, NULL, NULL, NULL);
 INSERT INTO `profile` (`id`, `img_url`, `background_desc`, `first_name`, `last_name`, `prev_industry`, `coding_exp`, `shirt_size`, `user_id`, `website_url`, `github_url`, `linkedin_url`) VALUES (11, 'img/profilePictures/BrianProfileImage.jpg', NULL, 'Brian', 'Thomas', NULL, NULL, 'L', 11, 'http://18.220.25.115/', 'https://github.com/flycal6', 'https://www.linkedin.com/in/brian-thomas-332874150/');
 INSERT INTO `profile` (`id`, `img_url`, `background_desc`, `first_name`, `last_name`, `prev_industry`, `coding_exp`, `shirt_size`, `user_id`, `website_url`, `github_url`, `linkedin_url`) VALUES (12, NULL, NULL, 'Mustafa', 'Alici', 'Baker', '2+ Javascript', '2XL', 12, NULL, NULL, 'https://www.linkedin.com/in/mustafa-alici-448906118/');
+INSERT INTO `profile` (`id`, `img_url`, `background_desc`, `first_name`, `last_name`, `prev_industry`, `coding_exp`, `shirt_size`, `user_id`, `website_url`, `github_url`, `linkedin_url`) VALUES (13, NULL, NULL, 'Doug ', 'Kucera', 'Program Manager', NULL, 'L', 13, NULL, NULL, NULL);
+INSERT INTO `profile` (`id`, `img_url`, `background_desc`, `first_name`, `last_name`, `prev_industry`, `coding_exp`, `shirt_size`, `user_id`, `website_url`, `github_url`, `linkedin_url`) VALUES (14, 'img/profilePictures/SteveProfileImage.jpg', NULL, 'Steve', 'Thompson', 'Always Coding', 'Years', 'M', 14, NULL, NULL, 'https://www.linkedin.com/in/steve-thompson-34182712a/');
+INSERT INTO `profile` (`id`, `img_url`, `background_desc`, `first_name`, `last_name`, `prev_industry`, `coding_exp`, `shirt_size`, `user_id`, `website_url`, `github_url`, `linkedin_url`) VALUES (15, 'img/profilePictures/RobProfileImage.jpg', NULL, 'Rob', 'Roselius', NULL, NULL, 'L', 15, NULL, NULL, 'https://www.linkedin.com/in/rob-roselius-675b428/');
+INSERT INTO `profile` (`id`, `img_url`, `background_desc`, `first_name`, `last_name`, `prev_industry`, `coding_exp`, `shirt_size`, `user_id`, `website_url`, `github_url`, `linkedin_url`) VALUES (16, 'img/profilePictures/AndrewConlinProfileImage.jpg', NULL, 'Andrew', 'Conlin', NULL, NULL, 'M', 16, NULL, NULL, 'https://www.linkedin.com/in/andrewcconlin/');
+INSERT INTO `profile` (`id`, `img_url`, `background_desc`, `first_name`, `last_name`, `prev_industry`, `coding_exp`, `shirt_size`, `user_id`, `website_url`, `github_url`, `linkedin_url`) VALUES (17, 'img/profilePictures/BruceBProfileImage.jpg', NULL, 'Bruce', 'Batky', '10+ Years Exp', NULL, 'M', 17, NULL, NULL, 'https://www.linkedin.com/in/bruce-batky-a24525/');
 
 COMMIT;
 

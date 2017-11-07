@@ -7,7 +7,7 @@
        
       </div><!-- Profile Image -->
       		<div>
-      			<img ng-src="{{vm.profile.img}}"/>
+      			<img ng-src="{{vm.profile.img}}"/>     			
       		</div>
           <div class="panel panel-info">
             <div class="panel-heading">
@@ -34,6 +34,13 @@
                 		       <td ng-hide="vm.edit">{{vm.profile.backgroundDescription}}</td> <!-- profile.background -->
                 		       <td ng-show="vm.edit">
 							  <textarea name="message" rows="5" cols="30" ng-model="vm.profile.backgroundDescription">{{vm.profile.backgroundDescription}}</textarea>
+							</td>
+                      </tr>
+                      <tr>
+                        <td>Profile Image URL:</td>
+                		       <td ng-hide="vm.edit">{{vm.profile.img}}</td> <!-- profile.background -->
+                		       <td ng-show="vm.edit">
+							  <textarea name="message" rows="2" cols="30" ng-model="vm.profile.img">{{vm.profile.img}}</textarea>
 							</td>
                       </tr>
                       <tr>
