@@ -20,6 +20,7 @@ angular.module("appModule")
 				vm.topicSelected = null;
 				vm.newTopic = false;
 				vm.newPost = false;
+				vm.currentTopicName = null;
 			};
 			
 			setEverythingToNull();
@@ -70,11 +71,12 @@ angular.module("appModule")
 				});
 			};
 			
-			vm.getPostsPerTopic = function(tid) {
-				vm.currentTid = tid;
+			vm.getPostsPerTopic = function(topic) {
 				setEverythingToNull();
+				vm.currentTid = topic.id;
+				vm.currentTopicName = topic.name;
 				vm.postView = true;
-				postService.index(tid)
+				postService.index(topic.id)
 				.then(function(resp){
 					vm.currentPosts = resp.data;
 				})
@@ -174,6 +176,24 @@ angular.module("appModule")
 				.catch(function(error){
 					console.log(error);
 				});
+			};
+			
+			vm.getClassPostMain = function(num) {
+				if(num%2==0) {
+					return 'chat-widget-left';
+				}
+				else {
+					return 'chat-widget-right';
+				}
+			};
+			
+			vm.getClassPostName = function(num) {
+				if(num%2==0) {
+					return 'chat-widget-name-left';
+				}
+				else {
+					return 'chat-widget-name-right';
+				}
 			};
 			
 		},
