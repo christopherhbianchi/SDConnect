@@ -345,6 +345,17 @@ INSERT INTO `tag` (`id`, `type`) VALUES (2, 'Weekend');
 INSERT INTO `tag` (`id`, `type`) VALUES (3, 'Resume');
 INSERT INTO `tag` (`id`, `type`) VALUES (5, 'CoverLetter');
 INSERT INTO `tag` (`id`, `type`) VALUES (4, 'Interview');
+INSERT INTO `tag` (`id`, `type`) VALUES (6, 'General');
+INSERT INTO `tag` (`id`, `type`) VALUES (7, 'CohortBoard');
+INSERT INTO `tag` (`id`, `type`) VALUES (8, 'Java');
+INSERT INTO `tag` (`id`, `type`) VALUES (9, 'JavaScript');
+INSERT INTO `tag` (`id`, `type`) VALUES (10, 'SQL');
+INSERT INTO `tag` (`id`, `type`) VALUES (11, 'Tools');
+INSERT INTO `tag` (`id`, `type`) VALUES (12, 'Angular');
+INSERT INTO `tag` (`id`, `type`) VALUES (13, 'AWS');
+INSERT INTO `tag` (`id`, `type`) VALUES (14, 'Git');
+INSERT INTO `tag` (`id`, `type`) VALUES (15, 'MidtermProject');
+INSERT INTO `tag` (`id`, `type`) VALUES (16, 'FinalProject');
 
 COMMIT;
 
