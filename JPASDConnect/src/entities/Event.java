@@ -1,6 +1,7 @@
 package entities;
 
 
+import java.sql.Date;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -25,7 +26,7 @@ public class Event {
 	private int id;
 	private String description;
 
-	private String date;
+	private Date date;
 
 	@Column(name = "public")
 	private String publicEvent;
@@ -55,11 +56,11 @@ public class Event {
 		this.description = description;
 	}
 
-	public String getDate() {
+	public Date getDate() {
 		return date;
 	}
 
-	public void setDate(String date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 

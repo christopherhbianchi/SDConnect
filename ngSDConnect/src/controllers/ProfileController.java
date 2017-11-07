@@ -58,7 +58,7 @@ public class ProfileController{
 	public Profile editUserProfile(HttpServletRequest req, HttpServletResponse res,
 			@PathVariable int uid,
 			@RequestBody String profileJson) {
-		
+		System.out.println("Inside editUserProfile in the conetrolelr");
 		return profileDao.editUserProfile(uid, profileJson);
 	}
 

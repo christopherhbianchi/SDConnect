@@ -38,15 +38,74 @@
       
   <!-- our add a resource page --> <!-- can we submit a form with a post on it? -->
   <div ng-show="vm.add">
-	  <h3>Add</h3>
+  
+  
+	  <!-- <h3>Add</h3>
 	  <form>
-	  	<input type="text" ng-model="resource.name" placeholder="Name"/><br> <!-- gives it a topic object and assigns its name -->
-	  	<input type="text" ng-model="resource.posts[0].message" placeholder="Description"/><br> <!-- gives that local topic a post object and assigns its message -->
-	  	<input type="text" ng-model="resource.posts[0].link" placeholder="Link"/><br> <!-- can put in a link and click on it and go to it rn -->
+	  	<input type="text" ng-model="resource.name" placeholder="Name"/><br> gives it a topic object and assigns its name
+	  	<input type="text" ng-model="resource.posts[0].message" placeholder="Description"/><br> gives that local topic a post object and assigns its message
+	  	<input type="text" ng-model="resource.posts[0].link" placeholder="Link"/><br> can put in a link and click on it and go to it rn
+		<select ng-options="tag.type for tag in vm.selectorOptions" ng-model="resource.tag" placeholder="Type"></select>
 	  	<input type="submit" value="Add Resource" ng-click="vm.createResource(resource)"/>
 	  	<input type="submit" value="Cancel" ng-click="vm.cancelCreation()"/>
-	  </form>
+	  </form> -->
+   
+            <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title" >Add</h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class=" col-md-9 col-lg-9 "> 
+                  <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+                        <td>Title:</td>
+							<td>  
+							  <textarea name="" rows="2" cols="30" ng-model="resource.name"></textarea>
+							</td>
+                      </tr>
+                      <tr>
+                        <td>Description:</td>
+							<td>
+							  <textarea name="" rows="5" cols="30" ng-model="resource.posts[0].message"></textarea>
+							</td>
+                      </tr>
+                      <tr>
+                        <td>Link:</td>
+							<td>  
+							  <textarea name="" rows="2" cols="30" ng-model="resource.posts[0].link"></textarea>
+							</td>
+                      </tr>
+                   
+                         <tr>
+                      <tr>
+                        <td>Resource Type:</td>
+							<td>
+							  <select ng-options="tag.type for tag in vm.selectorOptions" ng-model="resource.tag" placeholder="Type"></select>
+							</td>
+                      </tr>
+                        
+   
+                    </tbody>
+                  </table>
+                  			<input class="btn btn-success" type="submit" value="Add Resource" ng-click="vm.createResource(resource); resource={}"/>
+							<input class="btn btn-primary" type="submit" value="Cancel" ng-click="vm.cancelCreation(); resource={}">
+                </div>
+              </div>
+            </div>
+          </div>
+   
+   
+   
+   
+   
+   
+   
+   
+   
    </div>
+   <!-- need a tags id... then in the component put something to grab the tag, and add it to the topic you're passing thorught -->
   
   
       

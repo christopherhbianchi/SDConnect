@@ -28,6 +28,18 @@ angular.module('appModule')
 		};
 		
 		service.create = function(topic) {
+			console.log(topic)
+			var data = {};
+			data.posts = [];
+			data.posts.push(topic.posts["0"]);
+			data.tag = {};
+			data.tag.id = topic.tag.id;
+			data.name = topic.name;
+			data.posts[0].postDate = Date.now();
+			data.posts[0].user = {
+					id : authService.getToken().id
+			}
+			
 			console.log("in service create");
 			var uid = checkLogin();
 			if(isNaN(uid)) {
@@ -40,7 +52,7 @@ angular.module('appModule')
 					headers : {
 						'Content-Type' : 'application/json'
 					},
-					data : topic
+					data : data
 				})
 			}
 		}

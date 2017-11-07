@@ -73,8 +73,9 @@ public class ProfileDAOImpl implements ProfileDAO {
 
 		try {
 			Profile mappedProfile = mapper.readValue(profileJson, Profile.class);
+			mappedProfile.setImg("img/profilePictures/profile.png");
 			User u = em.find(User.class, uid);
-
+			
 			mappedProfile.setUser(u);
 
 			em.persist(mappedProfile);

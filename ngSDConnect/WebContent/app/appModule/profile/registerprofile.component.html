@@ -4,14 +4,18 @@
       <div class="row">
       <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
        <br>
-       <br>
-       <br>
-       <br>
+       
+        <div class="alert alert-danger" ng-show="vm.nameCheck">
+		<strong>Please provide your first name and last name.</strong> 
+		</div>  <!-- Checking to see if user at least wrote first name and last name otherwise user cannot see homepage -->
+		
+       
       </div>
           <div class="panel panel-info">
             <div class="panel-heading">
+            <div><img src="img/profilePictures/profile.png"></div>
             	<input type ="text" placeholder="First Name" ng-model="vm.profile.fname"/>
-            	<input type ="text" placeholder="Last Name" ng-model="vm.profile.lname"/>            	 
+            	<input type ="text" placeholder="Last Name" ng-model="vm.profile.lname"/>       	 
               <h3 class="panel-title" >{{vm.profile.fname}} {{vm.profile.lname}}</h3>
             </div>
             <div class="panel-body">
