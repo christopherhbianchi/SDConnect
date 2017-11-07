@@ -13,7 +13,7 @@ angular.module("appModule").factory("userService",
 						url : "rest/profile"
 					})
 				}
-
+			
 			return userService;
 
 })// end of function

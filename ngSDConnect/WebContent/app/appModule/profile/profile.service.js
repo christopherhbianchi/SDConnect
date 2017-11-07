@@ -15,6 +15,7 @@ angular.module('appModule')
 		});
 		
 	  }
+	  
 
 	  profileService.create = function(profile) {
 		  
@@ -33,7 +34,7 @@ angular.module('appModule')
 		profileService.update = function(profile) {
 			
 			 var user = authService.getToken();
-			 
+			 console.log("Inside profileService update!")
 			return $http({
 		      method : 'PUT',
 		      url : "rest/users/" + user.id + "/profiles",
@@ -58,6 +59,14 @@ angular.module('appModule')
 					})
 				
 			}
+		  
+		  profileService.checkEmailDuplication = function(userEmail) {			  
+			  return $http({
+				method : "GET",
+				url : "rest/users/search/"+userEmail
+			});
+		  }
+		  
 		  return profileService;
 
 	})

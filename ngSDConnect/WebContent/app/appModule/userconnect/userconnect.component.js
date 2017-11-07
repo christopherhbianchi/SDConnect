@@ -2,7 +2,7 @@ angular.module("appModule")
 	.component("userconnect", {
 		templateUrl: "app/appModule/userconnect/userconnect.component.html",
 		controller: function(userService, postService, $filter, 
-				$location, $routeParams, authService, profileService){
+				$location, $routeParams, authService, profileService) {
 			
 			var vm = this;
 			
@@ -16,6 +16,7 @@ angular.module("appModule")
 			}
 			return false;
 			}
+			
 			var reload = function(){
 				userService.index().then(function(res){
 					vm.profiles = res.data;

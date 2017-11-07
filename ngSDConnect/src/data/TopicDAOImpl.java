@@ -1,8 +1,8 @@
 package data;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -16,7 +16,6 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import entities.Post;
 import entities.Tag;
 import entities.Topic;
 
@@ -137,6 +136,20 @@ public class TopicDAOImpl implements TopicDAO{
 		}
 		System.out.println("in dao after");
 		return null;
+	}
+
+	@Override
+	public Set<Topic> getNonCareerTopics() {
+		Set<Topic> topics = showAll();
+		Set<Topic> answer = new HashSet<>();
+		for(Topic t : topics) {
+			String type = t.getTag().getType();
+			if ( ! (type.equals("Resume") || type.equals("Interview") || type.equals("CoverLetter") ) ) {
+//				System.out.println("************** Adding non-career topic **********************************");
+				answer.add(t);
+			}
+		}
+		return answer;
 	}
 
 }

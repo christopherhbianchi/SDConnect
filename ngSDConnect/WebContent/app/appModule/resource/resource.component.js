@@ -48,7 +48,7 @@ angular.module("appModule")
 			}
 			
 			vm.createResource = function(resource){ //name is resource, but its a topic obj
-				topicService.create(resource).then(function(response){ //can attach this function to a save button
+				topicService.createResource(resource).then(function(response){ //can attach this function to a save button
 					reload(); //after it's made, reload our data
 					vm.add = null;//once it's added, turn it off
 				})
