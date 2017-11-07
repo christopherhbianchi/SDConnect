@@ -3,15 +3,12 @@
 	<div class="container">
       <div class="row">
       <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
-       <br>
-       
       </div><!-- Profile Image -->
-      		<div>
-      			<img ng-src="{{vm.profile.img}}"/>     			
-      		</div>
+
           <div class="panel panel-info">
             <div class="panel-heading">
-              <h3 class="panel-title" >{{vm.profile.fname}} {{vm.profile.lname}}</h3>
+      		<img ng-src="{{vm.profile.img}}"  class="rounded-circle" width=300px align="center"/>     			
+              <h3 class="panel-title" style="margin-top: 40px">{{vm.profile.fname}} {{vm.profile.lname}}</h3>
             </div>
             <div class="panel-body">
               <div class="row">
