@@ -1,7 +1,7 @@
 <div class="container-fluid">
-<div class="fixed col-xs-3">
-	<h1 style="font-weight: bold; text-align: center; margin-bottom: 20px">Threads</h1>
+	<div class="fixed col-xs-3">
 		<div ng-hide='vm.postView || vm.topicSelected || vm.postSelected'>
+		<h1 style="font-weight: bold; text-align: center; margin-bottom: 20px">Threads</h1>
 		<table class="table">
 			<thead>
 				<tr>
@@ -13,7 +13,7 @@
 			<tbody>
 				<tr ng-repeat="topic in vm.currentTopics | orderBy : '-id' ">
 					<td>{{topic.name}}</td>
-					<td><input type='submit' name='submit' value='Select' ng-click='vm.getPostsPerTopic(topic.id)' /></td>
+					<td><input type='submit' name='submit' value='Select' ng-click='vm.getPostsPerTopic(topic)' /></td>
 					<td ng-show='vm.currentAdmin()'><input type='submit' value='Edit' ng-click='vm.editTopic(topic)' /></td>
 				</tr>
 			</tbody>
@@ -22,15 +22,48 @@
 		<!-- <input type='submit' name='submit' value='Filter by Resume Only' ng-click='vm.getTopicByTagKeyword("Resume")' /> -->
 		</div>
 	</div>
-	</div>
+</div>
 		
-	<div class="container-fluid">
-	<div class="fixed col-xs-3">	
-		<div ng-show='vm.postView'>
+
+	   <div ng-show='vm.postView' id="page-wrapper">
+           <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-head-line" style="font-weight: bold; text-align: center; margin-bottom: 20px">{{vm.currentTopicName}}</h1>
+                    </div>
+                </div>
+                <!-- /. ROW  -->
+                <div ng-repeat="post in vm.currentPosts | orderBy : '-id'" class="row">
+                   <div class="col-md-12">
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                               {{post.postDate}}
+                            </div>
+                            <div class="panel-body" style="padding: 0px;">
+                                <div class="chat-widget-main">
+                                    <div ng-class="vm.getClassPostMain(post.id)">
+                                        {{post.message}}
+                                    </div>
+                                    <div ng-class="getClassPostName(post.id)">
+                                        <h4>{{post.user.profile.fname}} {{post.user.profile.lname}}</h4>
+                                        <img src='{{post.user.profile.img}}' alt='{{post.user.profile.lname}}' width="50"/>
+                                    </div>
+                                 </div> <!-- end chat widget main -->
+                            </div> <!-- end panel-body -->
+                       </div> <!-- end panel panel-success -->
+                   </div> <!-- end col-md-6 -->
+			</div><!-- end row -->
+			<input type='submit' value='New Post' ng-click='vm.newPost=true' />
+			<input type='submit' name='submit' value='Return to List of Threads' ng-click='vm.displayTopics()' /> 
+	</div> <!-- end page inner -->
+</div> <!-- end page wrapper -->
+  
+                                    
+		<!-- <div ng-show='vm.postView'>
 		<h1 style="font-weight: bold; text-align: center; margin-bottom: 20px">Posts</h1>
-			<table>
+			<table id="post-table">
 				<thead>
-					<tr>
+					<tr id="post-header">
 						<th>Post Date</th>
 						<th>Message</th>
 						<th>User</th>
@@ -40,7 +73,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="post in vm.currentPosts | orderBy : '-id'">
+					<tr id="post-row" ng-repeat="post in vm.currentPosts | orderBy : '-id'">
 						<td>{{post.postDate}}</td>
 						<td>{{post.message}}</td>
 						<td>{{post.user.profile.fname}} {{post.user.profile.lname}}</td>
@@ -52,9 +85,8 @@
 			</table>
 			<input type='submit' value='New Post' ng-click='vm.newPost=true' />
 			<input type='submit' name='submit' value='Return to List of Threads' ng-click='vm.displayTopics()' />
-		</div>
-	</div>
-	</div>
+		</div> -->
+
 	
 	<div ng-show="vm.postSelected">
 		<form>
