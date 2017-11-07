@@ -140,14 +140,8 @@
             </div>
             
             <!-- pdf viewer shit -->
-           <div ng-show="vm.selected">
-	            <style>
-		          html, body { height: 100%; width: 100%; margin: 0; padding: 0; }
-		          .pdf-styles { width: 100%; height: 100%; }
-		        </style>
-	            	<div class="some-pdf-container"> <!-- ng-src maybe? -->
-	           	 	<pdfjs-viewer src="{{ vm.selected.posts[0].link }}"></pdfjs-viewer><!-- src unles errors -->
-	        		</div>
+           <div ng-show="vm.selected"> <!-- issue loading while its nested here in this component.html -->
+	            <pdf-viewer></pdf-viewer>
         		</div>
             <!-- 
            <tr ng-repeat="resource in vm.resources"> <!-- resource is a topic
