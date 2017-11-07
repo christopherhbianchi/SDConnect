@@ -19,5 +19,6 @@ angular.module("authModule").component("register", {
 			
 			controllerAs: "vm"
 	})
-		
 	
+
+
