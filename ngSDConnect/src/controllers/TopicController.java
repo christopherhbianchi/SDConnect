@@ -29,6 +29,12 @@ public class TopicController {
 	public Set<Topic> index() {
 		return topic.showAll();
 	}
+	
+//  GET /topics/noncareer
+	@RequestMapping(path="topics/noncareer", method=RequestMethod.GET)
+	public Set<Topic> indexNonCareer() {
+		return topic.getNonCareerTopics();
+	}
 
 //  GET /topics/{id}
 	@RequestMapping(path="topics/{tid}", method=RequestMethod.GET)

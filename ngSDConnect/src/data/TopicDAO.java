@@ -20,4 +20,6 @@ public interface TopicDAO {
 	
 	public Set<Topic> getByTagKeyword(String word);
 	
+	public Set<Topic> getNonCareerTopics();
+	
 }
