@@ -20,6 +20,19 @@ angular.module('appModule')
 			}
 		};
 		
+		service.noncareer = function(){
+			var uid = checkLogin();
+			if(isNaN(uid)) {
+				$location.path('/login');
+			}
+			else {
+				return $http({
+					method : 'GET',
+					url : 'rest/topics/noncareer'
+				})
+			}
+		};
+		
 		service.show = function(id) {
 			return $http({
 				method : 'GET',

@@ -42,7 +42,7 @@ angular.module('appModule')
 			else {
 				return $http({
 					method : 'POST',
-					url : 'rest/projects',
+					url : 'rest/users/' + uid + '/projects',
 					headers : {
 						'Content-Type' : 'application/json'
 					},
@@ -60,7 +60,7 @@ angular.module('appModule')
 			else {
 				return $http({
 					method : 'PUT',
-					url : 'rest/users/' + uid + 'topics/' + pid,
+					url : 'rest/users/' + uid + '/projects/' + pid,
 					headers : {
 						'Content-Type' : 'application/json'
 					},
@@ -77,9 +77,13 @@ angular.module('appModule')
 			else {
 				return $http({
 					method : 'DELETE',
-					url : 'rest/users/' + uid + 'topics/' + pid
+					url : 'rest/users/' + uid + '/projects/' + pid
 				})
 			}
+		}
+		
+		service.returnUser = function() {
+			return authService.getToken();
 		}
 		
 		return service;
