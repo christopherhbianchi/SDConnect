@@ -1,48 +1,72 @@
-<div class="container-fluid">
-<div class="fixed col-xs-3">
-<h1 style="font-weight: bold; text-align: center; margin-bottom: 20px">Projects</h1>
-	<div ng-hide='vm.projectSelected || vm.newProject'>
-		<table class="table">
-			<thead>
-				<tr>
-					<th>Project Name</th>
-					<th>Description</th>
-					<th>Estimated Hours</th>
-					<th></th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr ng-repeat="project in vm.projectList">
-					<td ng-class='vm.getIntensity(project.estimatedHours)'>{{project.name}}</td>
-					<td ng-class='vm.getIntensity(project.estimatedHours)'>{{project.description}}</td>
-					<td ng-class='vm.getIntensity(project.estimatedHours)'>{{project.estimatedHours}}</td>
-					<td ng-show='vm.currentAdmin()'><input type='submit' value='Edit' ng-click='vm.editProject(project)' /></td>
-				</tr>
-			</tbody>
-		</table>
-		<div ng-show='vm.currentAdmin()'>
-			<input type='submit' value='New Project' ng-click='vm.newProject = true' />
-		</div>
-		</div>
+ <div ng-hide='vm.projectSelected || vm.newProject'>
+	 <div id="page-wrapper">
+	     <div id="page-inner">
+	          <div class="row">
+	              <div class="col-md-12">
+	                  <h1 class="page-head-line" style="font-weight: bold; text-align: center; margin-bottom: 20px">Projects</h1>
+	              </div>
+	          </div>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Project Name</th>
+						<th>Description</th>
+						<th>Estimated Hours</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="project in vm.projectList">
+						<td ng-class='vm.getIntensity(project.estimatedHours)'>{{project.name}}</td>
+						<td ng-class='vm.getIntensity(project.estimatedHours)'>{{project.description}}</td>
+						<td ng-class='vm.getIntensity(project.estimatedHours)'>{{project.estimatedHours}}</td>
+						<td ng-class='vm.getIntensity(project.estimatedHours)' ng-show='vm.currentAdmin()'><input type='submit' value='Edit' ng-click='vm.editProject(project)' /></td>
+					</tr>
+				</tbody>
+			</table>
+		</div> <!-- end page inner -->
+	</div> <!-- end page wrapper -->
+	<div class="new-buttons" ng-show='vm.currentAdmin()'>
+		<input type='submit' value='New Project' ng-click='vm.newProject = true' />
 	</div>
-</div>
-<div ng-show="vm.projectSelected">
-		<form>
-			<label>Name:</label><input type='text' style='width:200px' ng-model='vm.projectSelected.name'><br>
-			<label>Description:</label><input type='text' style='width:300px' ng-model='vm.projectSelected.description'><br>
-			<label>Estimated Hours:</label><input type='text' ng-model='vm.projectSelected.estimatedHours'><br>
-			<input type='submit' value='Save' ng-click='vm.updateProject(vm.projectSelected)' /><br>
-			<input type='submit' value='Delete' ng-click='vm.deleteProject(vm.projectSelected.id)' /><br>
-			<input type='submit' value='Cancel' ng-click='vm.displayProjects()' /><br>
-		</form>
-	</div>
+</div> <!-- end ng-hide -->
+
+ <div ng-show="vm.projectSelected">
+	 <div id="page-wrapper">
+	     <div id="page-inner">
+	          <div class="row">
+	              <div class="col-md-12">
+	                  <h1 class="page-head-line" style="font-weight: bold; text-align: center; margin-bottom: 20px">Edit Project</h1>
+	              </div>
+	          </div>
+			<form>
+				<label>Name:</label><input type='text' style='width:200px' ng-model='vm.projectSelected.name'><br>
+				<label>Description:</label><input type='text' style='width:300px' ng-model='vm.projectSelected.description'><br>
+				<label>Estimated Hours:</label><input type='text' ng-model='vm.projectSelected.estimatedHours'><br>
+				<input type='submit' value='Save' ng-click='vm.updateProject(vm.projectSelected)' /><br>
+				<input type='submit' value='Delete' ng-click='vm.deleteProject(vm.projectSelected.id)' /><br>
+				<input type='submit' value='Cancel' ng-click='vm.displayProjects()' /><br>
+			</form>
+		</div> <!-- end inner -->
+	</div> <!-- end wrapper -->
+</div> <!-- end ng-show -->
+
+ <div ng-show="vm.newProject == true">
+	 <div id="page-wrapper">
+	     <div id="page-inner">
+	          <div class="row">
+	              <div class="col-md-12">
+	                  <h1 class="page-head-line" style="font-weight: bold; text-align: center; margin-bottom: 20px">New Project</h1>
+	              </div>
+	          </div>	
+			<form>
+				<label>Name:</label><input type='text'  style='width:200px' ng-model='new.name'><br>
+				<label>Description:</label><input type='text' style='width:300px' ng-model='new.description'><br>
+				<label>EstimatedHours:</label><input type='text' ng-model='new.estimatedHours'><br>
+				<input type='submit' value='New Project' ng-click='vm.createProject(new); new={}' /><br>
+				<input type='submit' value='Cancel' ng-click='vm.displayProjects()' /><br>
+			</form>
+		</div> <!-- end inner -->
+	</div> <!-- end wrapper -->
+</div> <!-- end ng-show -->
 	
-	<div ng-show="vm.newProject == true">
-		<form>
-			<label>Name:</label><input type='text'  style='width:200px' ng-model='new.name'><br>
-			<label>Description:</label><input type='text' style='width:300px' ng-model='new.description'><br>
-			<label>EstimatedHours:</label><input type='text' ng-model='new.estimatedHours'><br>
-			<input type='submit' value='New Project' ng-click='vm.createProject(new); new={}' /><br>
-			<input type='submit' value='Cancel' ng-click='vm.displayProjects()' /><br>
-		</form>
-	</div>

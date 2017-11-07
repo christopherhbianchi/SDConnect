@@ -1,94 +1,85 @@
-<div class="container-fluid">
-	<div class="fixed col-xs-3">
-		<div ng-hide='vm.postView || vm.topicSelected || vm.postSelected'>
-		<h1 style="font-weight: bold; text-align: center; margin-bottom: 20px">Threads</h1>
-		<table class="table">
-			<thead>
-				<tr>
-					<th>Title</th>
-					<th>Select</th>
-					<th></th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr ng-repeat="topic in vm.currentTopics | orderBy : '-id' ">
-					<td>{{topic.name}}</td>
-					<td><input type='submit' name='submit' value='Select' ng-click='vm.getPostsPerTopic(topic)' /></td>
-					<td ng-show='vm.currentAdmin()'><input type='submit' value='Edit' ng-click='vm.editTopic(topic)' /></td>
-				</tr>
-			</tbody>
-		</table>
-		<input type='submit' value='New Thread' ng-click='vm.newTopic=true' />
-		<!-- <input type='submit' name='submit' value='Filter by Resume Only' ng-click='vm.getTopicByTagKeyword("Resume")' /> -->
-		</div>
-	</div>
-</div>
-		
-
-	   <div ng-show='vm.postView' id="page-wrapper">
-           <div id="page-inner">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1 class="page-head-line" style="font-weight: bold; text-align: center; margin-bottom: 20px">{{vm.currentTopicName}}</h1>
-                    </div>
-                </div>
-                <!-- /. ROW  -->
-                <div ng-repeat="post in vm.currentPosts | orderBy : 'id'" class="row">
-                   <div class="col-md-12">
-                        <div class="panel panel-success">
-                            <div class="panel-heading">
-                               {{post.postDate}}
-                            </div>
-                            <div class="panel-body" style="padding: 0px;">
-                                <div class="chat-widget-main">
-                                    <div ng-class="vm.getClassPostMain(post.id)">
-                                        {{post.message}}
-                                    </div>
-                                    <div ng-class="getClassPostName(post.id)">
-                                        <h4>{{post.user.profile.fname}} {{post.user.profile.lname}}</h4>
-                                        <img src='{{post.user.profile.img}}' alt='{{post.user.profile.lname}}' width="50"/>
-                                    </div>
-                                 </div> <!-- end chat widget main -->
-                            </div> <!-- end panel-body -->
-                       </div> <!-- end panel panel-success -->
-                   </div> <!-- end col-md-6 -->
-			</div><!-- end row -->
-			<input type='submit' value='New Post' ng-click='vm.newPost=true' />
-			<input type='submit' name='submit' value='Return to List of Threads' ng-click='vm.displayTopics()' /> 
-	</div> <!-- end page inner -->
-</div> <!-- end page wrapper -->
-  
-                                    
-		<!-- <div ng-show='vm.postView'>
-		<h1 style="font-weight: bold; text-align: center; margin-bottom: 20px">Posts</h1>
-			<table id="post-table">
+ <div ng-hide='vm.postView || vm.topicSelected || vm.postSelected || vm.newPost || vm.newTopic'>
+	 <div id="page-wrapper-f">
+	     <div id="page-inner">
+	          <div class="row">
+	              <div class="col-md-12">
+	                  <h1 class="page-head-line" style="font-weight: bold; text-align: center; margin-bottom: 20px">Threads</h1>
+	              </div>
+	          </div>
+		<!-- <div class="container-fluid">
+		<div class="fixed col-xs-3"> -->
+			<table class="table">
 				<thead>
-					<tr id="post-header">
-						<th>Post Date</th>
-						<th>Message</th>
-						<th>User</th>
+					<tr>
+						<th>Title</th>
+						<th>Select</th>
 						<th></th>
-						<th>Link</th>
-						<th>Edit</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr id="post-row" ng-repeat="post in vm.currentPosts | orderBy : '-id'">
-						<td>{{post.postDate}}</td>
-						<td>{{post.message}}</td>
-						<td>{{post.user.profile.fname}} {{post.user.profile.lname}}</td>
-						<td><img src='{{post.user.profile.img}}' alt='{{post.user.profile.lname}}' width="50"/></td>
-						<td>{{post.link}}</td>
-						<td ng-show='vm.currentAuthorPost(post)'><input type='submit' name='submit' value='Edit' ng-click='vm.editPost(post)' /></td>
+					<tr ng-repeat="topic in vm.currentTopics | orderBy : '-id' ">
+						<td>{{topic.name}}</td>
+						<td><input type='submit' name='submit' value='Select' ng-click='vm.getPostsPerTopic(topic)' /></td>
+						<td ng-show='vm.currentAdmin()'><input type='submit' value='Edit' ng-click='vm.editTopic(topic)' /></td>
 					</tr>
 				</tbody>
 			</table>
-			<input type='submit' value='New Post' ng-click='vm.newPost=true' />
-			<input type='submit' name='submit' value='Return to List of Threads' ng-click='vm.displayTopics()' />
-		</div> -->
-
+			
+			<!-- <input type='submit' name='submit' value='Filter by Resume Only' ng-click='vm.getTopicByTagKeyword("Resume")' /> -->
+		</div>
 	
-	<div ng-show="vm.postSelected">
+	</div>
+	<div class="new-buttons">
+		<input type='submit' value='New Thread' ng-click='vm.newTopic=true' />
+	</div>
+</div>
+
+
+<div ng-show='vm.postView'>		
+	<div id="page-wrapper-f">
+	      <div id="page-inner">
+	           <div class="row">
+	               <div class="col-md-12">
+	                   <h1 class="page-head-line" style="font-weight: bold; text-align: center; margin-bottom: 20px">{{vm.currentTopicName}}</h1>
+	               </div>
+	           </div>
+	                <!-- /. ROW  -->
+	                <div ng-repeat="post in vm.currentPosts | orderBy : 'id'" class="row">
+	                   <div class="col-md-12">
+	                        <div class="panel panel-success">
+	                            <div class="panel-heading">
+	                               {{post.postDate}}
+	                            </div>
+	                            <div class="panel-body" style="padding: 0px;">
+	                                <div class="chat-widget-main">
+	                                    <div ng-class="vm.getClassPostMain(post.id)">
+	                                        {{post.message}}
+	                                    </div>
+	                                    <div ng-class="getClassPostName(post.id)">
+	                                        <h4>{{post.user.profile.fname}} {{post.user.profile.lname}}</h4>
+	                                        <img src='{{post.user.profile.img}}' alt='{{post.user.profile.lname}}' width="50"/>
+	                                    </div>
+	                                 </div> <!-- end chat widget main -->
+	                            </div> <!-- end panel-body -->
+	                       </div> <!-- end panel panel-success -->
+	                   </div> <!-- end col-md-6 -->
+				</div><!-- end row -->
+		</div> <!-- end page inner --> 
+	</div> <!-- end page wrapper -->
+	<div class="new-buttons">
+		<input type='submit' value='New Post' ng-click='vm.newPost=true' />
+		<input type='submit' name='submit' value='Return to List of Threads' ng-click='vm.displayTopics()' />
+	</div>
+</div>
+
+<div ng-show="vm.postSelected">		
+	<div id="page-wrapper-f">
+      <div id="page-inner">
+           <div class="row">
+               <div class="col-md-12">
+                   <h1 class="page-head-line" style="font-weight: bold; text-align: center; margin-bottom: 20px">Edit Post</h1>
+               </div>
+           </div>
 		<form>
 			<label>Message:</label><textarea rows="10" cols="50" ng-model='vm.postSelected.message'></textarea><br>
 			<label>Link:</label><input type='text' style='width:300px' ng-model='vm.postSelected.link'><br>
@@ -96,24 +87,56 @@
 			<input type='submit' value='Delete' ng-click='vm.deletePost(vm.postSelected.id)' /><br>
 			<input type='submit' value='Cancel' ng-click='vm.displayTopics()' /><br>
 		</form>
-	</div>
-	<div ng-show="vm.topicSelected">
+	  </div> <!-- end page inner -->
+	</div> <!-- end page wrapper -->
+</div> <!-- end ng-show -->
+
+
+<div ng-show="vm.topicSelected">		
+	<div id="page-wrapper-f">
+      <div id="page-inner">
+           <div class="row">
+               <div class="col-md-12">
+                   <h1 class="page-head-line" style="font-weight: bold; text-align: center; margin-bottom: 20px">Edit Topic</h1>
+               </div>
+           </div>
 		<form>
 			<label>Title:</label><input type='text' style='width:400px' ng-model='vm.topicSelected.name'><br>
 			<input type='submit' value='Save' ng-click='vm.updateTopic(vm.topicSelected)' /><br>
 			<input type='submit' value='Delete' ng-click='vm.deleteTopic(vm.topicSelected.id)' /><br>
 			<input type='submit' value='Cancel' ng-click='vm.displayTopics()' /><br>
 		</form>
-	</div>
-	<div ng-show="vm.newPost == true">
+	  </div> <!-- end page inner -->
+	</div> <!-- end page wrapper -->
+</div> <!-- end ng-show -->
+
+	
+<div ng-show="vm.newPost == true">		
+	<div id="page-wrapper-f">
+      <div id="page-inner">
+           <div class="row">
+               <div class="col-md-12">
+                   <h1 class="page-head-line" style="font-weight: bold; text-align: center; margin-bottom: 20px">New Post</h1>
+               </div>
+           </div>	
 		<form>
 			<label>Message:</label><textarea rows="10" cols="50" ng-model='new.message'></textarea><br>
 			<label>Link:</label><input type='text' style='width:300px' ng-model='new.link'><br>
 			<input type='submit' value='New Post' ng-click='vm.createPost(new); new={}' /><br>
 			<input type='submit' value='Cancel' ng-click='vm.displayTopics()' /><br>
 		</form>
-	</div>
-	<div ng-show="vm.newTopic == true">
+	  </div> <!-- end page inner -->
+	</div> <!-- end page wrapper -->
+</div> <!-- end ng-show -->
+
+<div ng-show="vm.newTopic == true">		
+	<div id="page-wrapper-f">
+      <div id="page-inner">
+           <div class="row">
+               <div class="col-md-12">
+                   <h1 class="page-head-line" style="font-weight: bold; text-align: center; margin-bottom: 20px">New Thread</h1>
+               </div>
+           </div>	
 		<form ng-model="new">
 			<lable>Title:</lable><input type='text' style='width:400px' ng-model='new.name'><br>
 			<lable>Tag:</lable>
@@ -121,4 +144,6 @@
 			<input type='submit' value='New Thread' ng-click='vm.createTopic(new); new={}' /><br>
 			<input type='submit' value='Cancel' ng-click='vm.displayTopics()' /><br>
 		</form>
-	</div>	
+	  </div> <!-- end page inner -->
+	</div> <!-- end page wrapper -->
+</div> <!-- end ng-show -->
