@@ -28,15 +28,15 @@ public class ProfileDAOImpl implements ProfileDAO {
 
 		User u = em.find(User.class, uid);
 
-		Profile p = u.getProfile();
+		Profile p = u.getProfile(); 
+		System.out.println(p);
 		if (u.getId() == uid) {
 
 			ObjectMapper mapper = new ObjectMapper();
 
 			try {
-
 				Profile mappedProfile = mapper.readValue(profileJson, Profile.class);
-
+				System.out.println(mappedProfile);
 				if (!mappedProfile.getBackgroundDescription().equals("")) {
 					p.setBackgroundDescription(mappedProfile.getBackgroundDescription());
 				}

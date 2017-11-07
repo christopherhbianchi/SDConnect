@@ -4,7 +4,7 @@
 <a ng-show="vm.viewProfile" class="btn btn-secondary" role="button" ng-click="vm.viewProfile = false">Hide Profile Info</a>
 <a ng-hide="vm.viewProfile" class="btn btn-secondary" role="button" ng-click="vm.viewProfile = true">Show Profile Info</a>
 
-<span class="container marketing" ng-repeat="profile in vm.profiles">
+<span class="container marketing" ng-repeat="profile in vm.profiles | orderBy : 'lname'">
 	<span class="row">
 		<span class="col-lg-6">
 			<img class="rounded-circle" ng-src="{{profile.img}}" width="140"
