@@ -2,6 +2,9 @@ package data;
 
 import java.util.Set;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import entities.Profile;
 
 
@@ -12,5 +15,6 @@ public interface ProfileDAO {
 	public Boolean deleteUserProfile(int uid, int pid);
 	public Profile readUserProfile(int uid);
 	public Set<Profile> readAllProfiles();
+	public boolean checkDuplicatedEmail(String userEmail);
 
 }

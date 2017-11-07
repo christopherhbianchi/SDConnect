@@ -12,6 +12,7 @@ angular.module("appModule").component("profile", {
 					vm.profile = res.data;
 				});
 			}
+			
 			reload();
 			
 			vm.edit = null;
