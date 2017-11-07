@@ -145,7 +145,7 @@ public class TopicDAOImpl implements TopicDAO{
 		for(Topic t : topics) {
 			String type = t.getTag().getType();
 			if ( ! (type.equals("Resume") || type.equals("Interview") || type.equals("CoverLetter") ) ) {
-				System.out.println("************** Adding non-career topic **********************************");
+//				System.out.println("************** Adding non-career topic **********************************");
 				answer.add(t);
 			}
 		}

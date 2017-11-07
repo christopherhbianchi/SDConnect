@@ -16,7 +16,7 @@
 					<td ng-class='vm.getIntensity(project.estimatedHours)'>{{project.name}}</td>
 					<td ng-class='vm.getIntensity(project.estimatedHours)'>{{project.description}}</td>
 					<td ng-class='vm.getIntensity(project.estimatedHours)'>{{project.estimatedHours}}</td>
-					<td ng-show='vm.currentAdmin()'><input type='submit' value='Edit' ng-click='vm.editProject(project)' /></td>
+					<td ng-class='vm.getIntensity(project.estimatedHours)' ng-show='vm.currentAdmin()'><input type='submit' value='Edit' ng-click='vm.editProject(project)' /></td>
 				</tr>
 			</tbody>
 		</table>
