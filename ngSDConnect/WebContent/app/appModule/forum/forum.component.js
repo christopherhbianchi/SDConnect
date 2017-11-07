@@ -5,7 +5,6 @@ angular.module("appModule")
 		controller: function(topicService, postService, tagService, $filter, $location, $routeParams){
 			var vm = this;
 			
-			vm.allTopics = [];
 			vm.currentTopics = [];
 			vm.currentPosts = [];
 			vm.allTags = [];
@@ -28,18 +27,6 @@ angular.module("appModule")
 			var getAllTopics = function(){
 				topicService.index()
 				.then(function(resp){
-					vm.allTopics = resp.data;
-				})
-				.catch(function(error){
-					console.log(error);
-				});
-			};
-			
-			getAllTopics();
-			
-			var getNonCareerTopics = function(){
-				topicService.noncareer()
-				.then(function(resp){
 					vm.currentTopics = resp.data;
 				})
 				.catch(function(error){
@@ -47,7 +34,7 @@ angular.module("appModule")
 				});
 			};
 			
-			getNonCareerTopics();
+			getAllTopics();
 			
 			var getAllTags = function(){
 				tagService.index()
@@ -88,7 +75,7 @@ angular.module("appModule")
 			vm.displayTopics = function(){
 				vm.currentPosts = [];
 				setEverythingToNull();
-				getNonCareerTopics();
+				getAllTopics();
 			};
 			
 			vm.currentAdmin = function() {
@@ -115,7 +102,7 @@ angular.module("appModule")
 				topicService.destroy(tid)
 				.then(function(res){
 					setEverythingToNull();
-					getNonCareerTopics()
+					getAllTopics();
 				})
 				.catch(function(error){
 					console.log(error);
@@ -127,7 +114,7 @@ angular.module("appModule")
 				topicService.createTopic(topic)
 				.then(function(res){
 					setEverythingToNull();
-					getNonCareerTopics()
+					getAllTopics();
 				})
 				.catch(function(error){
 					console.log(error);
