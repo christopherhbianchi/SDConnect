@@ -2,7 +2,7 @@ angular.module("appModule")
 	.component("resource", {
 	
 		templateUrl:"app/appModule/resource/resource.component.html",
-		controller:function(topicService){ //we use the topicService instead since a resource is a topic object
+		controller:function(topicService, tagService){ //we use the topicService instead since a resource is a topic object
 			
 			//point of this is to handle requests from the html file
 			//we w
@@ -12,6 +12,7 @@ angular.module("appModule")
 			vm.selected = null; //if they choose a single entry
 			vm.edit = null; //if somebody selects a resource to edit.. on other side we can verify they have permission
 			vm.add = null; //if somebody wants to add, we set it here
+			vm.selectorOptions = []; //need to populate this with tags i want
 			
 			vm.resources = [];
 			
@@ -21,7 +22,18 @@ angular.module("appModule")
 				})
 			}
 			
+			function loadDesiredTags(){
+				tagService.index().then(function(response){
+					response.data.forEach(function(element){
+						if(element.type === "Resume" || element.type === "CoverLetter" || element.type === "Interview"){
+							vm.selectorOptions.push(element);
+						}
+					});
+				});
+			}
+			
 			reload(); //load right away
+			loadDesiredTags(); //load tag options right away
 			
 			vm.showResource = function(resource){ //can grab the id out of it later in the service
 				topicService.show(resource.id).then(function(response){
