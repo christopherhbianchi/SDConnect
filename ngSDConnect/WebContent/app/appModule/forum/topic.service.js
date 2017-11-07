@@ -40,7 +40,7 @@ angular.module('appModule')
 			})
 		};
 		
-		service.create = function(topic) {
+		service.createResource = function(topic) {
 			console.log(topic)
 			var data = {};
 			data.posts = [];
@@ -52,8 +52,6 @@ angular.module('appModule')
 			data.posts[0].user = {
 					id : authService.getToken().id
 			}
-			
-			console.log("in service create");
 			var uid = checkLogin();
 			if(isNaN(uid)) {
 				$location.path('/login');
@@ -66,6 +64,23 @@ angular.module('appModule')
 						'Content-Type' : 'application/json'
 					},
 					data : data
+				})
+			}
+		}
+		
+		service.createTopic = function(topic) {
+			var uid = checkLogin();
+			if(isNaN(uid)) {
+				$location.path('/login');
+			}
+			else {
+				return $http({
+					method : 'POST',
+					url : 'rest/topics',
+					headers : {
+						'Content-Type' : 'application/json'
+					},
+					data : topic
 				})
 			}
 		}

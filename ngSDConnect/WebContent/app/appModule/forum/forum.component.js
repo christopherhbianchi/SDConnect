@@ -115,7 +115,7 @@ angular.module("appModule")
 				topicService.destroy(tid)
 				.then(function(res){
 					setEverythingToNull();
-					getAllTopics();
+					getNonCareerTopics()
 				})
 				.catch(function(error){
 					console.log(error);
@@ -124,10 +124,10 @@ angular.module("appModule")
 			
 			vm.createTopic = function(topic){
 				delete topic.tag.topics;
-				topicService.create(topic)
+				topicService.createTopic(topic)
 				.then(function(res){
 					setEverythingToNull();
-					getAllTopics();
+					getNonCareerTopics()
 				})
 				.catch(function(error){
 					console.log(error);
