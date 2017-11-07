@@ -83,9 +83,6 @@
 		<form ng-model="new">
 			<lable>Title:</lable><input type='text' ng-model='new.name'><br>
 			<lable>Tag:</lable>
-			<!-- <select ng-model='new.tag'>
-				<option ng-repeat='tag in vm.allTags' value='{{tag}}'>{{tag.type}}</option>
-			</select> -->
 			<select ng-options="item.type for item in vm.allTags track by item.id" ng-model="new.tag"></select>
 			<input type='submit' value='New Topic' ng-click='vm.createTopic(new); new={}' /><br>
 			<input type='submit' value='Cancel' ng-click='vm.displayTopics()' /><br>

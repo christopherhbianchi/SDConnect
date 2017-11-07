@@ -34,7 +34,7 @@ angular.module('appModule')
 			}
 		};
 		
-		service.showEventsByCohortId = function(id) {
+		service.showEventsByCohortId = function(cid) {
 			var uid = checkLogin();
 			if(isNaN(uid)) {
 				$location.path('/login');
@@ -42,7 +42,7 @@ angular.module('appModule')
 			else {
 			return $http({
 				method:"GET",
-				url: "rest/cohorts/"+id+"/events"
+				url: "rest/cohorts/"+cid+"/events"
 				})
 			}
 		}
@@ -56,7 +56,7 @@ angular.module('appModule')
 			else {
 				return $http({
 				method : 'POST',
-				url : 'rest/users/' + authService.getToken().id + '/events',
+				url : 'rest/users/' + uid + '/events',
 				headers : {
 					'Content-Type' : 'application/json'
 				},

@@ -31,7 +31,16 @@ angular.module("appModule")
 				return currentUserToken.type == 'admin';
 			};
 			
-			vm.createEvent = function(event){};
+			vm.createEvent = function(event){
+				console.log(event);
+				eventService.createEvent(event)
+				.then(function(resp){
+					vm.displayEvents();
+				})
+				.catch(function(error){
+					console.log(error);
+				});
+			};
 			
 			vm.editEvent = function(event){
 				vm.eventSelected = event;
@@ -43,7 +52,7 @@ angular.module("appModule")
 					vm.displayEvents();
 				})
 				.catch(function(error){
-					
+					console.log(error);
 				});
 			};
 			
@@ -53,7 +62,7 @@ angular.module("appModule")
 					vm.displayEvents();
 				})
 				.catch(function(error){
-					
+					console.log(error);
 				});
 			};
 			
