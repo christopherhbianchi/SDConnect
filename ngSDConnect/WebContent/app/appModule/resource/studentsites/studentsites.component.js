@@ -5,19 +5,9 @@ angular.module("appModule")
 		controller: function(){
 			
 			var vm = this;
-		
-		
-		
-		
-		
-		
-		
+
 		},
 		controllerAs:"vm"
-		
-		
-		
-		
-		
+
 		
 	})
