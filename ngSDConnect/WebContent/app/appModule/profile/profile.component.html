@@ -1,18 +1,9 @@
 <navigation></navigation>
 <form>
-	<div class="container">
-      <div class="row">
-      <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
-      </div><!-- Profile Image -->
-
-          <div class="panel panel-info">
-            <div class="panel-heading">
-      		<img ng-src="{{vm.profile.img}}"  class="rounded-circle" width=300px align="center"/>     			
-              <h3 class="panel-title" style="margin-top: 40px">{{vm.profile.fname}} {{vm.profile.lname}}</h3>
-            </div>
-            <div class="panel-body">
-              <div class="row">
-                <div class=" col-md-9 col-lg-9 "> 
+	<div class="container" id="profilebox-center">
+  
+      		<img ng-src="{{vm.profile.img}}" class="rounded-circle" width="300px"/>     			
+             <h1 class="panel-title" style="margin-top: 40px; margin-bottom: 40px; text-align: center">{{vm.profile.fname}} {{vm.profile.lname}}</h1>
                   <table class="table table-user-information">
                     <tbody>
                        <tr>
@@ -83,10 +74,5 @@
                   			<input class="btn btn-success" type="submit" value="Edit Profile" ng-click="vm.edit = true" ng-hide="vm.edit"/>
 							<input class="btn btn-primary" type="submit" ng-click="vm.submit(vm.profile)" ng-show="vm.edit">
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+         
     </form>
