@@ -100,6 +100,14 @@ angular.module("appModule")
 				vm.clicked = true;
 			}
 			
+			vm.sendToResumes = function() {
+				$location.path("/resources/resumes");
+			}
+			
+			vm.sendToGitPages = function() {
+				$location.path("/resources/resumes");
+			}
+			
 		},
 		controllerAs:"vm"
 		
