@@ -1,6 +1,5 @@
 #login-box { /*from the authmodule login html page  */
-	position:right;
-
+	float: right;
 }
 
 .login-space {
@@ -21,7 +20,6 @@
 
 #event-box {
 	margin-top: 3%;	
-
 }
 
 #login-password {
