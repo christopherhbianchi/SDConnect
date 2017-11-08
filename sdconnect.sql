@@ -343,6 +343,30 @@ INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`, `act
 INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`, `active`) VALUES (15, 'rros@mail.com', DEFAULT, 1, 1, 'on');
 INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`, `active`) VALUES (16, 'aconlin@mail.com', DEFAULT, 1, 1, 'on');
 INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`, `active`) VALUES (17, 'bbatky@mail.com', DEFAULT, 1, 1, 'on');
+INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`, `active`) VALUES (18, 'awynard@mail.com', DEFAULT, 2, 1, 'on');
+INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`, `active`) VALUES (19, 'mlee@mail.com', DEFAULT, 2, 1, 'on');
+INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`, `active`) VALUES (20, 'tway@mail.com', DEFAULT, 2, 1, 'on');
+INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`, `active`) VALUES (21, 'broberson@mail.com', DEFAULT, 2, 1, 'on');
+INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`, `active`) VALUES (22, 'cgibson@mail.com', DEFAULT, 2, 1, 'on');
+INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`, `active`) VALUES (23, 'cactor@mail.com', DEFAULT, 2, 1, 'on');
+INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`, `active`) VALUES (24, 'mmaldonado@mail.com', DEFAULT, 2, 1, 'on');
+INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`, `active`) VALUES (25, 'jpaul@mail.com', DEFAULT, 2, 1, 'on');
+INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`, `active`) VALUES (26, 'gnorwood@mail.com', DEFAULT, 2, 1, 'on');
+INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`, `active`) VALUES (27 , 'aleon@mail.com', DEFAULT, 2, 1, 'on');
+INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`, `active`) VALUES (28, 'dstumpe@mail.com', DEFAULT, 2, 2, 'on');
+INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`, `active`) VALUES (29, 'jveigel@mail.com', DEFAULT, 2, 2, 'on');
+INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`, `active`) VALUES (30, 'alowe@mail.com', DEFAULT, 2, 2, 'on');
+INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`, `active`) VALUES (31, 'jsimms@mail.com', DEFAULT, 2, 2, 'on');
+INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`, `active`) VALUES (32, 'aipp@mail.com', DEFAULT, 2, 2, 'on');
+INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`, `active`) VALUES (33, 'cgehrke@mail.com', DEFAULT, 2, 2, 'on');
+INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`, `active`) VALUES (34, 'jcaldwell@mail.com', DEFAULT, 2, 2, 'on');
+INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`, `active`) VALUES (35, 'aperez@mail.com', DEFAULT, 2, 2, 'on');
+INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`, `active`) VALUES (36, 'ebrahn@mail.com', DEFAULT, 2, 2, 'on');
+INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`, `active`) VALUES (37, 'dchirdon@mail.com', DEFAULT, 2, 2, 'on');
+INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`, `active`) VALUES (38, 'hchris@mail.com', DEFAULT, 2, 2, 'on');
+INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`, `active`) VALUES (39, 'amoll@mail.com', DEFAULT, 2, 1, 'on');
+INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`, `active`) VALUES (40, 'dcash@mail.com', DEFAULT, 2, 1, 'on');
+INSERT INTO `user` (`id`, `email`, `password`, `user_type_id`, `cohort_id`, `active`) VALUES (41, 'dwelder@mail.com', DEFAULT, 2, 1, 'on');
 
 COMMIT;
 
