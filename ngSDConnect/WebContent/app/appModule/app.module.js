@@ -1,4 +1,4 @@
-angular.module("appModule", ['ngRoute', 'ngCookies', 'authModule', 'pdfjsViewer'])
+angular.module("appModule", ['ngRoute', 'ngCookies', 'authModule'])
 	.config(function($routeProvider){
 	
 		$routeProvider
@@ -16,6 +16,9 @@ angular.module("appModule", ['ngRoute', 'ngCookies', 'authModule', 'pdfjsViewer'
 			})
 			.when('/resources',{
 				template:'<resource></resource>'
+			})
+			.when('/resources/:pdf',{
+				template:'<pdf-viewer><pdf-viewer>' //maybe  <resource></resource>
 			})
 			.when('/users/:id/profiles',{
 				template:'<profile></profile>'

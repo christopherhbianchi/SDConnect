@@ -135,4 +135,9 @@ public class ProfileDAOImpl implements ProfileDAO {
 		return false;
 	}
 
+	@Override
+	public Profile getProfileByProfileId(int pid) {
+		return em.find(Profile.class, pid);
+	}
+
 }

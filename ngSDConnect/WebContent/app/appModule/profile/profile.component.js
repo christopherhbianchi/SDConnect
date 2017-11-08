@@ -26,8 +26,6 @@ angular.module("appModule").component("profile", {
 				 });
 			}
 	
-			
-			
 			vm.selected = null;
 			
 		},
