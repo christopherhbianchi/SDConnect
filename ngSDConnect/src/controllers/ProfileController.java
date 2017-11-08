@@ -44,6 +44,14 @@ public class ProfileController{
 		
 		return profileDao.readUserProfile(uid);
 	}
+	
+	@RequestMapping(path = "profiles/{pid}", method = RequestMethod.GET)
+	public Profile readProfileById(	HttpServletRequest req, 
+									HttpServletResponse res, 
+									@PathVariable int pid) {
+		
+		return profileDao.getProfileByProfileId(pid);
+	}
 
 	@RequestMapping(path = "users/{uid}/profiles", method = RequestMethod.POST)
 	public Profile createUserProfile(HttpServletRequest req, HttpServletResponse res, 

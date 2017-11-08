@@ -172,6 +172,12 @@ div.new-buttons {
 	margin: 2% 0 2% 7%;
 }
 
+#return-button {
+	display: block;
+	margin: 5% auto;
+	padding: 1%;
+}
+
 
 .nav-second-level li,
 .nav-third-level li {
