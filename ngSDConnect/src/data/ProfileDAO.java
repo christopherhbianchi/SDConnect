@@ -16,5 +16,6 @@ public interface ProfileDAO {
 	public Profile readUserProfile(int uid);
 	public Set<Profile> readAllProfiles();
 	public boolean checkDuplicatedEmail(String userEmail);
+	public Profile getProfileByProfileId(int pid);
 
 }

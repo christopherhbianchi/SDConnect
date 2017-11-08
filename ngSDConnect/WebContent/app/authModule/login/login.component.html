@@ -1,13 +1,11 @@
-
-<div id="banner">
-<form>
-		<div class="d-flex flex-row-reverse">
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+	<a href="#/home"><img src="img/generalImages/SDConnectLogo.png" height="70px" /></a>
+		<div class="input-group" id="login-box">
+			<input type="text" id="login-email" placeholder=" Your Email" ng-model="u.email" /> 
+			<input type="text" id="login-password" placeholder="Your Password" ng-model="u.password" />
 			<button type="button" class="btn btn-primary" ng-click="vm.login(u)">Login</button>
-			<input type="text" id="login-password" placeholder="Your Password" ng-model="u.password" /> 	
-			<input type="text" id="login-email" placeholder=" Your Email" ng-model="u.email" /> 					
-	</div>
-</form>
-</div>
+		</div>
+</nav>
 
 <register></register>
 

@@ -7,6 +7,7 @@ angular.module("appModule")
 			var vm = this;
 			
 			vm.profiles = [];
+			vm.guestProfile = null;
 			
 			vm.viewProfile = false;
 			
@@ -18,6 +19,7 @@ angular.module("appModule")
 			}
 			
 			var reload = function(){
+				vm.guestProfile = null;
 				userService.index().then(function(res){
 					vm.profiles = res.data;
 					vm.userType();
@@ -26,7 +28,7 @@ angular.module("appModule")
 				});
 			}
 
-				reload();
+			reload();
 			
 			vm.deleteProfile = function(profile){
 				console.log("clicked");
@@ -37,6 +39,7 @@ angular.module("appModule")
 			}
 						
 			 var getAllUsers = function(){
+				vm.guestProfile = null;
 				userService.index()
 				.then(function(resp){
 					vm.profiles = resp.data;
@@ -47,6 +50,22 @@ angular.module("appModule")
 			}
 
 			getAllUsers();
+			
+			vm.gotoProfile = function(pid) {
+				console.log("gotoProfile");
+				profileService.getOneProfile(pid)
+				.then(function(res){
+					console.log(res.data);
+					vm.guestProfile = res.data;
+				})
+				.catch(function(error){
+					console.log(error);
+				});
+			}
+			
+			vm.gotoAllUsers = function(){
+				getAllUsers();
+			}
 			
 		},
 		

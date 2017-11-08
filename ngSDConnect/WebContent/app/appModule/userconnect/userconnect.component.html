@@ -1,24 +1,68 @@
 <navigation></navigation>
+<div ng-hide='vm.guestProfile'>
+	<h1 style="">SD Users</h1>
+	<h3>Click Photo for More Detail</h3>
+	<!-- <a ng-show="vm.viewProfile" class="btn btn-secondary" role="button" ng-click="vm.viewProfile = false">Hide Profile Info</a>
+	<a ng-hide="vm.viewProfile" class="btn btn-secondary" role="button" ng-click="vm.viewProfile = true">Show Profile Info</a> -->
 
-<h1 style="">SD Users</h1>
-<a ng-show="vm.viewProfile" class="btn btn-secondary" role="button" ng-click="vm.viewProfile = false">Hide Profile Info</a>
-<a ng-hide="vm.viewProfile" class="btn btn-secondary" role="button" ng-click="vm.viewProfile = true">Show Profile Info</a>
-
-<div class="col-lg-12" style="display:flex; flex-wrap: wrap; margin-top: 50px">
-	<div class="col-lg-4" style="padding-bottom: 20px" ng-repeat="profile in vm.profiles | orderBy : 'lname'">
-				<img class="rounded-circle" ng-src="{{profile.img}}" width="140" height="140">
-				<h4 style = "margin-top: 20px">{{profile.fname}} {{profile.lname}}</h4>
-
-				<div ng-show="vm.viewProfile" class="col-lg-4">
-						<tr>Background: {{profile.backgroundDescription}}</tr>
-						<tr>Coding Experience: {{profile.codingExperience}}</tr>
-						<tr>{{profile.websiteUrl}}</tr>
-						<tr>{{profile.githubUrl}}</tr>
-						<tr>{{profile.linkedinUrl}}</tr>
-				</div>
-				<input class="btn btn-success" type="submit" value="Delete Profile" ng-click="vm.deleteProfile(profile)" ng-show="vm.userType()" />
-			</div><!--end of gallery product class  -->
-		</div><!-- end of col lg 12 div -->
+	<div class="col-lg-12" style="display:flex; flex-wrap: wrap; margin-top: 50px">
+		<div class="col-lg-4" id="userconnect-center" ng-repeat="profile in vm.profiles | orderBy : 'lname'">
+					<img ng-click='vm.gotoProfile(profile.id)' class="rounded-circle" ng-src="{{profile.img}}" width="140" height="140">
+					<h4 style = "margin-top: 20px">{{profile.fname}} {{profile.lname}}</h4>
 	
-
+					<div ng-show="vm.viewProfile" class="col-lg-4" id="userconnect-center">
+							<tr>Background: {{profile.backgroundDescription}}</tr>
+							<tr>Coding Experience: {{profile.codingExperience}}</tr>
+							<tr><a href="{{profile.websiteUrl}}">{{profile.websiteUrl}}</a></tr>
+							<tr><a href="{{profile.githubUrl}}">{{profile.githubUrl}}</a></tr>
+							<tr><a href="{{profile.linkedinUrl}}">{{profile.linkedinUrl}}</a></tr>
+						
+					</div>
+					<input class="btn btn-success" type="submit" value="Delete Profile" ng-click="vm.deleteProfile(profile)" ng-show="vm.userType()" />
+		</div><!--end of gallery product class  -->
+	</div><!-- end of col lg 12 div -->
+</div>
 <!-- end of container -->
+
+<div ng-show='vm.guestProfile' class="container" id="profilebox-center">
+<input type='submit' id="return-button" class="btn btn-primary" value="Return to All Profiles" ng-click='vm.guestProfile = null; gotoAllUsers()'/>
+<br>
+<img ng-src="{{vm.guestProfile.img}}" class="rounded-circle" width="300px"/>     			
+     <h1 class="panel-title" style="margin-top: 40px; margin-bottom: 40px; text-align: center">{{vm.guestProfile.fname}} {{vm.guestProfile.lname}}</h1>
+        <table class="table table-user-information">
+          <tbody>
+             <tr>
+              <td>Name:</td>
+      		       <td>{{vm.guestProfile.fname}} {{vm.guestProfile.lname}}</td> <!-- profile.background -->
+            </tr><!-- End of Name Row  -->
+            <tr>
+              <td>Background:</td>
+      		       <td>{{vm.guestProfile.backgroundDescription}}</td> <!-- profile.background -->
+            </tr> <!-- End of Background Row  -->
+            <tr>
+              <td>Profile Image URL:</td>
+      		       <td>{{vm.guestProfile.img}}</td> <!-- profile.background -->
+            </tr> <!-- End of Image URL Row  --> 
+            <tr>
+              <td>Previous Industry:</td>
+              <td>{{vm.guestProfile.previousIndustry}}</td>
+            </tr> <!-- End of Previous Industry Row  -->
+            <tr>
+              <td>Coding Experience:</td>
+              <td>{{vm.guestProfile.codingExperience}}</td>
+            </tr>
+               <tr>
+                   <tr>
+              <td>Personal Website:</td>
+              <td><a href="{{vm.guestProfile.websiteUrl}}">{{vm.guestProfile.websiteUrl}}</a></td>
+            </tr>
+              <tr>
+              <td>GitHub:</td>
+              <td><a href="{{vm.guestProfile.githubUrl}}">{{vm.guestProfile.githubUrl}}</a></td>
+            </tr>
+            <tr>
+              <td>LinkedIn:</td>
+              <td><a href="{{vm.guestProfile.linkedinUrl}}">{{vm.guestProfile.linkedinUrl}}</a></td>
+          </tbody>
+        </table>
+      </div>

@@ -16,6 +16,14 @@ angular.module('appModule')
 		
 	  }
 	  
+	  profileService.getOneProfile = function(pid) {
+		  return $http({
+				method : "GET",
+				url : "rest/profiles/" + pid
+			});
+			
+	  }
+	  
 
 	  profileService.create = function(profile) {
 		  

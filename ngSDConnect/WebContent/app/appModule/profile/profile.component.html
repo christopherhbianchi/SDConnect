@@ -1,52 +1,44 @@
 <navigation></navigation>
 <form>
-	<div class="container">
-      <div class="row">
-      <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
-      </div><!-- Profile Image -->
-
-          <div class="panel panel-info">
-            <div class="panel-heading">
-      		<img ng-src="{{vm.profile.img}}"  class="rounded-circle" width=300px align="center"/>     			
-              <h3 class="panel-title" style="margin-top: 40px">{{vm.profile.fname}} {{vm.profile.lname}}</h3>
-            </div>
-            <div class="panel-body">
-              <div class="row">
-                <div class=" col-md-9 col-lg-9 "> 
+	<div class="container" id="profilebox-center">
+  
+      		<img ng-src="{{vm.profile.img}}" class="rounded-circle" width="300px"/>     			
+             <h1 class="panel-title" style="margin-top: 40px; margin-bottom: 40px; text-align: center">{{vm.profile.fname}} {{vm.profile.lname}}</h1>
                   <table class="table table-user-information">
                     <tbody>
                        <tr>
-                       
                         <td>Name:</td>
                 		       <td ng-hide="vm.edit">{{vm.profile.fname}} {{vm.profile.lname}}</td> <!-- profile.background -->
                 		       <td ng-show="vm.edit">
 							  <textarea name="message" rows="1" cols="30" ng-model="vm.profile.fname">{{vm.profile.fname}}}</textarea>
 							  <textarea name="message" rows="1" cols="30" ng-model="vm.profile.lname">{{vm.profile.lname}}}</textarea>
 							</td>
-                      </tr>
-                    
-                    
+                      </tr><!-- End of Name Row  -->
+                      
                       <tr>
                         <td>Background:</td>
                 		       <td ng-hide="vm.edit">{{vm.profile.backgroundDescription}}</td> <!-- profile.background -->
                 		       <td ng-show="vm.edit">
 							  <textarea name="message" rows="5" cols="30" ng-model="vm.profile.backgroundDescription">{{vm.profile.backgroundDescription}}</textarea>
 							</td>
-                      </tr>
+                      </tr> <!-- End of Background Row  -->
+                      
                       <tr>
                         <td>Profile Image URL:</td>
                 		       <td ng-hide="vm.edit">{{vm.profile.img}}</td> <!-- profile.background -->
                 		       <td ng-show="vm.edit">
 							  <textarea name="message" rows="2" cols="30" ng-model="vm.profile.img">{{vm.profile.img}}</textarea>
 							</td>
-                      </tr>
+                      </tr> <!-- End of Image URL Row  -->
+                      
                       <tr>
                         <td>Previous Industry:</td>
                         <td ng-hide="vm.edit">{{vm.profile.previousIndustry}}</td>
                 		       <td ng-show="vm.edit">
 							  <textarea name="message" rows="2" cols="30" ng-model="vm.profile.previousIndustry">{{vm.profile.Industry}}</textarea>
 							</td>
-                      </tr>
+                      </tr> <!-- End of Previous Industry Row  -->
+                      
                       <tr>
                         <td>Coding Experience:</td>
                         <td ng-hide="vm.edit">{{vm.profile.codingExperience}}</td>
@@ -58,21 +50,21 @@
                          <tr>
                              <tr>
                         <td>Personal Website:</td>
-                        <td ng-hide="vm.edit">{{vm.profile.websiteUrl}}</td>
+                        <td ng-hide="vm.edit"><a href="{{vm.profile.websiteUrl}}">{{vm.profile.websiteUrl}}</a></td>
                 		       <td ng-show="vm.edit">
 							  <textarea name="message" rows="1" cols="30" ng-model="vm.profile.websiteUrl">{{vm.profile.websiteUrl}}</textarea>
 							</td>
                       </tr>
                         <tr>
                         <td>GitHub:</td>
-                        <td ng-hide="vm.edit">{{vm.profile.githubUrl}}</td>
+                        <td ng-hide="vm.edit"><a href="{{vm.profile.githubUrl}}">{{vm.profile.githubUrl}}</a></td>
                 		       <td ng-show="vm.edit">
 							  <textarea name="message" rows="1" cols="30" ng-model="vm.profile.githubUrl">{{vm.profile.githubUrl}}</textarea>
 							</td>
                       </tr>
                       <tr>
                         <td>LinkedIn:</td>
-                        <td ng-hide="vm.edit">{{vm.profile.linkedinUrl}}</td>
+                        <td ng-hide="vm.edit"><a href="{{vm.profile.linkedinUrl}}">{{vm.profile.linkedinUrl}}</a></td>
                 		       <td ng-show="vm.edit">
 							  <textarea name="message" rows="1" cols="30" ng-model="vm.profile.linkedinUrl">{{vm.profile.linkedinUrl}}</textarea>
 							</td>
@@ -82,10 +74,7 @@
                   			<input class="btn btn-success" type="submit" value="Edit Profile" ng-click="vm.edit = true" ng-hide="vm.edit"/>
 							<input class="btn btn-primary" type="submit" ng-click="vm.submit(vm.profile)" ng-show="vm.edit">
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+         
     </form>
+    
+    

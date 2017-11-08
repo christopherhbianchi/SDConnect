@@ -21,14 +21,14 @@
 				<tr ng-repeat="event in vm.eventList">
 					<td>{{event.description}}</td>
 					<td>{{event.date | date: 'MM/dd/yyyy'}}</td>
-					<td ng-show='vm.currentAdmin()'><input type='submit' value='Edit' ng-click='vm.editEvent(event)' /></td>
+					<td ng-show='vm.currentAdmin()'><input class="btn btn-success" type='submit' value='Edit' ng-click='vm.editEvent(event)' /></td>
 				</tr>
 			</tbody>
 		</table>
 	  </div> <!-- end page inner -->
 	</div> <!-- end page wrapper -->
 	<div class="new-buttons" ng-show='vm.currentAdmin()'>
-		<input type='submit' value='New Event' ng-click='vm.newEvent = true' />
+		<input type='submit' class="btn btn-success" value='New Event' ng-click='vm.newEvent = true' />
 	</div>
 </div> <!-- end ng-show -->
 
@@ -49,8 +49,8 @@
 					<option value='NO'>no</option>
 				</select>
 				<input type='text' ng-model='vm.eventSelected.publicEvent'><br> -->
-				<input type='submit' value='Save' ng-click='vm.updateEvent(vm.eventSelected)' /><br>
-				<input type='submit' value='Delete' ng-click='vm.deleteEvent(vm.eventSelected.id)' /><br>
+				<input class="btn btn-success" type='submit' value='Save' ng-click='vm.updateEvent(vm.eventSelected)' /><br>
+				<input class="btn btn-danger" type='submit' value='Delete' ng-click='vm.deleteEvent(vm.eventSelected.id)' /><br>
 				<!-- <input type='submit' value='Cancel' ng-click='vm.displayEvents()' /><br> -->
 			</form>
 		</div> <!-- end inner -->
@@ -68,8 +68,8 @@
 		<form>
 			<label>Description:</label><input type='text' style='width:300px' ng-model='new.description'><br>
 			<label>Date:</label><input type='date' ng-model='new.date'><br>
-			<input type='submit' value='New Event' ng-click='vm.createEvent(new); new={}' /><br>
-			<input type='submit' value='Cancel' ng-click='vm.displayEvents()' /><br>
+			<input class="btn btn-success" type='submit' value='New Event' ng-click='vm.createEvent(new); new={}' /><br>
+			<input class="btn btn-primary" type='submit' value='Cancel' ng-click='vm.displayEvents()' /><br>
 		</form>
 		</div> <!-- end inner -->
 	</div> <!-- end wrapper -->
