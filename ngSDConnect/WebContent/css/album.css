@@ -55,8 +55,8 @@ footer p {
 }
 
 .resource-image img {
-	width:80%;
-	 display: block;
-    	margin: 0 auto;
     	margin-top: 40px;
+  	display:flex; 
+  	flex-wrap: wrap;
+  	margin-bottom: 40px;
 }

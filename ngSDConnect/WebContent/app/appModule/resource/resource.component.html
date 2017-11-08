@@ -1,12 +1,27 @@
  <navigation></navigation>
- <div class="resource-image">
+ <div class="col-lg-12" style="display:flex; flex-wrap: wrap; margin: 0 auto; margin-top: 50px; margin-bottom: 50px; margin-left: 50px;">
  <img src="img/generalImages/SDConnect.png"/>
- </div>
- <div class="album text-muted" ng-hide="vm.selectedCategory || vm.add"> <!-- may need to circle back -->
+		<div class="col-lg-4">
+				<img src="img/generalImages/resumelogo.png" ng-click="vm.sendToResumes()" class="rounded-circle" width="140" height="140">
+				<h4 style = "margin-top: 20px">Resume Samples</h4>
+		</div><!--col-lg-4"-->
+		<div class="col-lg-4">
+		<a href="img/interviewQuestions/InterviewQuestions.pdf">
+				<img src="img/generalImages/interviewlogo.png" class="rounded-circle" width="140" height="140"></a>
+				<h4 style = "margin-top: 20px">Interview Questions</h4>
+		</div><!--col-lg-4"-->
+		<div class="col-lg-4">
+			<img src="img/generalImages/webpagelogo.png" ng-click="vm.sendToWebsites()" class="rounded-circle" width="140" height="140">
+			<h4 style = "margin-top: 20px">Website Samples</h4>
+		</div><!--col-lg-4"-->
+	</div><!-- end of col lg 12 div -->
+ 
+ <!-- 
+ <div class="album text-muted" ng-hide="vm.selectedCategory || vm.add"> may need to circle back
         <div class="container">
           <div class="row">
             <div class="card">
-            	 <a ng-click="vm.sendToResumes()"> <!-- this route can change -->
+            	 <a ng-click="vm.sendToResumes()"> this route can change
               <img data-src="holder.js/100px280?theme=thumb" alt="Card image cap">
               </a>
               <p class="card-text">Resume</p>
@@ -26,20 +41,21 @@
               <p class="card-text">Interview Questions</p>
             </div>
 
-<!--          <div class="card">
+         <div class="card">
          	<a ng-click="vm.setAddResource()">set a ng-show/hide with a var
               <img data-src="holder.js/100px280?theme=thumb" alt="Card image cap">
             </a>  
               <p class="card-text">Add a Resource</p>
-         </div> -->
+         </div>
            
           </div>
 
         </div>
-      </div>
+      </div> -->
       
   <!-- our add a resource page --> <!-- can we submit a form with a post on it? -->
-  <div ng-show="vm.add">
+  
+<!--   <div ng-show="vm.add"> -->
   
   
 	  <!-- <h3>Add</h3>
@@ -51,7 +67,7 @@
 	  	<input type="submit" value="Add Resource" ng-click="vm.createResource(resource)"/>
 	  	<input type="submit" value="Cancel" ng-click="vm.cancelCreation()"/>
 	  </form> -->
-   
+   <!-- 
             <div class="panel panel-info">
             <div class="panel-heading">
               <h3 class="panel-title" >Add</h3>
@@ -97,41 +113,28 @@
               </div>
             </div>
           </div>
-   
-   
-   
-   
-   
-   
-   
-   
-   
    </div>
   
-  
       
-      
-     
-      
-      <!-- our list of topics that show up with a keyword -->
+      our list of topics that show up with a keyword
    <div name="list" class="album text-muted">
-      	<!-- button to show all the categories again -->
+      	button to show all the categories again
       	<div ng-show="vm.selectedCategory">
       		<input type="submit" ng-click="vm.setCategory(null)" value="Show Categories"/>
       		<br>
       		<br>
       	</div>
       
-      <!-- our table of all topics -->
-      	<div class="album text-muted" ng-show="vm.selectedCategory"> <!-- may need to circle back --><!--  ng-hide="vm.selected" -->
+      our table of all topics
+      	<div class="album text-muted" ng-show="vm.selectedCategory"> may need to circle back --><!--  ng-hide="vm.selected"
         <div class="container">
           <div class="row">
             <div class="card" ng-repeat="resource in vm.resources">
-            	 <a ng-click="vm.showResource(resource)"> <!-- this route can change -->
+            	 <a ng-click="vm.showResource(resource)"> this route can change
               <img ng-src="{{resource.posts[0].user.profile.img}}" alt="Card image cap" style="width:50px;height:50px;">
              </a>
               <p class="card-text">
-              	<ul><!-- need the card to repeat, and a preview of the pdf to show -->
+              	<ul>need the card to repeat, and a preview of the pdf to show
               		<li>Id: {{resource.id}}</li>
               		<li>Name: {{resource.name}}</li>
               		<li>Posted By: {{resource.posts[0].user.profile.fname}} {{resource.posts[0].user.profile.lname}}</li>
@@ -140,18 +143,15 @@
               </p>
             </div>
             
-            <!-- pdf viewer shit -->
-           <div ng-if="vm.clicked"> <!-- vm.selected -->
+            <!-- pdf viewer shit
+           <div ng-if="vm.clicked"> vm.selected
 	            <pdf-viewer></pdf-viewer>
-        		</div>
-            
-           
+        		</div> 
           </div>
-
         </div>
       </div>
       	
-      	<!-- our topic with its posts written out underneath it -->
+      	our topic with its posts written out underneath it
    <div ng-show="vm.selected">
       	<h1>{{vm.selected.name}}</h1> <br>
 		   <h3>Posts</h3>
@@ -183,3 +183,4 @@
 			</form>
 	</div> 
  </div>
+ -->
