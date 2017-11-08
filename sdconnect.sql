@@ -452,11 +452,17 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `sdconnectdb`;
-INSERT INTO `project` (`id`, `name`, `description`, `estimated_hours`) VALUES (1, 'JSCalculator', 'Individual Project', 6);
-INSERT INTO `project` (`id`, `name`, `description`, `estimated_hours`) VALUES (2, 'MVCCRUD Project Pt. 1', 'Individual Project', 12);
-INSERT INTO `project` (`id`, `name`, `description`, `estimated_hours`) VALUES (3, 'Jets', 'Individual Project', 10);
-INSERT INTO `project` (`id`, `name`, `description`, `estimated_hours`) VALUES (4, 'Angular Event Tracker', 'Individual Project', 4);
-INSERT INTO `project` (`id`, `name`, `description`, `estimated_hours`) VALUES (5, 'US President\'s Project', 'Team Project', 8);
+INSERT INTO `project` (`id`, `name`, `description`, `estimated_hours`) VALUES (1, 'Make Change', 'Individual Project', 5);
+INSERT INTO `project` (`id`, `name`, `description`, `estimated_hours`) VALUES (2, 'Jets', 'Individual Project', 9);
+INSERT INTO `project` (`id`, `name`, `description`, `estimated_hours`) VALUES (3, 'Blackjack', 'Individual Project', 12);
+INSERT INTO `project` (`id`, `name`, `description`, `estimated_hours`) VALUES (4, 'US President\'s Project', 'Team Project', 8);
+INSERT INTO `project` (`id`, `name`, `description`, `estimated_hours`) VALUES (5, 'MVCCRUD Project Pt. 1', 'Individual Project', 12);
+INSERT INTO `project` (`id`, `name`, `description`, `estimated_hours`) VALUES (6, 'MVCCRUD Project Pt. 2', 'Individual Project', 4);
+INSERT INTO `project` (`id`, `name`, `description`, `estimated_hours`) VALUES (7, 'MidtermProject', 'Team Project', 6);
+INSERT INTO `project` (`id`, `name`, `description`, `estimated_hours`) VALUES (8, 'JSCalculator', 'Individual Project', 6);
+INSERT INTO `project` (`id`, `name`, `description`, `estimated_hours`) VALUES (9, 'JS Event Tracker', 'Individual Project', 10);
+INSERT INTO `project` (`id`, `name`, `description`, `estimated_hours`) VALUES (10, 'Angular Event Tracker', 'Individual Project', 4);
+INSERT INTO `project` (`id`, `name`, `description`, `estimated_hours`) VALUES (11, 'Final Project', 'Team Project', 6);
 
 COMMIT;
 
@@ -478,7 +484,7 @@ INSERT INTO `profile` (`id`, `img_url`, `background_desc`, `first_name`, `last_n
 INSERT INTO `profile` (`id`, `img_url`, `background_desc`, `first_name`, `last_name`, `prev_industry`, `coding_exp`, `shirt_size`, `user_id`, `website_url`, `github_url`, `linkedin_url`) VALUES (10, 'img/profilePictures/profile.png', NULL, 'Jimmy ', 'Easter', NULL, NULL, 'L', 10, 'http://35.167.86.108', 'http://www.github.com/jmeaster1', NULL);
 INSERT INTO `profile` (`id`, `img_url`, `background_desc`, `first_name`, `last_name`, `prev_industry`, `coding_exp`, `shirt_size`, `user_id`, `website_url`, `github_url`, `linkedin_url`) VALUES (11, 'img/profilePictures/BrianProfileImage.jpg', NULL, 'Brian', 'Thomas', NULL, NULL, 'L', 11, 'http://18.220.25.115/', 'https://github.com/flycal6', 'https://www.linkedin.com/in/brian-thomas-332874150/');
 INSERT INTO `profile` (`id`, `img_url`, `background_desc`, `first_name`, `last_name`, `prev_industry`, `coding_exp`, `shirt_size`, `user_id`, `website_url`, `github_url`, `linkedin_url`) VALUES (12, 'img/profilePictures/profile.png', NULL, 'Mustafa', 'Alici', 'Baker', '2+ Javascript', '2XL', 12, NULL, NULL, 'https://www.linkedin.com/in/mustafa-alici-448906118/');
-INSERT INTO `profile` (`id`, `img_url`, `background_desc`, `first_name`, `last_name`, `prev_industry`, `coding_exp`, `shirt_size`, `user_id`, `website_url`, `github_url`, `linkedin_url`) VALUES (13, 'img/profilePictures/profile.png', NULL, 'Doug ', 'Kucera', 'Program Manager', NULL, 'L', 13, NULL, 'http://35.160.41.5/', 'http://www.github.com/dougkucera');
+INSERT INTO `profile` (`id`, `img_url`, `background_desc`, `first_name`, `last_name`, `prev_industry`, `coding_exp`, `shirt_size`, `user_id`, `website_url`, `github_url`, `linkedin_url`) VALUES (13, 'img/profilePictures/DougKucera.jpg', NULL, 'Doug ', 'Kucera', 'Program Manager', NULL, 'L', 13, NULL, 'http://35.160.41.5/', 'http://www.github.com/dougkucera');
 INSERT INTO `profile` (`id`, `img_url`, `background_desc`, `first_name`, `last_name`, `prev_industry`, `coding_exp`, `shirt_size`, `user_id`, `website_url`, `github_url`, `linkedin_url`) VALUES (14, 'img/profilePictures/SteveProfileImage.jpg', NULL, 'Steve', 'Thompson', 'Always Coding', 'Years', 'M', 14, NULL, NULL, 'https://www.linkedin.com/in/steve-thompson-34182712a/');
 INSERT INTO `profile` (`id`, `img_url`, `background_desc`, `first_name`, `last_name`, `prev_industry`, `coding_exp`, `shirt_size`, `user_id`, `website_url`, `github_url`, `linkedin_url`) VALUES (15, 'img/profilePictures/RobProfileImage.jpg', NULL, 'Rob', 'Roselius', NULL, NULL, 'L', 15, NULL, NULL, 'https://www.linkedin.com/in/rob-roselius-675b428/');
 INSERT INTO `profile` (`id`, `img_url`, `background_desc`, `first_name`, `last_name`, `prev_industry`, `coding_exp`, `shirt_size`, `user_id`, `website_url`, `github_url`, `linkedin_url`) VALUES (16, 'img/profilePictures/AndrewConlinProfileImage.jpg', NULL, 'Andrew', 'Conlin', NULL, NULL, 'M', 16, NULL, NULL, 'https://www.linkedin.com/in/andrewcconlin/');
@@ -535,4 +541,3 @@ INSERT INTO `cohort_has_event` (`cohort_id`, `event_id`) VALUES (1, 3);
 INSERT INTO `cohort_has_event` (`cohort_id`, `event_id`) VALUES (2, 1);
 
 COMMIT;
-
