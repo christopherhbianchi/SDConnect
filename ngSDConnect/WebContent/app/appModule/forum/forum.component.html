@@ -49,7 +49,7 @@
 	                                <div class="chat-widget-main">
 	                                    <div ng-class="vm.getClassPostMain(post.id)">
 	                                        {{post.message}}
-	                                        <a href='{{post.link}}' target='_blank'>See Link</a>
+	                                        <a style='font-size: .7em' href='{{post.link}}' target='_blank'>{{post.link}}</a>
 	                                    </div>
 	                                    <div ng-class="getClassPostName(post.id)">
 	                                        <h4>{{post.user.profile.fname}} {{post.user.profile.lname}}</h4>
