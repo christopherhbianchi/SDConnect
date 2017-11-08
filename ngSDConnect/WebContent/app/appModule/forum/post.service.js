@@ -28,7 +28,6 @@ angular.module('appModule')
 		};
 		
 		service.create = function(post, tid) {
-			console.log("in service.create");
 			var uid = checkLogin();
 			if(isNaN(uid)) {
 				$location.path('/login');
