@@ -11,12 +11,12 @@
 					<tr>
 						<th>Project Name</th>
 						<th>Description</th>
-						<th>Estimated Hours</th>
+						<th>Weekend Hours</th>
 						<th></th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="project in vm.projectList">
+					<tr ng-repeat="project in vm.projectList | orderBy:'id'">
 						<td ng-class='vm.getIntensity(project.estimatedHours)'>{{project.name}}</td>
 						<td ng-class='vm.getIntensity(project.estimatedHours)'>{{project.description}}</td>
 						<td ng-class='vm.getIntensity(project.estimatedHours)'>{{project.estimatedHours}}</td>
@@ -42,7 +42,7 @@
 			<form>
 				<label>Name:</label><input type='text' style='width:200px' ng-model='vm.projectSelected.name'><br>
 				<label>Description:</label><input type='text' style='width:300px' ng-model='vm.projectSelected.description'><br>
-				<label>Estimated Hours:</label><input type='text' ng-model='vm.projectSelected.estimatedHours'><br>
+				<label>Weekend Hours:</label><input type='text' ng-model='vm.projectSelected.estimatedHours'><br>
 				<input type='submit' class="btn btn-success" value='Save' ng-click='vm.updateProject(vm.projectSelected)' /><br>
 				<input type='submit' class="btn btn-danger" value='Delete' ng-click='vm.deleteProject(vm.projectSelected.id)' /><br>
 				<input type='submit' class="btn btn-primary" value='Cancel' ng-click='vm.displayProjects()' /><br>
@@ -62,7 +62,7 @@
 			<form>
 				<label>Name:</label><input type='text'  style='width:200px' ng-model='new.name'><br>
 				<label>Description:</label><input type='text' style='width:300px' ng-model='new.description'><br>
-				<label>EstimatedHours:</label><input type='text' ng-model='new.estimatedHours'><br>
+				<label>Weekend Hours:</label><input type='text' ng-model='new.estimatedHours'><br>
 				<input type='submit' class="btn btn-success" value='New Project' ng-click='vm.createProject(new); new={}' /><br>
 				<input type='submit'class="btn btn-primary"  value='Cancel' ng-click='vm.displayProjects()' /><br>
 			</form>

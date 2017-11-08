@@ -1,6 +1,3 @@
-body {
-  min-height: 75rem; /* Can be removed; just added for demo purposes */
-}
 
 .navbar {
   margin-bottom: 0;
@@ -10,7 +7,7 @@ body {
   padding-top: 6rem;
   padding-bottom: 6rem;
   margin-bottom: 0;
-  background-color: #fff;
+/*   background-color: #fff; */
 }
 
 .jumbotron p:last-child {
@@ -29,7 +26,7 @@ body {
   min-height: 50rem; /* Can be removed; just added for demo purposes */
   padding-top: 3rem;
   padding-bottom: 3rem;
-  background-color: #f7f7f7;
+/*   background-color: #f7f7f7; */
 }
 
 .card {
@@ -55,4 +52,11 @@ footer {
 
 footer p {
   margin-bottom: .25rem;
+}
+
+.resource-image img {
+	width:80%;
+	 display: block;
+    	margin: 0 auto;
+    	margin-top: 40px;
 }
