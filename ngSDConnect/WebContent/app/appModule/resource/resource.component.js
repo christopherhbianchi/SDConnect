@@ -106,7 +106,7 @@ angular.module("appModule")
 			
 			//this will be gits and website links on it
 			vm.sendToWebsites= function() {
-				$location.path("/resources/coverLetters");
+				$location.path("/resources/studentSites");
 			}
 			
 		},
