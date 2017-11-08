@@ -12,6 +12,7 @@ angular.module("appModule")
 			var currentUserToken = postService.returnUser();
 			
 			vm.currentTid = null;
+			vm.currentTopicName = null;
 			
 			var setEverythingToNull = function(){
 				vm.postView = false;
@@ -19,7 +20,6 @@ angular.module("appModule")
 				vm.topicSelected = null;
 				vm.newTopic = false;
 				vm.newPost = false;
-				vm.currentTopicName = null;
 			};
 			
 			setEverythingToNull();
@@ -122,6 +122,16 @@ angular.module("appModule")
 				
 			};
 			
+			var getPost = function(pid) {
+				return postService.show(pid)
+				.then(function(resp){
+					return resp.data;
+				})
+				.catch(function(error){
+					console.log(error);
+				});
+			}
+			
 			vm.editPost = function(post){
 				setEverythingToNull();
 				vm.postSelected = post;
@@ -130,9 +140,9 @@ angular.module("appModule")
 			vm.updatePost = function(post){
 				postService.update(post)
 				.then(function(res){
+					vm.currentPosts.push(res.data);
 					setEverythingToNull();
 					vm.postView = true;
-					vm.getPostsPerTopic(vm.currentTid);
 				})
 				.catch(function(error){
 					console.log(error);
@@ -143,8 +153,7 @@ angular.module("appModule")
 				postService.destroy(pid)
 				.then(function(res){
 					setEverythingToNull();
-					vm.postView = true;
-					vm.getPostsPerTopic(vm.currentTid);
+					getAllTopics();
 				})
 				.catch(function(error){
 					console.log(error);
@@ -152,13 +161,13 @@ angular.module("appModule")
 			};
 			
 			vm.createPost = function(post){
-				console.log("entering createPost");
-				console.log("Tid: " + vm.currentTid);
+				console.log("create post")
 				postService.create(post, vm.currentTid)
 				.then(function(res){
+					vm.currentPosts.push(res.data);
 					setEverythingToNull();
 					vm.postView = true;
-					vm.getPostsPerTopic(vm.currentTid);
+					console.log("PID: " + res.data.id);
 				})
 				.catch(function(error){
 					console.log(error);
@@ -182,6 +191,11 @@ angular.module("appModule")
 					return 'chat-widget-name-right';
 				}
 			};
+			
+			var removePost = function(array, element) {
+			    var index = array.indexOf(element);
+			    array.splice(index, 1);
+			}
 			
 		},
 		
