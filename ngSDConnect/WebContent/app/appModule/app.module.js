@@ -20,6 +20,9 @@ angular.module("appModule", ['ngRoute', 'ngCookies', 'authModule'])
 			.when('/resources/resumes',{ // go from resources to resume when clicking the card
 				template:'<resumes></resumes>'
 			})
+			.when('/resources/studentSites',{ // go from resources to resume when clicking the card
+				template:'<student-sites></student-sites>'
+			})
 			.when('/resources/:pdf',{
 				template:'<pdf-viewer><pdf-viewer>' //maybe  <resource></resource>
 			})
