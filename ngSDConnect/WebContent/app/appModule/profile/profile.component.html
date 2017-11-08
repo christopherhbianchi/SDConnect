@@ -16,37 +16,38 @@
                   <table class="table table-user-information">
                     <tbody>
                        <tr>
-                       
                         <td>Name:</td>
                 		       <td ng-hide="vm.edit">{{vm.profile.fname}} {{vm.profile.lname}}</td> <!-- profile.background -->
                 		       <td ng-show="vm.edit">
 							  <textarea name="message" rows="1" cols="30" ng-model="vm.profile.fname">{{vm.profile.fname}}}</textarea>
 							  <textarea name="message" rows="1" cols="30" ng-model="vm.profile.lname">{{vm.profile.lname}}}</textarea>
 							</td>
-                      </tr>
-                    
-                    
+                      </tr><!-- End of Name Row  -->
+                      
                       <tr>
                         <td>Background:</td>
                 		       <td ng-hide="vm.edit">{{vm.profile.backgroundDescription}}</td> <!-- profile.background -->
                 		       <td ng-show="vm.edit">
 							  <textarea name="message" rows="5" cols="30" ng-model="vm.profile.backgroundDescription">{{vm.profile.backgroundDescription}}</textarea>
 							</td>
-                      </tr>
+                      </tr> <!-- End of Background Row  -->
+                      
                       <tr>
                         <td>Profile Image URL:</td>
                 		       <td ng-hide="vm.edit">{{vm.profile.img}}</td> <!-- profile.background -->
                 		       <td ng-show="vm.edit">
 							  <textarea name="message" rows="2" cols="30" ng-model="vm.profile.img">{{vm.profile.img}}</textarea>
 							</td>
-                      </tr>
+                      </tr> <!-- End of Image URL Row  -->
+                      
                       <tr>
                         <td>Previous Industry:</td>
                         <td ng-hide="vm.edit">{{vm.profile.previousIndustry}}</td>
                 		       <td ng-show="vm.edit">
 							  <textarea name="message" rows="2" cols="30" ng-model="vm.profile.previousIndustry">{{vm.profile.Industry}}</textarea>
 							</td>
-                      </tr>
+                      </tr> <!-- End of Previous Industry Row  -->
+                      
                       <tr>
                         <td>Coding Experience:</td>
                         <td ng-hide="vm.edit">{{vm.profile.codingExperience}}</td>
@@ -58,21 +59,21 @@
                          <tr>
                              <tr>
                         <td>Personal Website:</td>
-                        <td ng-hide="vm.edit">{{vm.profile.websiteUrl}}</td>
+                        <td ng-hide="vm.edit"><a href="{{vm.profile.websiteUrl}}">{{vm.profile.websiteUrl}}</a></td>
                 		       <td ng-show="vm.edit">
 							  <textarea name="message" rows="1" cols="30" ng-model="vm.profile.websiteUrl">{{vm.profile.websiteUrl}}</textarea>
 							</td>
                       </tr>
                         <tr>
                         <td>GitHub:</td>
-                        <td ng-hide="vm.edit">{{vm.profile.githubUrl}}</td>
+                        <td ng-hide="vm.edit"><a href="{{vm.profile.githubUrl}}">{{vm.profile.githubUrl}}</a></td>
                 		       <td ng-show="vm.edit">
 							  <textarea name="message" rows="1" cols="30" ng-model="vm.profile.githubUrl">{{vm.profile.githubUrl}}</textarea>
 							</td>
                       </tr>
                       <tr>
                         <td>LinkedIn:</td>
-                        <td ng-hide="vm.edit">{{vm.profile.linkedinUrl}}</td>
+                        <td ng-hide="vm.edit"><a href="{{vm.profile.linkedinUrl}}">{{vm.profile.linkedinUrl}}</a></td>
                 		       <td ng-show="vm.edit">
 							  <textarea name="message" rows="1" cols="30" ng-model="vm.profile.linkedinUrl">{{vm.profile.linkedinUrl}}</textarea>
 							</td>
