@@ -2,7 +2,7 @@ angular.module("appModule")
 	.component("resource", {
 	
 		templateUrl:"app/appModule/resource/resource.component.html",
-		controller:function(topicService, tagService){ //we use the topicService instead since a resource is a topic object
+		controller:function(topicService, tagService, $location){ //we use the topicService instead since a resource is a topic object
 			
 			//point of this is to handle requests from the html file
 			//we w
@@ -13,6 +13,7 @@ angular.module("appModule")
 			vm.edit = null; //if somebody selects a resource to edit.. on other side we can verify they have permission
 			vm.add = null; //if somebody wants to add, we set it here
 			vm.selectorOptions = []; //need to populate this with tags i want
+			vm.clicked = null; //to have the resume populate
 			
 			vm.resources = [];
 			
@@ -89,6 +90,14 @@ angular.module("appModule")
 						console.log(vm.resources);
 						vm.selected = null;
 					})
+			}
+			
+			//for grabbing the link for the pdf viewer
+			vm.showPostAndResume = function(post) {
+				var pdfName = post.user.email.split("@")[0] + ".pdf";
+				
+				$location.path("/resources/" + pdfName);
+				vm.clicked = true;
 			}
 			
 		},

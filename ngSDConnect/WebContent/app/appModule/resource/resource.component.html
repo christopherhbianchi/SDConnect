@@ -105,7 +105,6 @@
    
    
    </div>
-   <!-- need a tags id... then in the component put something to grab the tag, and add it to the topic you're passing thorught -->
   
   
       
@@ -140,47 +139,15 @@
             </div>
             
             <!-- pdf viewer shit -->
-           <div ng-show="vm.selected"> <!-- issue loading while its nested here in this component.html -->
+           <div ng-if="vm.clicked"> <!-- vm.selected -->
 	            <pdf-viewer></pdf-viewer>
         		</div>
-            <!-- 
-           <tr ng-repeat="resource in vm.resources"> <!-- resource is a topic
-					<td>{{resource.id}}</td>      			
-					<td><a ng-click="vm.showResource(resource)">{{resource.name}}</a></td>      			
-					<td>{{resource.posts[0].user.profile.fname}} {{resource.posts[0].user.profile.lname}}</td>      			
-					<td>{{resource.posts[0].postDate}}</td>      			
-      			</tr> -->
+            
            
           </div>
 
         </div>
       </div>
-      	
-      	
-      	
-      	
-      	<!--  
-      	
-      	<table ng-show="vm.selectedCategory" ng-hide="vm.selected">
-      		<thead>
-      			<tr>
-					<th>Id</th>      			
-					<th>Name</th>      			
-					<th>Posted By</th>      			
-					<th>Date</th>      			
-      			</tr>
-      		</thead>
-      		<tbody>
-      			<tr ng-repeat="resource in vm.resources"> <!-- resource is a topic
-					<td>{{resource.id}}</td>      			
-					<td><a ng-click="vm.showResource(resource)">{{resource.name}}</a></td>      			
-					<td>{{resource.posts[0].user.profile.fname}} {{resource.posts[0].user.profile.lname}}</td>      			
-					<td>{{resource.posts[0].postDate}}</td>      			
-      			</tr>
-      		</tbody>
-      	</table> 
-      	
-      	-->
       	
       	<!-- our topic with its posts written out underneath it -->
    <div ng-show="vm.selected">
@@ -191,6 +158,7 @@
 					<tr>
 						<th>Post Date</th>
 						<th>Message</th>
+						<th>Link</th>
 						<th>User</th>
 						<th>Edit</th>
 					</tr>
@@ -199,6 +167,8 @@
 					<tr ng-repeat="post in vm.selected.posts">
 						<td>{{post.postDate}}</td>
 						<td>{{post.message}}</td>
+						<td ng-click="vm.showPostAndResume(post)">Click me!</td>
+						<td><a href="img/resume/jmckenna.pdf">Click me 2nd way!</a></td>
 						<td><img ng-src="{{post.user.profile.img}}" style="width:50px;height:50px;"/></td>
 						<td>{{post.user.email}}</td>
 						<td ng-show='vm.currentAuthorPost(post.id)'><input type='submit' name='submit' value='Edit' ng-click='vm.editPost(post.id)' /></td>
