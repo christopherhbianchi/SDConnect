@@ -20,14 +20,14 @@
 						<td ng-class='vm.getIntensity(project.estimatedHours)'>{{project.name}}</td>
 						<td ng-class='vm.getIntensity(project.estimatedHours)'>{{project.description}}</td>
 						<td ng-class='vm.getIntensity(project.estimatedHours)'>{{project.estimatedHours}}</td>
-						<td ng-class='vm.getIntensity(project.estimatedHours)' ng-show='vm.currentAdmin()'><input type='submit' value='Edit' ng-click='vm.editProject(project)' /></td>
+						<td ng-class='vm.getIntensity(project.estimatedHours)' ng-show='vm.currentAdmin()'><input type='submit' class="btn btn-success" value='Edit' ng-click='vm.editProject(project)' /></td>
 					</tr>
 				</tbody>
 			</table>
 		</div> <!-- end page inner -->
 	</div> <!-- end page wrapper -->
 	<div class="new-buttons" ng-show='vm.currentAdmin()'>
-		<input type='submit' value='New Project' ng-click='vm.newProject = true' />
+		<input class="btn btn-success" type='submit' value='New Project' ng-click='vm.newProject = true' />
 	</div>
 </div> <!-- end ng-hide -->
 
@@ -43,9 +43,9 @@
 				<label>Name:</label><input type='text' style='width:200px' ng-model='vm.projectSelected.name'><br>
 				<label>Description:</label><input type='text' style='width:300px' ng-model='vm.projectSelected.description'><br>
 				<label>Estimated Hours:</label><input type='text' ng-model='vm.projectSelected.estimatedHours'><br>
-				<input type='submit' value='Save' ng-click='vm.updateProject(vm.projectSelected)' /><br>
-				<input type='submit' value='Delete' ng-click='vm.deleteProject(vm.projectSelected.id)' /><br>
-				<input type='submit' value='Cancel' ng-click='vm.displayProjects()' /><br>
+				<input type='submit' class="btn btn-success" value='Save' ng-click='vm.updateProject(vm.projectSelected)' /><br>
+				<input type='submit' class="btn btn-danger" value='Delete' ng-click='vm.deleteProject(vm.projectSelected.id)' /><br>
+				<input type='submit' class="btn btn-primary" value='Cancel' ng-click='vm.displayProjects()' /><br>
 			</form>
 		</div> <!-- end inner -->
 	</div> <!-- end wrapper -->
@@ -63,8 +63,8 @@
 				<label>Name:</label><input type='text'  style='width:200px' ng-model='new.name'><br>
 				<label>Description:</label><input type='text' style='width:300px' ng-model='new.description'><br>
 				<label>EstimatedHours:</label><input type='text' ng-model='new.estimatedHours'><br>
-				<input type='submit' value='New Project' ng-click='vm.createProject(new); new={}' /><br>
-				<input type='submit' value='Cancel' ng-click='vm.displayProjects()' /><br>
+				<input type='submit' class="btn btn-success" value='New Project' ng-click='vm.createProject(new); new={}' /><br>
+				<input type='submit'class="btn btn-primary"  value='Cancel' ng-click='vm.displayProjects()' /><br>
 			</form>
 		</div> <!-- end inner -->
 	</div> <!-- end wrapper -->
