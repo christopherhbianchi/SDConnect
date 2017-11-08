@@ -1,11 +1,11 @@
  <div ng-hide='vm.postView || vm.topicSelected || vm.postSelected || vm.newPost || vm.newTopic'>
+     <div class="row">
+         <div class="col-md-12">
+             <h1 class="page-head-line" style="font-weight: bold; text-align: center; margin-bottom: 20px">Threads</h1>
+         </div>
+     </div>
 	 <div id="page-wrapper-f">
 	     <div id="page-inner">
-	          <div class="row">
-	              <div class="col-md-12">
-	                  <h1 class="page-head-line" style="font-weight: bold; text-align: center; margin-bottom: 20px">Threads</h1>
-	              </div>
-	          </div>
 		<!-- <div class="container-fluid">
 		<div class="fixed col-xs-3"> -->
 			<table class="table">
@@ -36,13 +36,13 @@
 
 
 <div ng-show='vm.postView'>		
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="page-head-line" style="font-weight: bold; text-align: center; margin-bottom: 20px">{{vm.currentTopicName}}</h1>
+        </div>
+    </div>
 	<div id="page-wrapper-f">
 	      <div id="page-inner">
-	           <div class="row">
-	               <div class="col-md-12">
-	                   <h1 class="page-head-line" style="font-weight: bold; text-align: center; margin-bottom: 20px">{{vm.currentTopicName}}</h1>
-	               </div>
-	           </div>
 	                <!-- /. ROW  -->
 	                <div ng-repeat="post in vm.currentPosts | orderBy : 'id'" class="row">
 	                   <div class="col-md-12">
@@ -73,13 +73,13 @@
 </div>
 
 <div ng-show="vm.postSelected">		
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="page-head-line" style="font-weight: bold; text-align: center; margin-bottom: 20px">Edit Post</h1>
+        </div>
+    </div>
 	<div id="page-wrapper-f">
       <div id="page-inner">
-           <div class="row">
-               <div class="col-md-12">
-                   <h1 class="page-head-line" style="font-weight: bold; text-align: center; margin-bottom: 20px">Edit Post</h1>
-               </div>
-           </div>
 		<form>
 			<label>Message:</label><textarea rows="10" cols="50" ng-model='vm.postSelected.message'></textarea><br>
 			<label>Link:</label><input type='text' style='width:300px' ng-model='vm.postSelected.link'><br>
@@ -93,13 +93,13 @@
 
 
 <div ng-show="vm.topicSelected">		
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="page-head-line" style="font-weight: bold; text-align: center; margin-bottom: 20px">Edit Topic</h1>
+        </div>
+    </div>
 	<div id="page-wrapper-f">
       <div id="page-inner">
-           <div class="row">
-               <div class="col-md-12">
-                   <h1 class="page-head-line" style="font-weight: bold; text-align: center; margin-bottom: 20px">Edit Topic</h1>
-               </div>
-           </div>
 		<form>
 			<label>Title:</label><input type='text' style='width:400px' ng-model='vm.topicSelected.name'><br>
 			<input type='submit' value='Save' ng-click='vm.updateTopic(vm.topicSelected)' /><br>
@@ -112,13 +112,13 @@
 
 	
 <div ng-show="vm.newPost == true">		
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="page-head-line" style="font-weight: bold; text-align: center; margin-bottom: 20px">New Post</h1>
+        </div>
+    </div>	
 	<div id="page-wrapper-f">
       <div id="page-inner">
-           <div class="row">
-               <div class="col-md-12">
-                   <h1 class="page-head-line" style="font-weight: bold; text-align: center; margin-bottom: 20px">New Post</h1>
-               </div>
-           </div>	
 		<form>
 			<label>Message:</label><textarea rows="10" cols="50" ng-model='new.message'></textarea><br>
 			<label>Link:</label><input type='text' style='width:300px' ng-model='new.link'><br>
@@ -130,13 +130,13 @@
 </div> <!-- end ng-show -->
 
 <div ng-show="vm.newTopic == true">		
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="page-head-line" style="font-weight: bold; text-align: center; margin-bottom: 20px">New Thread</h1>
+        </div>
+    </div>	
 	<div id="page-wrapper-f">
       <div id="page-inner">
-           <div class="row">
-               <div class="col-md-12">
-                   <h1 class="page-head-line" style="font-weight: bold; text-align: center; margin-bottom: 20px">New Thread</h1>
-               </div>
-           </div>	
 		<form ng-model="new">
 			<lable>Title:</lable><input type='text' style='width:400px' ng-model='new.name'><br>
 			<lable>Tag:</lable>

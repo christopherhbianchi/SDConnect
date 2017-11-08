@@ -1,11 +1,12 @@
  <div ng-hide='vm.eventSelected || vm.newEvent'>
+ 	  <div class="row">
+          <div class="col-md-12">
+              <h1 class="page-head-line" style="font-weight: bold; text-align: center; margin-bottom: 20px">SD Events</h1>
+          </div>
+	 </div>
 	 <div id="page-wrapper">
 	     <div id="page-inner">
-	          <div class="row">
-	              <div class="col-md-12">
-	                  <h1 class="page-head-line" style="font-weight: bold; text-align: center; margin-bottom: 20px">SD Events</h1>
-	              </div>
-	          </div>
+	        
 		<!-- <div class="container-fluid">
 		<div class="fixed col-xs-3"> -->
 		<table class="table">
@@ -32,13 +33,13 @@
 </div> <!-- end ng-show -->
 
  <div ng-show="vm.eventSelected">
+     <div class="row">
+         <div class="col-md-12">
+             <h1 class="page-head-line" style="font-weight: bold; text-align: center; margin-bottom: 20px">Edit Event</h1>
+         </div>
+     </div>
 	 <div id="page-wrapper">
 	     <div id="page-inner">
-	          <div class="row">
-	              <div class="col-md-12">
-	                  <h1 class="page-head-line" style="font-weight: bold; text-align: center; margin-bottom: 20px">Edit Event</h1>
-	              </div>
-	          </div>
 			<form>
 				<label>Description:</label><input type='text' style='width:300px' ng-model='vm.eventSelected.description'><br>
 				<label>Date:</label><input type='date' ng-model='vm.eventSelected.date'><br>
@@ -57,13 +58,13 @@
 </div> <!-- end ng-show -->
 
  <div ng-show="vm.newEvent == true">
+     <div class="row">
+         <div class="col-md-12">
+             <h1 class="page-head-line" style="font-weight: bold; text-align: center; margin-bottom: 20px">New Event</h1>
+         </div>
+     </div>	
 	 <div id="page-wrapper">
 	     <div id="page-inner">
-	          <div class="row">
-	              <div class="col-md-12">
-	                  <h1 class="page-head-line" style="font-weight: bold; text-align: center; margin-bottom: 20px">New Event</h1>
-	              </div>
-	          </div>	
 		<form>
 			<label>Description:</label><input type='text' style='width:300px' ng-model='new.description'><br>
 			<label>Date:</label><input type='date' ng-model='new.date'><br>
