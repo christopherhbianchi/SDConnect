@@ -104,8 +104,9 @@ angular.module("appModule")
 				$location.path("/resources/resumes");
 			}
 			
-			vm.sendToGitPages = function() {
-				$location.path("/resources/resumes");
+			//this will be gits and website links on it
+			vm.sendToWebsites= function() {
+				$location.path("/resources/coverLetters");
 			}
 			
 		},
