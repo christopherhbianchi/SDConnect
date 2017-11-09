@@ -12,7 +12,7 @@
 /*==============================================
     MAIN BOX  STYLES    
     =============================================*/
-    
+
    
 .main-box {
     text-align:center;
@@ -186,7 +186,8 @@ font-size: 16px;
 line-height: 30px;
 }
 .panel-back {
-background-color: #929292;
+background-color: #a0a5b8;
+/* background-color: #929292;#a0a5b8 */
 }
 
 /*==========================================
