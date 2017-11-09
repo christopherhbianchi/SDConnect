@@ -1,7 +1,6 @@
 <navigation></navigation>
 <div ng-hide='vm.guestProfile'>
 	<h1 style="">SD Users</h1>
-	<h5>Click Photo for More Detail</h5>
 	<!-- <a ng-show="vm.viewProfile" class="btn btn-secondary" role="button" ng-click="vm.viewProfile = false">Hide Profile Info</a>
 	<a ng-hide="vm.viewProfile" class="btn btn-secondary" role="button" ng-click="vm.viewProfile = true">Show Profile Info</a> -->
 
@@ -18,7 +17,8 @@
 							<tr><a href="{{profile.linkedinUrl}}">{{profile.linkedinUrl}}</a></tr>
 						
 					</div>
-					<input class="btn btn-success" type="submit" value="Delete Profile" ng-click="vm.deleteProfile(profile)" ng-show="vm.userType()" />
+					<input class="btn btn-primary" type="submit" value="Select" ng-click='vm.gotoProfile(profile.id)' />
+					<input class="btn btn-danger" type="submit" value="Delete Profile" ng-click="vm.deleteProfile(profile)" ng-show="vm.userType()" />
 		</div><!--end of gallery product class  -->
 	</div><!-- end of col lg 12 div -->
 </div>

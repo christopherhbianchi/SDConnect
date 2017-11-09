@@ -28,9 +28,9 @@
       <property name="javax.persistence.jdbc.url"
         value="jdbc:mysql://localhost:3306/sdconnectdb" />
       <property name="javax.persistence.jdbc.user"
-        value="root"/>
+        value="student"/>
       <property name="javax.persistence.jdbc.password"
-        value="root" />
+        value="student" />
       <property name="javax.persistence.jdbc.driver"
         value="com.mysql.jdbc.Driver" />
   
