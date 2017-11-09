@@ -27,15 +27,14 @@ div#no-wrap-reset {
 	width: 300px;
 }
 
-th {
+/* th {
 	font-family: Arial;
 	font-weight: 900;
 }
-
+ */
 #profilebox-center {
 	margin: auto;
     width: 50%;
-/*     border: 3px solid green; */
     padding: 10px;
     margin-top: 100px;
 }
@@ -55,7 +54,6 @@ th {
 
 
 #resource-buttons {
-
 	display: block;
     margin-top: 75px;
     position: absolute;

@@ -15,15 +15,25 @@
     BASIC  STYLES    
     =============================================*/
 body {
-    font-family: 'Open Sans', sans-serif;
+/*     font-family: 'Open Sans', sans-serif; */
     line-height:25px;
+    font-weight: bold;
+   
 }
 
+#forum-box {
+	margin-top: 10px;
+	display: inline-block;
+	float: left;
+	width: 50%;
+	font-size: 1.2em;
+}
 #event-box {
-	margin-top: 3%;
+	margin-top: 10px;
 	display: inline-block;
 	float: right;
 	width: 50%;
+	font-size: 1.2em;
 }
 
 #project-box {
@@ -31,13 +41,7 @@ body {
 	display: inline-block;
 	float: right;
 	width: 50%;
-}
-
-#forum-box {
-	margin-top: 3%;
-	display: inline-block;
-	float: left;
-	width: 50%;
+	font-size: 1.2em;
 }
 
 #wrapper {
@@ -45,43 +49,46 @@ body {
     background: #202020;
 }
 
-#page-wrapper {
-	margin: 10px;
-    padding: 3%;
-    /* min-height: 200px; */
+ #page-wrapper {
+	margin: 0 10px 10px 10px;
+/* 	padding: 3%; */
+   min-height: 600px;
     /* background: #F3F3F3; */
-    background: #97c85d;
-    max-height: 350px;
+    background: #bbdaa0!
+/*     max-height: 500px; */
     overflow: scroll;
 }
-
+ 
 #page-wrapper-f {
 	margin: 0 10px 10px 10px;
-	padding: 3%;
-    /* min-height: 200px; */
+/* 	padding: 3%; */
+   min-height: 200px;
     /* background: #F3F3F3; */
-    background: #97c85d;
-    max-height: 450px;
+    background: #a9d1e6
+/*     max-height: 500px; */
     overflow: scroll;
 }
 
 #page-inner {
     width: 100%;
     margin: 10px 5px 10px 0px;
-    background-color: #fff!important;
+    background-color:#d0e3ee!important;
    /*  background-color: #a0a5b8; */
     padding: 5px;
     /* min-height: 1200px; */
 }
 
+
 .page-head-line {
-    font-size: 30px;
+    font-size: 50px;
     /* text-transform: uppercase; */
     color: #000;
     font-weight: 800;
    /* padding-bottom: 20px; */
    /*  border-bottom: 2px solid #00CA79; */
-    margin-bottom: 2%;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    text-align: center;
 }
 
 .page-subhead-line {
@@ -137,11 +144,11 @@ body {
     background-color: #4380B8;
 }
 
-    .user-img-div img {
+.user-img-div img {
         max-height: 60px;
     }
 
-    .user-img-div .inner-text {
+.user-img-div .inner-text {
         text-align: right;
         position: relative;
         color: #fff;
@@ -304,7 +311,7 @@ div.new-buttons {
 
 @media (min-width:768px) {
     #page-wrapper {
-        margin: 10px;
+     	margin: 0 10px 10px 10px;
         padding: 3% 6%;
         /* min-height: 200px; */
         max-height: 350px;

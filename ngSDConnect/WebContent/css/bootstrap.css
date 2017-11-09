@@ -2188,7 +2188,7 @@ button.btn.small, input[type="submit"].btn.small {
 .nav .nav-header {
   display: block;
   padding: 3px 15px;
-  font-size: 11px;
+  font-size: 2em;
   font-weight: bold;
   line-height: 18px;
   color: #999999;
@@ -2517,7 +2517,7 @@ z-index:10000 !important;
   display: block;
   padding: 8px 20px 12px;
   margin-left: -20px;
-  font-size: 20px;
+  font-size: 4em;
   font-weight: 200;
   line-height: 1;
   color: #ffffff;

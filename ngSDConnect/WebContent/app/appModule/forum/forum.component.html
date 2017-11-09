@@ -1,10 +1,13 @@
+
  <div ng-hide='vm.postView || vm.postSelected || vm.newPost || vm.topicSelected || vm.newTopic'>
+     
      <div class="row">
          <div class="col-md-12">
-             <h1 class="page-head-line" style="font-weight: bold; text-align: center; margin-bottom: 20px">Threads</h1>
+             <h1 class="page-head-line">Threads</h1>
          </div>
      </div>
-	 <div id="page-wrapper-f">
+     
+	 <div id="page-wrapper">
 	     <div id="page-inner">
 			<table class="table">
 				<thead>
@@ -23,12 +26,12 @@
 				</tbody>
 			</table>
 		</div>
-	
 	</div>
 	<div class="new-buttons">
 		<input type='submit' class="btn btn-success" value='New Thread' ng-click='vm.newTopic=true' />
 	</div>
-</div>
+	
+</div>   <!-- end ng-hide -->
 
 
 <div ng-show='vm.postView'>		
@@ -37,7 +40,8 @@
             <h1 class="page-head-line" style="font-weight: bold; text-align: center; margin-bottom: 20px">{{vm.currentTopicName}}</h1>
         </div>
     </div>
-	<div id="page-wrapper-f">
+    
+	<div id="page-wrapper">
 	      <div id="page-inner">
 	                <div ng-repeat="post in vm.currentPosts | orderBy : 'id'" class="row">
 	                   <div class="col-md-12">
@@ -52,6 +56,7 @@
 	                                        <a style='font-size: .7em' href='{{post.link}}' target='_blank'>{{post.link}}</a>
 	                                    </div>
 	                                    <div ng-class="getClassPostName(post.id)">
+	                                    <br>
 	                                        <h4>{{post.user.profile.fname}} {{post.user.profile.lname}}</h4>
 	                                        <img src='{{post.user.profile.img}}' alt='{{post.user.profile.lname}}' width="50"/>
 	                                        <input ng-show='vm.currentAuthorPost(post)' class="btn btn-success" type='submit' name='submit' value='Edit Post' ng-click='vm.editPost(post)' />
@@ -75,13 +80,13 @@
             <h1 class="page-head-line" style="font-weight: bold; text-align: center; margin-bottom: 20px">Edit Post</h1>
         </div>
     </div>
-	<div id="page-wrapper-f">
+	<div id="page-wrapper">
       <div id="page-inner">
 		<form>
 			<label>Message:</label><textarea rows="3" cols="50" ng-model='vm.postSelected.message'></textarea><br>
-			<label>Link:</label><input type='text' style='width:300px' ng-model='vm.postSelected.link'><br>
-			<input type='submit' class="btn btn-success" value='Save' ng-click='vm.updatePost(vm.postSelected)' /><br>
-			<input type='submit' class="btn btn-danger" value='Delete' ng-click='vm.deletePost(vm.postSelected.id);' /><br>
+			<label>Link:</label><input type='text' style='width:300px' ng-model='vm.postSelected.link'>
+			<input type='submit' class="btn btn-success" value='Save' ng-click='vm.updatePost(vm.postSelected)' />
+			<input type='submit' class="btn btn-danger" value='Delete' ng-click='vm.deletePost(vm.postSelected.id);' />
 			<input type='submit' class="btn btn-primary" value='Cancel' ng-click='vm.displayTopics()' /><br>
 		</form>
 	  </div> <!-- end page inner -->
@@ -95,13 +100,13 @@
             <h1 class="page-head-line" style="font-weight: bold; text-align: center; margin-bottom: 20px">Edit Thread</h1>
         </div>
     </div>
-	<div id="page-wrapper-f">
+	<div id="page-wrapper">
       <div id="page-inner"> 
 		<form>
 			<label>Title:</label><input type='text' style='width:400px' ng-model='vm.topicSelected.name'><br>
-			<input class="btn btn-success" type='submit' value='Save' ng-click='vm.updateTopic(vm.topicSelected)' /><br>
-			<input class="btn btn-danger" type='submit' value='Delete' ng-click='vm.deleteTopic(vm.topicSelected.id)' /><br>
-			<input class="btn btn-primary" type='submit' value='Cancel' ng-click='vm.displayTopics()' /><br>
+			<input class="btn btn-success" type='submit' value='Save' ng-click='vm.updateTopic(vm.topicSelected)' />
+			<input class="btn btn-danger" type='submit' value='Delete' ng-click='vm.deleteTopic(vm.topicSelected.id)' />
+			<input class="btn btn-primary" type='submit' value='Cancel' ng-click='vm.displayTopics()' />
 		</form>
 	  </div> <!-- end page inner -->
 	</div> <!-- end page wrapper -->
@@ -114,12 +119,12 @@
             <h1 class="page-head-line" style="font-weight: bold; text-align: center; margin-bottom: 20px">New Post</h1>
         </div>
     </div>	
-	<div id="page-wrapper-f">
+	<div id="page-wrapper">
       <div id="page-inner">
 		<form>
 			<label>Message:</label><textarea rows="3" cols="50" ng-model='new.message'></textarea><br>
 			<label>Link:</label><input type='text' style='width:300px' ng-model='new.link'><br>
-			<input type='submit' class="btn btn-success" value='New Post' ng-click='vm.createPost(new); new={}' /><br>
+			<input type='submit' class="btn btn-success" value='New Post' ng-click='vm.createPost(new); new={}' />
 			<input type='submit' class="btn btn-primary" value='Cancel' ng-click='vm.displayTopics()' /><br>
 		</form>
 	  </div> <!-- end page inner -->
@@ -132,15 +137,19 @@
             <h1 class="page-head-line" style="font-weight: bold; text-align: center; margin-bottom: 20px">New Thread</h1>
         </div>
     </div>	
-	<div id="page-wrapper-f">
+	<div id="page-wrapper">
       <div id="page-inner">
 		<form ng-model="new">
-			<lable>Title:</lable><input type='text' style='width:400px' ng-model='new.name'><br>
-			<lable>Tag:</lable>
+			<label>Title:</label><input type='text' style='width:400px' ng-model='new.name'><br>
+			<label>Tag:</label>
 			<select ng-options="item.type for item in vm.allTags track by item.id" ng-model="new.tag"></select>
-			<input type='submit' class="btn btn-success" value='New Thread' ng-click='vm.createTopic(new); new={}' /><br>
+			<br>
+			<div>
+			<input type='submit' class="btn btn-success" value='Add Thread' ng-click='vm.createTopic(new); new={}' />
 			<input type='submit' class="btn btn-primary" value='Cancel' ng-click='vm.displayTopics()' /><br>
+			</div>
 		</form>
 	  </div> <!-- end page inner -->
 	</div> <!-- end page wrapper -->
 </div> <!-- end ng-show -->
+

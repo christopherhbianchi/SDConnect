@@ -1,21 +1,24 @@
 <form>
 <div class="container">
-    <h1 class="well">SDConnect New User</h1>
+    <h1 class="well" style="font-size: 3em; font-weight:bold">SDConnect New User</h1>
+    <br>
 
 					<div class="alert alert-danger" ng-show="vm.dupEmail">
 		  			<strong>Sorry, that email is already registered. Please type another email.</strong> 
 					</div>	
-					
+					<br>
 					<div>
-						<label>Email Address</label>
+						<label style="font-size: 1.5em">Email Address</label>
 						<input type="text" placeholder="Enter Your Email Address" class="form-control" ng-model="user.email">
 					</div>	
+					<br>
 					<div>
-						<label>Password</label> 
+						<label style="font-size: 1.5em">Password</label> 
 						<input type="password" placeholder="Enter Your Password" class="form-control" ng-model="user.password">
 					</div>	
+					<br>
 					<div>
-						<label>Cohort</label>
+						<label style="font-size: 1.5em">Cohort</label>
 						<input type="text" placeholder="Enter Your Cohort Number" class="form-control" ng-model="user.cohort.cohortNum">
 					</div>	
 						<input type="hidden" placeholder="Enter Type" class="form-control" ng-model="user.type.id = 2">
@@ -24,7 +27,4 @@
 					<button type="button" class="btn btn-primary" ng-click="vm.register(user)">Join Now!</button>					
 					</div>
 				</div>
-				
-				
-	
 	</form>

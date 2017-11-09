@@ -9,28 +9,31 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+      <li style="font-size: 2em">
         <a class="nav-link" href="#/home">Home<span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item active">
+      <li style="font-size: 2em">
         <a class="nav-link" href="#/profile">Profile</a>
       </li>
-      <li class="nav-item active">
+      <li style="font-size: 2em">
         <a class="nav-link" href="#/userconnect">SD Users</a>
       </li>
-      <li class="nav-item active">
+      <li style="font-size: 2em">
         <a class="nav-link" href="#/resources">Resources</a>
       </li>
-      <li class="nav-item active" ng-hide="vm.isLoggedInCookie()">
+<!--       <li style="font-size: 2em" ng-hide="vm.isLoggedInCookie()">
         <a class="nav-link" href="#/login">Log In</a>
       </li>
-      <li class="nav-item active" ng-show="vm.isLoggedInCookie()">
+      <li style="font-size: 2em" ng-show="vm.isLoggedInCookie()">
         <a class="nav-link" href="#/login">Log Out</a>
       </li>
-    </ul>
-<!--     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form> -->
+     -->
+     </ul>
+    
+     <form class="form-inline my-2 my-lg-0">
+     <a href="#/login"><input type='submit' ng-hide="vm.isLoggedInCookie()" class="btn btn-success" value="Log In"/></a>
+     <a href="#/login"><input type='submit' ng-show="vm.isLoggedInCookie()" class="btn btn-success" value="Log Out"/></a>
+    </form>
+    
   </div>
 </nav>
