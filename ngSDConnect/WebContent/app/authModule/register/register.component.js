@@ -13,6 +13,7 @@ angular.module("authModule").component("register", {
 			console.log("inside register")
 			profileService.checkEmailDuplication(user.email).then(function(response){
 				if (!response.data) {
+					console.log(user)
 					authService.register(user)
 					.then(function(response){
 					$location.path("/users/"+ authService.getToken().id+"/registerprofiles");
