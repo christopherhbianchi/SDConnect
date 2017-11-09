@@ -52,3 +52,21 @@ th {
 	margin-bottom: 20px;
     width: 50%;
 }
+
+#resource-buttons {
+
+	display: block;
+    margin-top: 75px;
+    position: absolute;
+    right: 50px;
+    text-align: center;
+ 
+}
+#resource-background {
+/* 	width: 50%; */
+	display: block;
+    margin-top: 75px;
+    position: absolute;
+    left: 50px;
+    
+}
