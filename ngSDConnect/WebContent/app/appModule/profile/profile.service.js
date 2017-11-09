@@ -70,9 +70,13 @@ angular.module('appModule')
 		  
 		  profileService.checkEmailDuplication = function(userEmail) {			  
 			  return $http({
-				method : "GET",
-				url : "rest/users/search/"+userEmail
-			});
+				method : "POST",
+				url : "rest/users/search",
+				headers : { 
+					"Content-type":"application/json"
+				},      //request body is a string thats a user email(controller), change to post
+				data : userEmail //dao is fine, controller needs to take the post
+			}); 
 		  }
 		  
 		  return profileService;

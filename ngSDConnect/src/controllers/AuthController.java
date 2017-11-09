@@ -2,11 +2,15 @@ package controllers;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import data.AuthDAO;
 import entities.User;
 
@@ -18,7 +22,14 @@ public class AuthController {
 	
 	
 	@RequestMapping(path="/register", method=RequestMethod.POST)
-	public User register(HttpSession session, @RequestBody User user, HttpServletResponse res) {
+	public User register(HttpSession session, @RequestBody String json, HttpServletResponse res) {
+		System.out.println(json);
+		User user = null;
+		try {
+			user = new ObjectMapper().readValue(json, User.class);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		System.out.println("password: " + user.getPassword());
 		System.out.println("cohort: " + user.getCohort());
 		System.out.println("user" + user);
