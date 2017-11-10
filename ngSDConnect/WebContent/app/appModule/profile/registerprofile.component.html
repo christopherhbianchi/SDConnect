@@ -2,15 +2,11 @@
 <form>
 	<div class="container" id="profilebox-center">
       <div class="row">
-      <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
-       <br>
-       
+      
         <div class="alert alert-danger" ng-show="vm.nameCheck">
 		<strong>Please provide your first name and last name.</strong> 
 		</div>  <!-- Checking to see if user at least wrote first name and last name otherwise user cannot see homepage -->
-		
-       
-      </div>
+	
           <div class="panel panel-info">
             <div class="panel-heading">
             <div><img src="img/profilePictures/profile.png" class="rounded-circle" width="300px"></div>
@@ -25,7 +21,6 @@
                     <tbody>
                       <tr>
                         <td>First Name:</td>
-                		  
                 		       <td>
 							  <textarea name="message" rows="1" cols="30" ng-model="vm.profile.fname">{{vm.profile.backgroundDescription}}</textarea>
 							</td>
@@ -97,5 +92,4 @@
           </div>
         </div>
       </div>
-    </div>
     </form>

@@ -55,14 +55,14 @@ div#no-wrap-reset {
 
 #resource-buttons {
 	display: block;
-    margin-top: 75px;
+    margin-top: 55px;
     position: absolute;
     right: 50px;
     text-align: center;
  
 }
 #resource-background {
-/* 	width: 50%; */
+	width: 65%;
 	display: block;
     margin-top: 75px;
     position: absolute;
@@ -72,5 +72,7 @@ div#no-wrap-reset {
 
 #whatever {
 	margin-top: -100px;
+	margin-left: 70px;
+	width: 90%;
 }
 
