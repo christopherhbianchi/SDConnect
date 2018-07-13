@@ -21,4 +21,4 @@ SD Connect is a Reddit-like online social media application created to connect p
 * AWS - for hosting our application using a Tomcat container
 
 
-Team 1: Bianchi, Pentermann, McKenna, Ryzek
+Team 1: C. Bianchi, M. Pentermann, J. McKenna, S. Ryzek
